@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/7f50aea9-ce0d-43d5-8907-d2c5eb7d9ac3)
+
+
 ```sh
 # update hw config:
 nixos-generate-config --show-hardware-config > hw-scan.nix
