@@ -139,6 +139,7 @@
     htop
     nixd
     vlc
+    pciutils
     toybox
 
     gh
