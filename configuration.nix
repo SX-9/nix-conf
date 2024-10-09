@@ -133,6 +133,7 @@
     htop
     nixd
     vlc
+    toybox
 
     gh
     git
