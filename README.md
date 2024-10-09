@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/7f50aea9-ce0d-43d5-8907-d2c5eb7d9ac3)
+![image](ss.png)
 
 
 ```sh
