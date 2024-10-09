@@ -1,6 +1,6 @@
 { pkgs, username, hostname, ... }: {
   imports = [
-    ./hardware.nix
+    ./hw-scan.nix
   ];
 
   nix = {
@@ -83,28 +83,32 @@
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
-  users.users."${username}" = {
-    isNormalUser = true;
-    description = "${username}";
-    shell = pkgs.zsh;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "dialout"
-      "libvirtd"
-      "docker"
-    ];
-    packages = with pkgs; [
-      spotify
-      vscode
-      discord
-      libreoffice
-      ferium
-      google-chrome
-      scrcpy
-      virt-manager
-      appimage-run
-    ];
+  users = {
+    motd = "Welcome to NixOS, ${username}!";
+    users."${username}" = {
+      isNormalUser = true;
+      description = "${username}";
+      initialPassword = "${username}";
+      shell = pkgs.zsh;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "dialout"
+        "libvirtd"
+        "docker"
+      ];
+      packages = with pkgs; [
+        spotify
+        vscode
+        discord
+        libreoffice
+        ferium
+        google-chrome
+        scrcpy
+        virt-manager
+        appimage-run
+      ];
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -126,6 +130,7 @@
     libsForQt5.breeze-grub
     lm_sensors
     openssl_3_3
+    ntfs3g
     
     zsh-completions
     zsh-syntax-highlighting
