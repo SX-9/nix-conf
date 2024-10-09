@@ -1,6 +1,6 @@
 { pkgs, username, hostname, ... }: {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
   ];
 
   nix = {
@@ -102,6 +102,8 @@
       ferium
       google-chrome
       scrcpy
+      virt-manager
+      appimage-run
     ];
   };
 
@@ -128,7 +130,6 @@
     zsh-completions
     zsh-syntax-highlighting
     
-    virt-manager
     gparted
     htop
     nixd
