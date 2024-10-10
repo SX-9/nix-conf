@@ -1,8 +1,6 @@
-{ pkgs, username, hostname, ... }: {
-  imports = [
-    ./hw-scan.nix
-  ];
-
+{ pkgs, hostname, ... }: {
+  system.stateVersion = "24.05";
+  nixpkgs.config.allowUnfree = true;
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
@@ -10,6 +8,10 @@
     };
     optimise.automatic = true;
   };
+  imports = [
+    ../hw/scan.nix
+    ./apps.nix
+  ];
 
   boot = {
     loader.grub = {
@@ -33,7 +35,6 @@
       "udev.log_priority=3"
     ];
   };
-
   swapDevices = [
     {
       device = "/swapfile";
@@ -83,75 +84,6 @@
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
-  users = {
-    motd = "Welcome to NixOS, ${username}!";
-    users."${username}" = {
-      isNormalUser = true;
-      description = "${username}";
-      initialPassword = "${username}";
-      shell = pkgs.zsh;
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-        "dialout"
-        "libvirtd"
-        "docker"
-      ];
-      packages = with pkgs; [
-        spotify
-        vscode
-        discord
-        libreoffice
-        ferium
-        google-chrome
-        scrcpy
-        virt-manager
-        appimage-run
-      ];
-    };
-  };
-
-  nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
-    gnomeExtensions.dash-to-panel
-    gnomeExtensions.alphabetical-app-grid
-    gnomeExtensions.gsconnect
-    gnomeExtensions.impatience
-    gnomeExtensions.status-area-horizontal-spacing
-    gnomeExtensions.tailscale-status
-    gnomeExtensions.clipboard-history
-    gnomeExtensions.freon
-    gnome3.gnome-tweaks
-    papirus-icon-theme
-    
-    vim
-    wget
-    curl
-    libsForQt5.breeze-grub
-    lm_sensors
-    openssl_3_3
-    ntfs3g
-    
-    zsh-completions
-    zsh-syntax-highlighting
-    
-    gparted
-    htop
-    nixd
-    vlc
-    pciutils
-    toybox
-
-    gh
-    git
-    nodejs
-    nodePackages.npm
-    python311
-    jdk22_headless
-    android-tools
-    distrobox
-  ];
-
   programs = {
     nix-ld.enable = true;
     tmux.enable = true;
@@ -170,6 +102,4 @@
     };
     steam.enable = true;
   };
-
-  system.stateVersion = "24.05";
 }

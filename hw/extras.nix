@@ -13,7 +13,7 @@
     levels = [
       [ "level auto"       0  79  ]
       [ "level full-speed" 80 89  ]
-      [ "level disengaged"  90 150 ]
+      [ "level disengaged" 90 150 ]
     ];
   };
 }

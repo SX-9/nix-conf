@@ -14,7 +14,8 @@
         inherit username;
       };
       modules = [
-        ./conf.nix
+        ./lib/sys.nix
+        ./lib/user.nix
       ];
     };
     nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
@@ -23,8 +24,9 @@
         inherit username;
       };
       modules = [
-        ./conf.nix
-        ./hw-thinkpad.nix
+        ./lib/sys.nix
+        ./lib/user.nix
+        ./hw/extras.nix
       ];
     };
   };
