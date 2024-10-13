@@ -18,6 +18,8 @@
     lm_sensors
     openssl_3_3
     ntfs3g
+    home-manager
+    dconf2nix
     
     gparted
     htop

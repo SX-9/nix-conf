@@ -1,6 +1,15 @@
 { pkgs, hostname, ... }: {
   system.stateVersion = "24.05";
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config = {
+      packageOverrides = pkgs: {
+        unstable = import (builtins.fetchTarball {
+          url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
+        }) {};
+      };
+      allowUnfree = true;
+    };
+  };
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
@@ -94,6 +103,21 @@
     zsh = {
       enable = true;
       syntaxHighlighting.enable = true;
+      shellAliases = {
+        "zshrc" = "vim ~/.zshrc && omz reload";
+        "sys" = "sudo systemctl";
+        "user" = "systemctl --user";
+        "sys-log" = "journalctl --folloe -b -u";
+        "user-log" = "journalctl --follow -b --user-unit";
+        "tsip" = "tailscale ip -4";
+        "rmall" = "rm -rf ./* ./.*";
+        "fetch-update" = "wget https://raw.githubusercontent.com/SX-9/fetch.sh/master/fetch.sh -O ~/.fetch.sh && chmod +x ~/.fetch.sh";
+      };
+      shellInit = ''
+        if [[ $TERM_PROGRAM != 'vscode' ]]; then
+          echo && ~/.fetch.sh color 2> /dev/null
+        fi
+      '';
       ohMyZsh = {
         enable = true;
         plugins = ["git"];
