@@ -2,15 +2,15 @@
 
 
 ```sh
-# update hw config:
+# 1. update hw config:
 nixos-generate-config --show-hardware-config > hw/scan.nix
 
-# installation
+# 2. installation
 sudo nixos-rebuild switch --flake .#nixos
 
-# using a thinkpad? (custom fan speeds, check hw/extras.nix)
+# 2. using a thinkpad? (custom fan speeds, check hw/extras.nix)
 sudo nixos-rebuild switch --flake .#thinkpad
 
-# gnome and extensions configuration
+# 3. gnome and zsh configuration
 home-manager switch --flake .#main
 ```
