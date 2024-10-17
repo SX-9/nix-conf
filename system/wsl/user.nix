@@ -12,8 +12,6 @@
       ];
       packages = with pkgs; [
         appimage-run
-        scrcpy
-
         zsh-completions
         zsh-syntax-highlighting
       ];
