@@ -13,7 +13,7 @@
 
 ```sh
 # 1. hardware config:
-nixos-generate-config --show-hardware-config > hw/scan.nix
+nixos-generate-config --show-hardware-config > hardware/scan.nix
 
 # 2. nixos config
 sudo nixos-rebuild switch --flake .#nixos
