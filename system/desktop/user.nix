@@ -1,6 +1,5 @@
 { pkgs, username, ... }: {
   users = {
-    motd = "Welcome to NixOS, ${username}!";
     users."${username}" = {
       isNormalUser = true;
       description = "${username}";
@@ -19,6 +18,7 @@
         discord
         google-chrome
         libreoffice
+        vlc
         
         portablemc
         ferium

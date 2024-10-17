@@ -13,7 +13,7 @@
     optimise.automatic = true;
   };
   imports = [
-    ../hw/scan.nix
+    ../../hardware/scan.nix
     ./apps.nix
   ];
 

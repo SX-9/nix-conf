@@ -2,28 +2,35 @@
   description = "satr14's nixos configuration";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs @ { nixpkgs, home-manager, ... }: let
+  outputs = inputs @ { nixpkgs, home-manager, nixos-wsl, ... }: let
     hostname = "thinkpad-l450";
     username = "satr14";
+    system = "x86_64-linux";
   in {
     homeConfigurations = {
-      main = home-manager.lib.homeManagerConfiguration {
+      desktop = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit username; };
         pkgs = import nixpkgs {
-          system = "x86_64-linux";
+          inherit system;
           config.allowUnfree = true;
-        };
-        extraSpecialArgs = {
-          inherit username;
         };
         modules = [
           ./home/main.nix
           ./home/dconf.nix  
+        ];
+      };
+      shell = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit username; };
+        pkgs = import nixpkgs { inherit system; };
+        modules = [
+          ./home/main.nix
         ];
       };
     };
@@ -34,8 +41,8 @@
           inherit username;
         };
         modules = [
-          ./lib/sys.nix
-          ./lib/user.nix
+          ./system/desktop
+          ./system/desktop/user.nix
         ];
       };
       thinkpad = nixpkgs.lib.nixosSystem {
@@ -44,9 +51,21 @@
           inherit username;
         };
         modules = [
-          ./lib/sys.nix
-          ./lib/user.nix
-          ./hw/extras.nix
+          ./system/desktop
+          ./system/desktop/user.nix
+          ./hardware/extras.nix
+        ];
+      };
+      wsl = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit hostname;
+          inherit username;
+          inherit system;
+        };
+        modules = [
+          ./system/wsl
+          ./system/wsl/user.nix
+          nixos-wsl.nixosModules.wsl
         ];
       };
     };
