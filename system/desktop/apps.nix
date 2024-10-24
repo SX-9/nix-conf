@@ -18,9 +18,10 @@
     lm_sensors
     ntfs3g
     dconf2nix
+    pciutils
     toybox
     gparted
-    pciutils
+    pavucontrol
     
     android-tools
     distrobox

@@ -23,7 +23,7 @@
         };
         modules = [
           ./home/main.nix
-          ./home/dconf.nix  
+          ./home/desktop.nix  
         ];
       };
       shell = home-manager.lib.homeManagerConfiguration {

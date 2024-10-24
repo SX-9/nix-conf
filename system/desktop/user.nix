@@ -25,6 +25,7 @@
         virt-manager
         appimage-run
         scrcpy
+        cava
 
         zsh-completions
         zsh-syntax-highlighting
