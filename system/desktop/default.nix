@@ -79,6 +79,7 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    fwupd.enable = true;
     printing.enable = true;
     openssh.enable = true;
     tailscale.enable = true;
