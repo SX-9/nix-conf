@@ -20,7 +20,7 @@
         "zshrc" = "echo 'WARNING: please use home-manager config instead, press enter to continue' && read && vim ~/.zshrc && omz reload";
         "sys" = "sudo systemctl";
         "user" = "systemctl --user";
-        "sys-log" = "journalctl --folloe -b -u";
+        "sys-log" = "journalctl --follow -b -u";
         "user-log" = "journalctl --follow -b --user-unit";
         "tsip" = "tailscale ip -4";
         "rmall" = "rm -rf ./* ./.*";

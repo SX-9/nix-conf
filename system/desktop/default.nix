@@ -63,7 +63,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
-    power-profiles-daemon.enable = true;
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;
@@ -79,7 +78,6 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    fwupd.enable = true;
     printing.enable = true;
     openssh.enable = true;
     tailscale.enable = true;
