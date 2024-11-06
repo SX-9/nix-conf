@@ -18,6 +18,7 @@
   ];
 
   boot = {
+    supportedFilesystems = [ "ext4" "btrfs" "vfat" "ntfs" ];
     loader.grub = {
       enable = true;
       device = "/dev/sda";
