@@ -22,6 +22,7 @@
     toybox
     gparted
     pavucontrol
+    ventoy-bin-full
     
     android-tools
     distrobox

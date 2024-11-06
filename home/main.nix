@@ -25,8 +25,8 @@
         "tsip" = "tailscale ip -4";
         "rmall" = "rm -rf ./* ./.*";
         "fetch-update" = "rm -f ~/.fetch.sh && wget https://raw.githubusercontent.com/SX-9/fetch.sh/master/fetch.sh -O ~/.fetch.sh && chmod +x ~/.fetch.sh";
-        "hm-switch" = "home-manager switch --flake";
-        "nix-switch" = "sudo nixos-rebuild switch --flake";
+        "hm-sw" = "home-manager switch --flake";
+        "nix-sw" = "sudo nixos-rebuild switch --flake";
         "mcl" = "portablemc start fabric:1.21 -u ";
       };
       initExtra = ''
