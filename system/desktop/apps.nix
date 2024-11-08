@@ -14,7 +14,7 @@
     gnome3.gnome-tweaks
     papirus-icon-theme
     
-    # libsForQt5.breeze-grub
+    libsForQt5.breeze-grub
     lm_sensors
     ntfs3g
     dconf2nix
@@ -23,7 +23,8 @@
     gparted
     pavucontrol
     ventoy-bin-full
-    
+    jq    
+
     android-tools
     distrobox
   ];

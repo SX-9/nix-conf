@@ -21,14 +21,14 @@
     supportedFilesystems = [ "ext4" "btrfs" "vfat" "ntfs" ];
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
-      # grub = {
-      #   enable = true;
-      #   device = "/dev/sda";
-      #   useOSProber = true;
-      #   default = "saved";
-      #   theme = "${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze";
-      # };
+      #systemd-boot.enable = true;
+      grub = {
+        enable = true;
+        device = "/dev/sda";
+        useOSProber = true;
+        default = "saved";
+        theme = "${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze";
+      };
     };
     plymouth = {
       enable = true;
