@@ -83,7 +83,10 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    printing.enable = true;
+    printing = {
+      enable = true;
+      drivers = with pkgs; [ hplipWithPlugin ];
+    };
     openssh.enable = true;
     tailscale.enable = true;
     resolved.enable = true;

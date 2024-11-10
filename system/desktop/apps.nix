@@ -18,6 +18,7 @@
     lm_sensors
     ntfs3g
     dconf2nix
+    hplipWithPlugin
     pciutils
     toybox
     gparted
