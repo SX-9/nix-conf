@@ -24,7 +24,9 @@
     gparted
     pavucontrol
     ventoy-bin-full
-    jq    
+    jq
+    cava
+    ventoy-full
 
     android-tools
     distrobox
