@@ -6,8 +6,9 @@
     curl
     openssl_3_3
     htop
-    nixd
+    ffmpeg
     
+    nixd
     gh
     git
     nodejs
