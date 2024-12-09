@@ -7,6 +7,7 @@
     openssl_3_3
     htop
     ffmpeg
+    nmap
     
     nixd
     gh
