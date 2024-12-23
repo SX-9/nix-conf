@@ -45,6 +45,17 @@
           ./system/desktop/user.nix
         ];
       };
+      server = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit hostname;
+          inherit username;
+        };
+        modules = [
+          ./system/desktop
+          ./system/desktop/user.nix
+          ./hardware/server.nix
+        ];
+      };
       thinkpad = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit hostname;
