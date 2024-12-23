@@ -1,6 +1,5 @@
 ![image](ss.png)
 
-
 ```nix
 # 0. initial /etc/nixos/configuration.nix:
 { pkgs, ... }: {
@@ -17,6 +16,7 @@ nixos-generate-config --show-hardware-config > hardware/scan.nix
 
 # 2. nixos config
 sudo nixos-rebuild switch --flake .#nixos
+sudo nixos-rebuild switch --flake .#server
 sudo nixos-rebuild switch --flake .#thinkpad
 sudo nixos-rebuild switch --flake .#wsl
 
