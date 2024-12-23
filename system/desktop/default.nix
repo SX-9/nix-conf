@@ -91,6 +91,10 @@
         variant = "";
       };
     };
+    xrdp = {
+      enable = true;
+      defaultWindowManager = "${pkgs.gnome3.gnome-session}/bin/gnome-session";
+    };
     pipewire = {
       enable = true;
       alsa.enable = true;

@@ -11,8 +11,16 @@
     gnomeExtensions.tailscale-status
     gnomeExtensions.clipboard-history
     gnomeExtensions.freon
+    gnome3.gnome-session
     gnome3.gnome-tweaks
     papirus-icon-theme
+    (wrapOBS {
+      plugins = with obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+      ];
+    })
     
     libsForQt5.breeze-grub
     lm_sensors
