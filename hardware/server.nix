@@ -5,5 +5,5 @@
     hibernate.enable = false;
     hybrid-sleep.enable = false;
   };
-  services.openssh.settings.permitRootLogin = "yes";
+  services.openssh.settings.PermitRootLogin = "yes";
 }
