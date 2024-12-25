@@ -41,12 +41,6 @@
       switch-to-workspace-right = ["<Control><Super>Right"];
     };
 
-    "org/gnome/settings-daemon/plugins/power" = {
-      idle-dim = true;
-      power-button-action = "nothing";
-      power-saver-profile-on-low-battery = true;
-    };
-
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = ["window-list@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" "apps-menu@gnome-shell-extensions.gcampax.github.com"];
@@ -114,7 +108,7 @@
     };
 
     "org/gnome/shell/extensions/net/gfxmonk/impatience" = {
-      speed-factor = 0.5;
+      speed-factor = 0.0;
     };
 
     "org/gnome/shell/extensions/order-icons" = {

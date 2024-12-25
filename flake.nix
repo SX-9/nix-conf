@@ -15,6 +15,17 @@
     system = "x86_64-linux";
   in {
     homeConfigurations = {
+      laptop = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit username; };
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        modules = [
+          ./home/main.nix
+          ./home/laptop.nix
+        ];
+      };
       desktop = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit username; };
         pkgs = import nixpkgs {
