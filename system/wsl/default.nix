@@ -1,6 +1,6 @@
 { lib, system, username, ... }: {
   nixpkgs.hostPlatform = lib.mkDefault system;
-  system.stateVersion = "unstable";
+  system.stateVersion = "24.11";
   imports = [ ./apps.nix ];
   nix = {
     settings = {

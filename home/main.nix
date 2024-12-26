@@ -1,6 +1,6 @@
 { username, git, ... }: {
   home = {
-    stateVersion = "unstable";
+    stateVersion = "24.11";
     username = "${username}";
     homeDirectory = "/home/${username}";
   };
