@@ -93,7 +93,7 @@
     };
     xrdp = {
       enable = true;
-      defaultWindowManager = "${pkgs.gnome3.gnome-session}/bin/gnome-session";
+      defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
     };
     pipewire = {
       enable = true;

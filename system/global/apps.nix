@@ -15,6 +15,6 @@
     nodejs
     nodePackages.npm
     python311
-    jdk22_headless
+    jdk23_headless
   ];
 }

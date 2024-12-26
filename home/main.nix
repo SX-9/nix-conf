@@ -7,7 +7,8 @@
   programs = {
     git = {
       enable = true;
-      user = git;
+      userName = git.user;
+      userEmail = git.email;
     };
     tmux.enable = true;
     zsh = {

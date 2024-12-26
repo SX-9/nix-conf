@@ -11,8 +11,8 @@
     gnomeExtensions.tailscale-status
     gnomeExtensions.clipboard-history
     gnomeExtensions.freon
-    gnome3.gnome-session
-    gnome3.gnome-tweaks
+    gnome-tweaks
+    gnome-session
     papirus-icon-theme
     (wrapOBS {
       plugins = with obs-studio-plugins; [

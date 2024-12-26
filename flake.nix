@@ -4,13 +4,13 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
-      url = "github:nix-community/home-manager/release-unstable";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = inputs @ { nixpkgs, home-manager, nixos-wsl, ... }: let
-    hostname = "thinkpad-l450";
+    hostname = "remote-workspace";
     username = "satr14";
     system = "x86_64-linux";
 
