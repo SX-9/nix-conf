@@ -1,10 +1,14 @@
-{ username, ... }: {
+{ username, git, ... }: {
   home = {
-    stateVersion = "24.05";
+    stateVersion = "unstable";
     username = "${username}";
     homeDirectory = "/home/${username}";
   };
   programs = {
+    git = {
+      enable = true;
+      user = git;
+    };
     tmux.enable = true;
     zsh = {
       enable = true;

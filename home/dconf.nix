@@ -50,6 +50,7 @@
 
     "org/gnome/shell/keybindings" = {
       show-screenshot-ui = ["<Shift><Super>s"];
+      toggle-overview = ["<Control>space"];
       toggle-message-tray = [];
     };
 

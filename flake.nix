@@ -1,10 +1,10 @@
 {
   description = "satr14's nixos configuration";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-unstable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -13,10 +13,15 @@
     hostname = "thinkpad-l450";
     username = "satr14";
     system = "x86_64-linux";
+
+    git = {
+      user = "satr14";
+      email = "90962949+SX-9@users.noreply.github.com";
+    };
   in {
     homeConfigurations = {
       laptop = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit username; };
+        extraSpecialArgs = { inherit username git; };
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
@@ -27,7 +32,7 @@
         ];
       };
       desktop = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit username; };
+        extraSpecialArgs = { inherit username git; };
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
@@ -38,7 +43,7 @@
         ];
       };
       shell = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit username; };
+        extraSpecialArgs = { inherit username git; };
         pkgs = import nixpkgs { inherit system; };
         modules = [
           ./home/main.nix

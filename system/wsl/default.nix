@@ -1,6 +1,6 @@
-{ lib, pkgs, system, username, ... }: {
+{ lib, system, username, ... }: {
   nixpkgs.hostPlatform = lib.mkDefault system;
-  system.stateVersion = "24.05";
+  system.stateVersion = "unstable";
   imports = [ ./apps.nix ];
   nix = {
     settings = {
@@ -21,10 +21,7 @@
 
   programs = {
     zsh.enable = true;
-    nix-ld = {
-      enable = true;
-      package = pkgs.nix-ld-rs; # only for NixOS 24.05
-    };
+    nix-ld.enable = true;
   };
   virtualisation.docker.enable = true;
 }

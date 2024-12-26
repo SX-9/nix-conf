@@ -1,5 +1,5 @@
 { pkgs, hostname, ... }: {
-  system.stateVersion = "24.05";
+  system.stateVersion = "unstable";
   nixpkgs.config.allowUnfree = true;
   nix = {
     settings = {
