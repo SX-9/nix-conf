@@ -12,7 +12,6 @@
     gnomeExtensions.clipboard-history
     gnomeExtensions.freon
     gnome-tweaks
-    gnome-session
     papirus-icon-theme
     (wrapOBS {
       plugins = with obs-studio-plugins; [

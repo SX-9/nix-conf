@@ -1,4 +1,4 @@
-{ pkgs, hostname, ... }: {
+{ lib, pkgs, hostname, ... }: {
   system.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -91,10 +91,6 @@
         variant = "";
       };
     };
-    xrdp = {
-      enable = true;
-      defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
-    };
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -119,7 +115,7 @@
     steam.enable = true;
     kdeconnect = {
       enable = true;
-      package = pkgs.gnomeExtensions.gsconnect;
+      package = lib.mkForce pkgs.gnomeExtensions.gsconnect;
     };
   };
 }
