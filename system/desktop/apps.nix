@@ -22,6 +22,7 @@
     })
     
     libsForQt5.breeze-grub
+    smartmontools
     lm_sensors
     ntfs3g
     dconf2nix
