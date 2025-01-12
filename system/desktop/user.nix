@@ -19,6 +19,7 @@
         google-chrome
         libreoffice
         vlc
+        slack
         
         portablemc
         ferium
