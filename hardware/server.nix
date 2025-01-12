@@ -16,6 +16,7 @@
     };
     desktopManager.plasma6.enable = true;
     openssh.settings.PermitRootLogin = "yes";
+    qemuGuest.enable = true;
   };
   environment.systemPackages = with pkgs; [
     kdePackages.plasma-workspace
