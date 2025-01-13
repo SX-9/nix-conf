@@ -8,7 +8,8 @@
     htop
     ffmpeg
     nmap
-    
+    sysstat
+
     nixd
     gh
     git
