@@ -101,6 +101,7 @@
       enable = true;
       drivers = with pkgs; [ hplipWithPlugin ];
     };
+    flatpak.enable = true;
     openssh.enable = true;
     tailscale.enable = true;
     resolved.enable = true;
