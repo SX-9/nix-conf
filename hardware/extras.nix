@@ -26,7 +26,8 @@
       };
     };
     thinkfan = {
-      enable = true;
+      enable = false; # true;
+      # TODO: fix my laptop to work with thinkfan (it keeps crashing)
       levels = [
         [ "level auto"       0  80  ]
         [ "level full-speed" 80 90  ]
