@@ -4,20 +4,15 @@
 # 0. clone repo and edit options:
 nix-shell -p git vim
 git clone github.com/SX-9/nix-conf --depth 1
-vim flake.nix
+vim flake.nix # change the username and hostname here
 
 # 1. hardware config:
 nixos-generate-config --show-hardware-config > hardware/scan.nix
-git add hardware/scan.nix -f
+git add . -f
 
-# 2. apply nixos config
+# 2. apply nixos config (available flakes: nixos, server, thinkpad, wsl)
 sudo nixos-rebuild switch --flake .#nixos
-sudo nixos-rebuild switch --flake .#server
-sudo nixos-rebuild switch --flake .#thinkpad
-sudo nixos-rebuild switch --flake .#wsl
 
-# 3. apply home config
-home-manager switch --flake .#laptop
-home-manager switch --flake .#desktop
+# 3. apply home config (available flakes: shell, desktop, laptop)
 home-manager switch --flake .#shell
 ```
