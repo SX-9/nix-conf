@@ -104,7 +104,7 @@
     };
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
     };
     pulseaudio.enable = false;
     flatpak.enable = true;
