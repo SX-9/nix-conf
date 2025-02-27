@@ -31,11 +31,16 @@
     toybox
     gparted
     pavucontrol
-    ventoy-bin-full
     jq
     cava
     ventoy-full
+    parsec-bin
+    powertop
+    smartmontools
 
+    wineWowPackages.waylandFull
+    wineWowPackages.stable
+    winetricks
     android-tools
     distrobox
   ];

@@ -4,11 +4,15 @@
     vim
     wget
     curl
-    openssl_3_3
+    openssl_3
     htop
     ffmpeg
     nmap
     sysstat
+    netcat
+    p7zip
+    stress
+    wakeonlan
 
     nixd
     gh

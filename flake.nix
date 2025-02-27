@@ -10,7 +10,7 @@
   };
 
   outputs = inputs @ { nixpkgs, home-manager, nixos-wsl, ... }: let
-    hostname = "remote-workspace-vm";
+    hostname = "nixos";
     username = "satr14";
     system = "x86_64-linux";
 
