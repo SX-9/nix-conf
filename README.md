@@ -8,6 +8,7 @@ vim flake.nix
 
 # 1. hardware config:
 nixos-generate-config --show-hardware-config > hardware/scan.nix
+git add hardware/scan.nix -f
 
 # 2. apply nixos config
 sudo nixos-rebuild switch --flake .#nixos
