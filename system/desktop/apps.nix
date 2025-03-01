@@ -28,7 +28,6 @@
     dconf2nix
     hplipWithPlugin
     pciutils
-    toybox
     gparted
     pavucontrol
     jq

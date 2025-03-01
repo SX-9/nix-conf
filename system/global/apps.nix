@@ -13,6 +13,7 @@
     p7zip
     stress
     wakeonlan
+    coreutils-full
 
     nixd
     gh
