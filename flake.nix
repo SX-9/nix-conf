@@ -1,15 +1,17 @@
 {
   description = "satr14's nixos configuration";
   inputs = {
+    ctp.url = "github:catppuccin/nix";
+    
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    home-manager = {
+    wsl.url = "github:nix-community/NixOS-WSL/main";
+    hm = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs @ { nixpkgs, home-manager, nixos-wsl, ... }: let
+  outputs = { ctp, nixpkgs, hm, wsl, ... }: let
     hostname = "nixos";
     username = "satr14";
     system = "x86_64-linux";
@@ -20,32 +22,35 @@
     };
   in {
     homeConfigurations = {
-      laptop = home-manager.lib.homeManagerConfiguration {
+      laptop = hm.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit username git; };
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
         };
         modules = [
+          ctp.homeManagerModules.catppuccin
           ./home/main.nix
           ./home/laptop.nix
         ];
       };
-      desktop = home-manager.lib.homeManagerConfiguration {
+      desktop = hm.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit username git; };
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
         };
         modules = [
+          ctp.homeManagerModules.catppuccin
           ./home/main.nix
           ./home/desktop.nix  
         ];
       };
-      shell = home-manager.lib.homeManagerConfiguration {
+      shell = hm.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit username git; };
         pkgs = import nixpkgs { inherit system; };
         modules = [
+          ctp.homeManagerModules.catppuccin
           ./home/main.nix
         ];
       };
@@ -92,7 +97,7 @@
         modules = [
           ./system/wsl
           ./system/wsl/user.nix
-          nixos-wsl.nixosModules.wsl
+          wsl.nixosModules.wsl
         ];
       };
     };
