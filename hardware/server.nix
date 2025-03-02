@@ -6,6 +6,7 @@
     hybrid-sleep.enable = false;
   };
   services = {
+    colord.enable = true; # fix for color glitch on chromium based apps
     xrdp = {
       enable = true;
       defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
