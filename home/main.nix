@@ -13,6 +13,7 @@
       enable = true;
       userName = git.user;
       userEmail = git.email;
+      extraConfig.pull.rebase = "true";
     };
     tmux.enable = true;
     zsh = {
