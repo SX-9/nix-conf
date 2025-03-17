@@ -20,13 +20,21 @@
         libreoffice
         vlc
         slack
+        zoom
+        davinci-resolve
+        gimp
+        (wrapOBS {
+          plugins = with obs-studio-plugins; [
+            wlrobs
+            obs-backgroundremoval
+            obs-pipewire-audio-capture
+          ];
+        })
         
         portablemc
         ferium
         virt-manager
         appimage-run
-        scrcpy
-        cava
 
         zsh-completions
         zsh-syntax-highlighting

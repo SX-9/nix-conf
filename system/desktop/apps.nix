@@ -13,13 +13,6 @@
     gnomeExtensions.freon
     gnome-tweaks
     papirus-icon-theme
-    (wrapOBS {
-      plugins = with obs-studio-plugins; [
-        wlrobs
-        obs-backgroundremoval
-        obs-pipewire-audio-capture
-      ];
-    })
     
     libsForQt5.breeze-grub
     smartmontools
@@ -41,6 +34,7 @@
     wineWowPackages.stable
     winetricks
     android-tools
+    scrcpy
     distrobox
   ];
 }
