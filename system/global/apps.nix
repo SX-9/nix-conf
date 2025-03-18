@@ -14,10 +14,12 @@
     stress
     wakeonlan
     coreutils-full
+    traceroute
 
     nixd
     gh
     git
+    go
     nodejs
     nodePackages.npm
     python311
