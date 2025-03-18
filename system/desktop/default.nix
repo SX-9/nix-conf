@@ -77,6 +77,11 @@
     networkmanager.enable = true;
     firewall.enable = false;
     nameservers = ["1.1.1.1" "1.0.0.1"];
+    extraHosts = # bypass indonesia's reddit block
+      ''
+        198.41.209.141 reddit.com
+        198.41.209.141 www.reddit.com
+      '';
   };
 
   time.timeZone = "Asia/Jakarta";
