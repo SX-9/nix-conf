@@ -21,8 +21,9 @@
         vlc
         slack
         zoom
-        davinci-resolve
-        gimp
+        #davinci-resolve
+        #gimp
+        # ^^^ takes too long to build
         (wrapOBS {
           plugins = with obs-studio-plugins; [
             wlrobs
