@@ -79,6 +79,7 @@
     nameservers = ["1.1.1.1" "1.0.0.1"];
   };
 
+  hardware.opengl.extraPackages = [ pkgs.vaapiVdpau ];
   time.timeZone = "Asia/Jakarta";
   i18n.defaultLocale = "en_US.UTF-8";
 
