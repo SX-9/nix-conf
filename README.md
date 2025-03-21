@@ -2,7 +2,7 @@
 
 ```sh
 # 0. clone repo and edit options:
-nix-shell -p git vim
+nix-shell -p git vim tmux home-manager
 git clone github.com/SX-9/nix-conf --depth 1
 vim flake.nix # change the username and hostname here
 
