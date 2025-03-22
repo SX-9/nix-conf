@@ -13,6 +13,7 @@
     gnomeExtensions.freon
     gnome-tweaks
     papirus-icon-theme
+    gnome-network-displays
     
     libsForQt5.breeze-grub
     smartmontools
