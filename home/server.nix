@@ -11,6 +11,14 @@
       enabled-extensions = ["tailscale-status@maxgallup.github.com" "impatience@gfxmonk.net" "order-extensions@wa4557.github.com" "AlphabeticalAppGrid@stuarthayhurst" "clipboard-history@alexsaveau.dev" "system-monitor@gnome-shell-extensions.gcampax.github.com" "top-bar-organizer@julian.gse.jsts.xyz" "status-area-horizontal-spacing@mathematical.coffee.gmail.com"];
       favorite-apps = ["org.gnome.Nautilus.desktop" "org.gnome.TextEditor.desktop" "org.gnome.SystemMonitor.desktop" "org.gnome.Console.desktop" "google-chrome.desktop" "discord.desktop" "spotify.desktop" "code.desktop"];
     };
+
+    "org/gnome/shell/extensions/system-monitor" = {
+      show-cpu = true;
+      show-download = false;
+      show-memory = true;
+      show-swap = false;
+      show-upload = false;
+    };
     
   };
 }
