@@ -22,9 +22,9 @@
     supportedFilesystems = [ "ext4" "btrfs" "vfat" "ntfs" ];
     loader = {
       efi.canTouchEfiVariables = true;
-      #systemd-boot.enable = true;
+      systemd-boot.enable = true;
       grub = {
-        enable = true;
+        enable = false; #true;
         device = "/dev/sda";
         useOSProber = true;
         default = "saved";
@@ -98,10 +98,6 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-    };
-    printing = {
-      enable = true;
-      drivers = with pkgs; [ hplipWithPlugin ];
     };
     avahi = {
       enable = true;
