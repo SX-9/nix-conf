@@ -60,6 +60,7 @@
         specialArgs = {
           inherit hostname;
           inherit username;
+          lagacyBoot = false;
         };
         modules = [
           ./system/desktop
@@ -70,6 +71,7 @@
         specialArgs = {
           inherit hostname;
           inherit username;
+          legacyBoot = false;
         };
         modules = [
           ./system/desktop
@@ -81,6 +83,7 @@
         specialArgs = {
           inherit hostname;
           inherit username;
+          legacyBoot = true;
         };
         modules = [
           ./system/desktop
