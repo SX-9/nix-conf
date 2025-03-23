@@ -11,6 +11,9 @@
       enable = true;
       defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
     };
+    udev.extraRules = ''
+      SUBSYSTEM=="cpu", ACTION=="add", TEST=="online", ATTR{online}=="0", ATTR{online}="1"
+    '';
     openssh.settings.PermitRootLogin = "yes";
     qemuGuest.enable = true;
   };
