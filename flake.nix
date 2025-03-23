@@ -43,7 +43,8 @@
         modules = [
           ctp.homeManagerModules.catppuccin
           ./home/main.nix
-          ./home/desktop.nix  
+          ./home/desktop.nix
+          ./home/server.nix
         ];
       };
       shell = hm.lib.homeManagerConfiguration {
