@@ -1,7 +1,4 @@
 { pkgs, ... }: {
-  imports = [
-    ../global/apps.nix
-  ];
   environment.systemPackages = with pkgs; [
     gnomeExtensions.dash-to-panel
     gnomeExtensions.alphabetical-app-grid
@@ -36,5 +33,30 @@
     android-tools
     scrcpy
     distrobox
+
+    home-manager
+    vim
+    wget
+    curl
+    openssl_3
+    htop
+    ffmpeg
+    nmap
+    sysstat
+    netcat
+    p7zip
+    stress
+    wakeonlan
+    coreutils-full
+    traceroute
+
+    nixd
+    gh
+    git
+    go
+    nodejs
+    nodePackages.npm
+    python311
+    jdk23_headless
   ];
 }

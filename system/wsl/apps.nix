@@ -1,5 +1,0 @@
-{ ... }: {
-  imports = [
-    ../global/apps.nix
-  ];
-}

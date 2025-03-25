@@ -7,77 +7,71 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    wsl.url = "github:nix-community/NixOS-WSL/main";
     na.url = "github:nix-community/nixos-anywhere";
+    dsk.url = "github:nix-community/disko";
     ctp.url = "github:catppuccin/nix";
   };
 
-  outputs = { ctp, nixpkgs, hm, wsl, na, ... }: let
+  outputs = { ctp, nixpkgs, hm, na, dsk, ... }: let
+    # CHANE ME
     hostname = "nixos";
     username = "satr14";
     system = "x86_64-linux";
+    legacy-boot = false; #true;
 
     git = {
       user = "satr14";
       email = "90962949+SX-9@users.noreply.github.com";
     };
 
-    nixos-anywhere = { environment.systemPackages = [ na.packages.x86_64-linux.default ]; };
+    nixos-anywhere = {
+      imports = [
+        #### uncomment if building for remote nixos-anywhere machine and edit the disko configuration
+        # dsk.nixosModules.disko
+        # ./disko
+      ];
+      environment.systemPackages = [ na.packages.x86_64-linux.default ];
+    };
+
+    base = {
+      system.imports = [
+        nixos-anywhere
+        ./system
+        ./system/user.nix
+      ];
+      home.imports = [
+        ctp.homeManagerModules.catppuccin
+        ./home/main.nix
+      ];
+    };
+    specialArgs = { inherit hostname username legacy-boot; };
+    extraSpecialArgs = { inherit username git; };
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
   in {
     nixosConfigurations = {
 
       nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit hostname;
-          inherit username;
-          lagacyBoot = false;
-        };
-        modules = [
-          nixos-anywhere
-          ./system/desktop
-          ./system/desktop/user.nix
-        ];
+        inherit specialArgs;
+        modules = [ base.system ];
       };
 
       server = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit hostname;
-          inherit username;
-          legacyBoot = false;
-        };
+        inherit specialArgs;
         modules = [
-          nixos-anywhere
-          ./system/desktop
-          ./system/desktop/user.nix
+          base.system
           ./hardware/server.nix
         ];
       };
 
       thinkpad = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit hostname;
-          inherit username;
-          legacyBoot = true;
-        };
+        inherit specialArgs;
         modules = [
-          nixos-anywhere
-          ./system/desktop
-          ./system/desktop/user.nix
-          ./hardware/extras.nix
-        ];
-      };
-
-      wsl = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit hostname;
-          inherit username;
-          inherit system;
-        };
-        modules = [
-          nixos-anywhere
-          wsl.nixosModules.wsl
-          ./system/wsl
-          ./system/wsl/user.nix
+          base.system
+          ./hardware/thinkpad.nix
         ];
       };
 
@@ -85,37 +79,30 @@
     homeConfigurations = {
 
       shell = hm.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit username git; };
-        pkgs = import nixpkgs { inherit system; };
-        modules = [
-          ctp.homeManagerModules.catppuccin
-          ./home/main.nix
-        ];
+        inherit extraSpecialArgs pkgs;
+        modules = [ base.home ];
       };
 
       desktop = hm.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit username git; };
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
+        inherit extraSpecialArgs pkgs;
         modules = [
-          ctp.homeManagerModules.catppuccin
-          ./home/main.nix
-          ./home/desktop.nix
+          base.home
+          ./home/base.nix
+        ];
+      };
+
+      server = hm.lib.homeManagerConfiguration {
+        inherit extraSpecialArgs pkgs;
+        modules = [
+          base.home
           ./home/server.nix
         ];
       };
 
       laptop = hm.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit username git; };
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
+        inherit extraSpecialArgs pkgs;
         modules = [
-          ctp.homeManagerModules.catppuccin
-          ./home/main.nix
+          base.home
           ./home/laptop.nix
         ];
       };

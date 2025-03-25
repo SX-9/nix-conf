@@ -1,4 +1,4 @@
-{ lib, pkgs, hostname, legacyBoot, ... }: {
+{ lib, pkgs, hostname, legacy-boot, ... }: {
   system.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -14,7 +14,7 @@
     optimise.automatic = true;
   };
   imports = [
-    ../../hardware/scan.nix
+    ../hardware/scan.nix
     ./apps.nix
   ];
 
@@ -22,9 +22,9 @@
     supportedFilesystems = [ "ext4" "btrfs" "vfat" "ntfs" ];
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.enable = !legacyBoot;
+      systemd-boot.enable = !legacy-boot;
       grub = {
-        enable = legacyBoot; #true;
+        enable = legacy-boot; #true;
         device = "/dev/sda";
         useOSProber = true;
         default = "saved";

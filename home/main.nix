@@ -37,6 +37,7 @@
         "fetch-update" = "rm -f ~/.fetch.sh && wget https://raw.githubusercontent.com/SX-9/fetch.sh/master/fetch.sh -O ~/.fetch.sh && chmod +x ~/.fetch.sh";
         "hm-sw" = "home-manager switch --flake";
         "nix-sw" = "sudo nixos-rebuild switch --flake";
+        "nix-hw-conf" = "nixos-generate-config --show-hardware-config";
         "mcl" = "portablemc start fabric:1.21 -u";
         "git-author-setup" = "git config --global user.name $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user | jq -r .login) && git config --global user.email $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user/emails | jq -r \".[1].email\")";
       };

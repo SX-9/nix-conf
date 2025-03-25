@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./dconf.nix
+    ./base.nix
   ];
 
   dconf.settings = {

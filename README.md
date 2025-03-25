@@ -13,9 +13,16 @@ vim flake.nix # change the username and hostname here
 nixos-generate-config --show-hardware-config > hardware/scan.nix
 git add . -f
 
-# 2. apply nixos config (available flakes: nixos, server, thinkpad, wsl)
+# 2. apply nixos config (available flakes: nixos, server, thinkpad)
 sudo nixos-rebuild switch --flake .#nixos
 
 # 3. apply home config (available flakes: shell, desktop, laptop)
 home-manager switch --flake .#shell
+```
+
+or with `nixos-anywhere`
+
+```sh
+vim flake.nix # change config to enable disko
+nixos-anywhere --generate-hardware-config nixos-generate-config ./hardware/scan.nix --flake .#FLAKE --target-host root@HOST
 ```
