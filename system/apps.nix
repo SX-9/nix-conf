@@ -26,6 +26,7 @@
     parsec-bin
     powertop
     smartmontools
+    woeusb
 
     wineWowPackages.waylandFull
     wineWowPackages.stable
