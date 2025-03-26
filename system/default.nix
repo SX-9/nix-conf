@@ -22,7 +22,12 @@
     supportedFilesystems = [ "ext4" "btrfs" "vfat" "ntfs" ];
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.enable = !legacy-boot;
+      systemd-boot = {
+        enable = !legacy-boot;
+        configurationLimit = 3;
+        memtest86.enable = true;
+        netbootxyz.enable = true;
+      };
       grub = {
         enable = legacy-boot; #true;
         device = "/dev/sda";
