@@ -35,7 +35,7 @@
       ];
     };
     pkgs = import nixpkgs {
-      inherit "x86_64-linux";
+      system = "x86_64-linux";
       config.allowUnfree = true;
     };
 
