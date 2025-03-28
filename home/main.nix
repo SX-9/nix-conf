@@ -39,6 +39,9 @@
         "nix-sw" = "sudo nixos-rebuild switch --flake";
         "nix-hw-conf" = "nixos-generate-config --show-hardware-config";
         "mcl" = "portablemc start fabric:1.21 -u";
+        "mkdistrobox" = "distrobox create --init --additional-packages 'systemd libpam-systemd pipewire-audio-client-libraries' -i";
+        "mkdistro-arch" = "mkdistrobox archlinux -n arch";
+        "mkdistro-deb" = "mkdistrobox debian -n deb";
         "git-author-setup" = "git config --global user.name $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user | jq -r .login) && git config --global user.email $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user/emails | jq -r \".[1].email\")";
       };
       initExtra = ''
