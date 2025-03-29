@@ -25,6 +25,7 @@
       systemd-boot = {
         enable = !legacy-boot;
         configurationLimit = 3;
+        editor = false;
         memtest86.enable = true;
         netbootxyz.enable = true;
       };
