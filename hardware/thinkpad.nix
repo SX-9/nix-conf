@@ -4,6 +4,7 @@
   boot = {
     kernelParams = [ "thinkpad_acpi.fan_control=1" ];
     kernelPackages = pkgs.linuxPackages_testing;
+    kernel.sysctl."vm.laptop_mode" = 5;
     initrd.availableKernelModules = [ "thinkpad_acpi" ];
     extraModprobeConfig = "options thinkpad_acpi experimental=1 fan_control=1";
   };
@@ -26,8 +27,7 @@
       };
     };
     thinkfan = {
-      enable = false; # true;
-      # TODO: fix my laptop to work with thinkfan (it keeps crashing)
+      enable = true;
       levels = [
         [ "level auto"       0  80  ]
         [ "level full-speed" 80 90  ]
