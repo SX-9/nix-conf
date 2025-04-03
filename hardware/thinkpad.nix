@@ -2,14 +2,12 @@
 
 { pkgs, ... }: {
   boot = {
-    kernelParams = [ "thinkpad_acpi.fan_control=1" ];
     kernelPackages = pkgs.linuxPackages_testing;
     kernel.sysctl."vm.laptop_mode" = 5;
     initrd.availableKernelModules = [ "thinkpad_acpi" ];
-    extraModprobeConfig = "options thinkpad_acpi experimental=1 fan_control=1";
   };
   systemd.services.thinkfan.preStart = "
-    /run/current-system/sw/bin/modprobe -r thinkpad_acpi && /run/current-system/sw/bin/modprobe thinkpad_acpi
+    /run/current-system/sw/bin/modprobe -rv thinkpad_acpi && /run/current-system/sw/bin/modprobe -v thinkpad_acpi
   ";
   services = {
     power-profiles-daemon.enable = true;
@@ -27,7 +25,8 @@
       };
     };
     thinkfan = {
-      enable = true;
+      enable = false; #true;
+      # TODO: fix "ERROR: Module thinkpad_acpi doesn't seem to support fan_control"
       levels = [
         [ "level auto"       0  80  ]
         [ "level full-speed" 80 90  ]
