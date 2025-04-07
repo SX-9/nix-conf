@@ -2,7 +2,7 @@
 
 { pkgs, ... }: {
   boot = {
-    kernelPackages = pkgs.linuxPackages_testing;
+    kernelPackages = pkgs.linuxPackages;
     kernel.sysctl."vm.laptop_mode" = 5;
     initrd.availableKernelModules = [ "thinkpad_acpi" ];
   };
@@ -25,12 +25,11 @@
       };
     };
     thinkfan = {
-      enable = false; #true;
-      # TODO: fix "ERROR: Module thinkpad_acpi doesn't seem to support fan_control"
+      enable = true;
       levels = [
-        [ "level auto"       0  80  ]
-        [ "level full-speed" 80 90  ]
-        [ "level disengaged" 90 150 ]
+        [ "level auto"       0  70  ]
+        [ "level full-speed" 70 80  ]
+        [ "level disengaged" 80 150 ]
       ];
       sensors = [
         { type = "hwmon"; query = "/sys/devices/platform/coretemp.0/hwmon"; }
