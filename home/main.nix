@@ -27,13 +27,12 @@
         PORT="3000"
       '';
       shellAliases = {
-        "zshrc" = "echo 'WARNING: please use home-manager config instead, press enter to continue' && read && vim ~/.zshrc && omz reload";
         "sys" = "sudo systemctl";
         "sys-log" = "journalctl -f -b -u";
         "user" = "systemctl --user";
         "user-log" = "journalctl -f -b --user-unit";
         "tsip" = "tailscale ip -4";
-        "rmall" = "rm -rf ./* ./.*";
+        "rmall" = "rm -rf ./* ./.*"; # scary!
         "fetch-update" = "rm -f ~/.fetch.sh && wget https://raw.githubusercontent.com/SX-9/fetch.sh/master/fetch.sh -O ~/.fetch.sh && chmod +x ~/.fetch.sh";
         "hm-sw" = "home-manager switch --flake";
         "nix-sw" = "sudo nixos-rebuild switch --flake";
