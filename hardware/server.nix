@@ -9,6 +9,7 @@
     colord.enable = true; # fix for color glitch on chromium based apps
     xrdp = {
       enable = true;
+      audio.enable = true;
       defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
     };
     udev.extraRules = ''
