@@ -25,7 +25,7 @@
       };
     };
     thinkfan = {
-      enable = true;
+      enable = false; # https://github.com/NixOS/nixpkgs/issues/395739
       levels = [
         [ "level auto"       0  70  ]
         [ "level full-speed" 70 80  ]
