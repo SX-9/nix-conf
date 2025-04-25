@@ -41,6 +41,7 @@
     curl
     openssl_3
     htop
+    btop
     ffmpeg
     nmap
     sysstat
