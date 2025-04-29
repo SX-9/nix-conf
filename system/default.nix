@@ -115,6 +115,10 @@
       enable = true;
       nssmdns4 = true;
     };
+    printing = {
+      enable = true;
+      drivers = with pkgs; [ hplip ];
+    };
     pulseaudio.enable = false;
     flatpak.enable = true;
     openssh.enable = true;
