@@ -1,5 +1,5 @@
 {
-  hostname = "nixos";
+  hostname = "thinkpad-l450";
   username = "satr14";
   legacy-boot = false;
   partition = false; # set to true to enable disko partitioning

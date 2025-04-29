@@ -37,7 +37,7 @@
         "hm-sw" = "home-manager switch --flake";
         "nix-sw" = "sudo nixos-rebuild switch --flake";
         "nix-hw-conf" = "nixos-generate-config --show-hardware-config";
-        "mcl" = "portablemc start fabric:1.21 -u";
+        "mcl" = "portablemc start fabric:1.21.4 -u";
         "mkdistro" = "distrobox create -Y -i";
         "mkdistro-arch" = "mkdistro archlinux -n arch";
         "mkdistro-deb" = "mkdistro debian -n deb";
