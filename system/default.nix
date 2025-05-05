@@ -25,9 +25,9 @@
       systemd-boot = {
         enable = !legacy-boot;
         configurationLimit = 3;
+        # set sort key for nix generations to last
+        sortKey = "x-nixos-generations";
         editor = false;
-        memtest86.enable = true;
-        netbootxyz.enable = true;
       };
       grub = {
         enable = legacy-boot; #true;
