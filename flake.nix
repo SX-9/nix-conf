@@ -6,21 +6,30 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hl.url = "github:hyprwm/Hyprland";
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     
     na.url = "github:nix-community/nixos-anywhere";
     dsk.url = "github:nix-community/disko";
     ctp.url = "github:catppuccin/nix";
   };
 
-  outputs = { ctp, nixpkgs, hm, na, dsk, ... }: let
+  outputs = inputs: let
     info = import ./info.nix;
+    args = {
+      inherit inputs;
+    } // info;
 
     nixos-anywhere = {
       imports = if info.partition then [
-        dsk.nixosModules.disko
+        inputs.dsk.nixosModules.disko
         ./disko
       ] else [];
-      environment.systemPackages = [ na.packages.x86_64-linux.default ];
+      environment.systemPackages = [ inputs.na.packages.x86_64-linux.default ];
     };
 
     base = {
@@ -30,11 +39,11 @@
         ./system/user.nix
       ];
       home.imports = [
-        ctp.homeManagerModules.catppuccin
+        inputs.ctp.homeManagerModules.catppuccin
         ./home/main.nix
       ];
     };
-    pkgs = import nixpkgs {
+    pkgs = import inputs.nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
     };
@@ -42,21 +51,21 @@
   in {
     nixosConfigurations = {
 
-      nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = info;
+      nixos = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = args;
         modules = [ base.system ];
       };
 
-      server = nixpkgs.lib.nixosSystem {
-        specialArgs = info;
+      server = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = args;
         modules = [
           base.system
           ./hardware/server.nix
         ];
       };
 
-      thinkpad = nixpkgs.lib.nixosSystem {
-        specialArgs = info;
+      thinkpad = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = args;
         modules = [
           base.system
           ./hardware/thinkpad.nix
@@ -66,33 +75,33 @@
     };
     homeConfigurations = {
 
-      shell = hm.lib.homeManagerConfiguration {
+      shell = inputs.hm.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = info;
+        extraSpecialArgs = args;
         modules = [ base.home ];
       };
 
-      desktop = hm.lib.homeManagerConfiguration {
+      desktop = inputs.hm.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = info;
+        extraSpecialArgs = args;
         modules = [
           base.home
           ./home/base.nix
         ];
       };
 
-      server = hm.lib.homeManagerConfiguration {
+      server = inputs.hm.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = info;
+        extraSpecialArgs = args;
         modules = [
           base.home
           ./home/server.nix
         ];
       };
 
-      laptop = hm.lib.homeManagerConfiguration {
+      laptop = inputs.hm.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = info;
+        extraSpecialArgs = args;
         modules = [
           base.home
           ./home/laptop.nix

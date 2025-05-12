@@ -15,6 +15,7 @@
   };
   imports = [
     ../hardware/scan.nix
+    ./hyprland.nix
     ./apps.nix
   ];
 
@@ -25,8 +26,7 @@
       systemd-boot = {
         enable = !legacy-boot;
         configurationLimit = 3;
-        # set sort key for nix generations to last
-        sortKey = "x-nixos-generations";
+        sortKey = "z-nixos";
         editor = false;
       };
       grub = {
@@ -85,7 +85,10 @@
     nameservers = ["1.1.1.1" "1.0.0.1"];
   };
 
-  hardware.graphics.extraPackages = [ pkgs.vaapiVdpau ];
+  hardware.graphics = {
+    enable = true;
+    extraPackages = [ pkgs.vaapiVdpau ];
+  };
   time.timeZone = "Asia/Jakarta";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -110,6 +113,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      jack.enable = true;
     };
     avahi = {
       enable = true;
