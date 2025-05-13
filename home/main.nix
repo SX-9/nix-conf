@@ -1,8 +1,11 @@
-{ username, git, ... }: {
+{ username, git, use-hyprland, ... }: {
   catppuccin = {
     flavor = "mocha";
     enable = true;
   };
+  imports = if use-hyprland then [
+    ./hyprland.nix
+  ] else [];
   home = {
     stateVersion = "24.11";
     username = "${username}";

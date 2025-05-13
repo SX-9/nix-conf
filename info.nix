@@ -4,7 +4,7 @@
   legacy-boot = false;
   partition = false; # set to true to enable disko partitioning
 
-  useHyprland = false; # Hyprland will be enabled with GNOME as secondary DE
+  use-hyprland = true; # Hyprland will be enabled with GNOME as secondary DE
 
   git = {
     user = "satr14";

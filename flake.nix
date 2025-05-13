@@ -8,10 +8,10 @@
     };
 
     hl.url = "github:hyprwm/Hyprland";
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    hlp = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hl";
+    };
     
     na.url = "github:nix-community/nixos-anywhere";
     dsk.url = "github:nix-community/disko";
@@ -39,7 +39,7 @@
         ./system/user.nix
       ];
       home.imports = [
-        inputs.ctp.homeManagerModules.catppuccin
+        inputs.ctp.homeModules.catppuccin
         ./home/main.nix
       ];
     };
