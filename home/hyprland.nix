@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: let 
+{ pkgs, inputs, username, hostname, ... }: let 
   ctp = {
     flavor = "mocha";
     enable = true;
@@ -18,12 +18,17 @@ in {
     enable = true;
     package = inputs.hl.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
+    plugins = with inputs.hlp.packages."${pkgs.system}"; [
+      # hyprbars
+    ];
     settings = {
       monitor = ",preferred,auto,auto";
 
       exec-once = [
         "hyprctl setcursor catppuccin-mocha-light-cursors 24"
-        "nm-applet &"
+        "gsettings set org.gnome.desktop.interface gtk-theme \"YOUR_DARK_GTK3_THEME\""
+        "gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\""
+        "nm-applet & tailscale-systray &"
         "waybar & swww-daemon &"
       ];
 
@@ -32,18 +37,34 @@ in {
         "XCURSOR_THEME,catppuccin-mocha-light-cursors"
         "HYPRCURSOR_SIZE,24"
         "HYPRCURSOR_THEME,catppuccin-mocha-light-cursors"
+        "GTK_APPLICATION_PREFER_DARK_THEME,1"
+        "QT_QPA_PLATFORMTHEME,qt6ct"
       ];
 
       general = {
         gaps_in = 5;
-        gaps_out = 20;
+        gaps_out = "10,20,20,20";
         border_size = 2;
         resize_on_border = true;
         allow_tearing = false;
         layout = "dwindle";
 
-        "col.active_border" = "rgba(94e2d5ff) rgba(89b4faff) 45deg";
-        "col.inactive_border" = "rgba(bac2deff)";
+        "col.active_border" = "rgb(94e2d5)";
+        "col.inactive_border" = "rgb(bac2de)";
+      };
+
+      plugin = {
+        # hyprbars = {
+        #   bar_height = 20;
+        #   bar_part_of_window = true;
+        #   bar_precedence_over_border = true;
+        #   bar_text_align = "left";
+        #   bar_color = "rgb(313244)";
+        #   hyprbars-button = [
+        #     "rgb(f38ba8), 10, Q, hyprctl dispatch killactive"
+        #     "rgb(f9e2af), 10, W, hyprctl dispatch fullscreen 1"
+        #   ];
+        # };
       };
 
       decoration = {
@@ -125,6 +146,7 @@ in {
         "SUPER, E, exec, nautilus"
         "SUPER, L, exec, hyprlock"
         "SUPER, Q, killactive,"
+        "SUPER, W, fullscreen, 1"
         "SUPER, M, exit,"
         "SUPER, F, togglefloating,"
         "SUPER, G, togglesplit,"
@@ -164,16 +186,143 @@ in {
     };
   };
 
-  services = {
-    dunst.enable = true;
-    swww.enable = true;
-  };
-
   programs = {
-    waybar.enable = true;
+    waybar = {
+      enable = true;
+      settings = [
+        {
+          margin-top = 15;
+          margin-left = 15;
+          margin-right = 15;
+          layer = "top";
+          position = "top";
+
+          modules-left = [
+            "hyprland/workspaces"
+            "cpu"
+            "memory"
+            "disk"
+          ];
+          modules-center = [
+            "hyprland/window"
+            "clock"
+          ];
+          modules-right = [
+            "tray"
+            "pulseaudio"
+            "battery"
+            "custom/exit"
+          ];
+          "cpu" = {
+            interval = 5;
+            format = " {usage:2}%";
+          };
+          "memory" = {
+            interval = 5;
+            format = " {percentage}%";
+          };
+          "disk" = {
+            format = " {free}";
+          };
+          "hyprland/workspaces" = {
+            format = "{name}";
+            format-icons = {
+              default = " ";
+              active = " ";
+              urgent = " ";
+            };
+            on-scroll-up = "hyprctl dispatch workspace e+1";
+            on-scroll-down = "hyprctl dispatch workspace e-1";
+          };
+          "clock" = {
+            format = "{:%b %d, %I:%M %p}";
+          };
+          "hyprland/window" = {
+            max-length = 25;
+            separate-outputs = false;
+            rewrite = {
+              "" = "${username}@${hostname}";
+            };
+          };
+          "tray" = {
+            spacing = 12;
+          };
+          "pulseaudio" = {
+                        format = "{icon} {volume}% {format_source}";
+            format-bluetooth = "{volume}% {icon} {format_source}";
+            format-bluetooth-muted = " {icon} {format_source}";
+            format-muted = " {format_source}";
+            format-source = "";
+            format-source-muted = "";
+            format-icons = {
+              headphone = "";
+              hands-free = "";
+              headset = "";
+              phone = "";
+              portable = "";
+              car = "";
+              default = [
+                ""
+                ""
+                ""
+              ];
+            };
+            on-click = "pavucontrol";
+            on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          };
+          "battery" = {
+            states = {
+              warning = 30;
+              critical = 15;
+            };
+            format = "{icon} {capacity}%";
+            format-charging = "󰂄 {capacity}%";
+            format-plugged = "󱘖 {capacity}%";
+            format-icons = [
+              "󰁺"
+              "󰁻"
+              "󰁼"
+              "󰁽"
+              "󰁾"
+              "󰁿"
+              "󰂀"
+              "󰂁"
+              "󰂂"
+              "󰁹"
+            ];
+            interval = 1;
+            on-click = "";
+          };
+        }
+      ];
+      style = ''
+        * {
+          font-size: 14px;
+          font-family: Font Awesome, monospace;
+          font-weight: bold;
+          color: @text;
+        }
+        window#waybar {
+          background-color: @base;
+          border: 2px solid @surface1;
+          border-radius: 15px;
+        }
+        #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery {
+          margin: 0 15px;
+        }
+      '';
+    };
     kitty.enable = true;
     hyprlock = {
-      settings.input-field.placeholder_text = "Password?";
+      settings = {
+        background = [
+          {
+            path = "screenshot";
+            blur_passes = 3;
+            blur_size = 8;
+          }
+        ];
+      };
       enable = true;
     };
     rofi = {
@@ -182,9 +331,14 @@ in {
     };
   };
 
+  services = {
+    dunst.enable = true;
+    swww.enable = true;
+  };
+
   home = {
     packages = with pkgs; [
-      hyprlock waybar dunst kitty swww rofi-wayland
+      playerctl brightnessctl hyprlock waybar dunst kitty tailscale-systray swww rofi-wayland
     ];
     pointerCursor = {
       gtk.enable = true;

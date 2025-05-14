@@ -10,6 +10,10 @@
     xwayland.enable = true;
   };
 
+  fonts.packages = with pkgs; [
+    font-awesome
+  ];
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
