@@ -28,8 +28,14 @@ in {
         "hyprctl setcursor catppuccin-mocha-light-cursors 24"
         "gsettings set org.gnome.desktop.interface gtk-theme \"YOUR_DARK_GTK3_THEME\""
         "gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\""
-        "nm-applet & tailscale-systray &"
-        "waybar & swww-daemon &"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
+
+        # "nm-applet &"
+        "tailscale-systray &"
+        "waybar &"
+        "swww-daemon &"
+	      "rofi -show drun"
       ];
 
       env = [
@@ -38,12 +44,13 @@ in {
         "HYPRCURSOR_SIZE,24"
         "HYPRCURSOR_THEME,catppuccin-mocha-light-cursors"
         "GTK_APPLICATION_PREFER_DARK_THEME,1"
+        "GTK_THEME,Adwaita:dark"
         "QT_QPA_PLATFORMTHEME,qt6ct"
       ];
 
       general = {
         gaps_in = 5;
-        gaps_out = "10,20,20,20";
+        gaps_out = "10,10,10,10";
         border_size = 2;
         resize_on_border = true;
         allow_tearing = false;
@@ -141,6 +148,7 @@ in {
 
       bind = [
         ", PRINT, exec, hyprshot -m region"
+        "SUPER SHIFT, S, exec, hyprshot -m region"
         "SUPER, R, exec, rofi -show drun"
         "SUPER, T, exec, kitty"
         "SUPER, E, exec, nautilus"
@@ -150,12 +158,19 @@ in {
         "SUPER, M, exit,"
         "SUPER, F, togglefloating,"
         "SUPER, G, togglesplit,"
+        "SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
-        "ALT, Tab, cyclenext,"
-        "ALT, Tab, bringactivetotop,"
+        "ALT, TAB, cyclenext,"
+        "ALT, TAB, bringactivetotop,"
+        "ALT SHIFT, TAB, cyclenext, prev"
+        "ALT SHIFT, TAB, bringactivetotop,"
+        "SUPER, TAB, cyclenext,"
+        "SUPER, TAB, bringactivetotop,"
+        "SUPER SHIFT, TAB, cyclenext, prev"
+        "SUPER SHIFT, TAB, bringactivetotop,"
 
-        "SUPER, S, togglespecialworkspace, magic"
-        "SUPER SHIFT, S, movetoworkspace, special:magic"
+        "SUPER, down, togglespecialworkspace, magic"
+        "SUPER SHIFT, down, movetoworkspace, special:magic"
 
         "SUPER SHIFT, right, movetoworkspace, +1"
         "SUPER SHIFT, left, movetoworkspace, -1"
@@ -168,6 +183,10 @@ in {
         "SUPER, mouse:273, resizewindow"
       ];
 
+      bindl = [
+        ", switch:on:Lid Switch, exec, hyprlock & systemctl suspend"
+      ];
+
       bindel = [
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -178,7 +197,6 @@ in {
       ];
 
       windowrule = [
-        "float,class:.*"
         "suppressevent maximize, class:.*"
         "suppressevent minimize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
@@ -191,38 +209,69 @@ in {
       enable = true;
       settings = [
         {
-          margin-top = 15;
-          margin-left = 15;
-          margin-right = 15;
+          margin-top = 10;
+          margin-left = 10;
+          margin-right = 10;
           layer = "top";
           position = "top";
 
           modules-left = [
             "hyprland/workspaces"
+            "hyprland/window"
+          ];
+          modules-center = [];
+          modules-right = [
+            "tray"
+            "temperature"
             "cpu"
             "memory"
             "disk"
-          ];
-          modules-center = [
-            "hyprland/window"
-            "clock"
-          ];
-          modules-right = [
-            "tray"
+            "network"
             "pulseaudio"
             "battery"
-            "custom/exit"
+            "power-profiles-daemon"
+            "clock"
           ];
           "cpu" = {
-            interval = 5;
+            states = {
+              critical = 85;
+            };
+            interval = 1;
             format = " {usage:2}%";
           };
           "memory" = {
-            interval = 5;
-            format = " {percentage}%";
+            states = {
+              critical = 85;
+            };
+            interval = 1;
+            format = " {percentage}%";
           };
           "disk" = {
-            format = " {free}";
+            states = {
+              critical = 85;
+            };
+            interval = 5;
+            format = " {percentage_used}%";
+          };
+          "network" = {
+            format-ethernet = " {bandwidthDownOctets}";
+            format-wifi = " {signalStrength}%";
+            format-disconnected = "";
+            tooltip = false;
+            on-click = "kitty nmtui";
+          };
+          "temperature" = {
+            critical-threshold = 80;
+            format = " {temperatureC}°C";
+            interval = 1;
+          };
+          "power-profiles-daemon" = {
+            format = "{icon} {profile}";
+            format-icons = {
+              performance = "";
+              power-saver = "";
+              balanced = "";
+            };
           };
           "hyprland/workspaces" = {
             format = "{name}";
@@ -238,7 +287,7 @@ in {
             format = "{:%b %d, %I:%M %p}";
           };
           "hyprland/window" = {
-            max-length = 25;
+            max-length = 45;
             separate-outputs = false;
             rewrite = {
               "" = "${username}@${hostname}";
@@ -248,12 +297,12 @@ in {
             spacing = 12;
           };
           "pulseaudio" = {
-                        format = "{icon} {volume}% {format_source}";
+            format = "{icon} {volume}% {format_source}";
             format-bluetooth = "{volume}% {icon} {format_source}";
-            format-bluetooth-muted = " {icon} {format_source}";
-            format-muted = " {format_source}";
+            format-bluetooth-muted = " {icon} {volume}% {format_source_muted}";
+            format-muted = " {volume}% {format_source_muted}";
             format-source = "";
-            format-source-muted = "";
+            format-source-muted = "";
             format-icons = {
               headphone = "";
               hands-free = "";
@@ -276,19 +325,14 @@ in {
               critical = 15;
             };
             format = "{icon} {capacity}%";
-            format-charging = "󰂄 {capacity}%";
-            format-plugged = "󱘖 {capacity}%";
+            format-charging = " {capacity}%";
+            format-plugged = " {capacity}%";
             format-icons = [
-              "󰁺"
-              "󰁻"
-              "󰁼"
-              "󰁽"
-              "󰁾"
-              "󰁿"
-              "󰂀"
-              "󰂁"
-              "󰂂"
-              "󰁹"
+              ""
+              ""
+              ""
+              ""
+              ""
             ];
             interval = 1;
             on-click = "";
@@ -297,18 +341,51 @@ in {
       ];
       style = ''
         * {
-          font-size: 14px;
+          font-size: 12px;
           font-family: Font Awesome, monospace;
           font-weight: bold;
           color: @text;
+          transition: none;
         }
-        window#waybar {
+
+        window#waybar { background: rgba(0,0,0,0); border: none; }
+
+        #workspaces button {
+          border-radius: 0px;
+          margin: 0px;
+          background: none;
+          border: none;
+        }
+
+        #workspaces button:hover {
+          border: none;
+          outline: none;
+          background: none;
+          color: @text;
+          background-size: 300% 300%;
+          background: @surface0;
+        }
+
+        #workspaces button.active {
+          background: @surface1;
+        }
+
+        .modules-left, .modules-right {
           background-color: @base;
           border: 2px solid @surface1;
           border-radius: 15px;
         }
-        #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery {
-          margin: 0 15px;
+        #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon {
+          margin: 0 10px;
+        }
+        .critical, .muted, .performance {
+          color: @red;
+        }
+        .warning {
+          color: @yellow;
+        }
+        .charging, .plugged, .power-saver {
+          color: @green;
         }
       '';
     };
@@ -336,9 +413,26 @@ in {
     swww.enable = true;
   };
 
+  dconf = {
+    enable = true;
+    settings."org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "Adwaita-dark";
+    };
+  };
+
+  gtk = {
+    enable = true;
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+  };
+
   home = {
     packages = with pkgs; [
-      playerctl brightnessctl hyprlock waybar dunst kitty tailscale-systray swww rofi-wayland
+      playerctl brightnessctl hyprlock waybar dunst kitty qt6ct wl-clipboard cliphist tailscale-systray swww rofi-wayland
     ];
     pointerCursor = {
       gtk.enable = true;

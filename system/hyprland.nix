@@ -10,6 +10,12 @@
     xwayland.enable = true;
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
+
   fonts.packages = with pkgs; [
     font-awesome
   ];
