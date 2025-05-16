@@ -223,7 +223,6 @@ in {
             "hyprland/workspaces"
             "hyprland/window"
           ];
-          modules-center = [];
           modules-right = [
             "tray"
             "temperature"
