@@ -289,21 +289,33 @@ in {
               active = " ";
               urgent = " ";
             };
-            on-scroll-up = "hyprctl dispatch workspace e+1";
-            on-scroll-down = "hyprctl dispatch workspace e-1";
+            on-scroll-down = "hyprctl dispatch workspace e+1";
+            on-scroll-up = "hyprctl dispatch workspace e-1";
           };
           "clock" = {
             format = "{:%b %d, %I:%M %p}";
           };
           "hyprland/window" = {
+            icon = true;
             max-length = 45;
             separate-outputs = false;
             rewrite = {
               "" = "${username}@${hostname}";
             };
+            on-click-right = "hyprctl dispatch fullscreen 1";
+            on-click = "hyprctl dispatch close";
           };
           "tray" = {
             spacing = 12;
+          };
+          "taskbar" = {
+            icon-size = 10;
+            icon-theme = "Papirus-Dark";
+            on-click = "activate";
+            on-click-right = "fullscreen";
+            on-click-middle = "close";
+            on-scroll-up = "maximize";
+            on-scroll-down = "minimize";
           };
           "pulseaudio" = {
             format = "{icon} {volume}% {format_source}";
@@ -374,7 +386,7 @@ in {
           border: none;
         }
 
-        #workspaces button:hover, #custom-start:hover {
+        #workspaces button:hover, #custom-start:hover, #custom-exit:hover {
           border: none;
           outline: none;
           background: none;
@@ -390,6 +402,7 @@ in {
         #custom-start {
           padding: 0px 5px;
           color: @sky;
+          font-size: 16px;
         }
 
         .modules-left, .modules-right {
