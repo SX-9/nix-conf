@@ -34,7 +34,6 @@ in {
         # "nm-applet &"
         "tailscale-systray &"
         "waybar &"
-        "swww-daemon &"
 	      "rofi -show drun"
       ];
 
@@ -150,15 +149,19 @@ in {
         ", PRINT, exec, hyprshot -m region"
         "SUPER SHIFT, S, exec, hyprshot -m region"
         "SUPER, R, exec, rofi -show drun"
+        "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
+        "SUPER, N, exec, rofi-network-manager"
+        "SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+
         "SUPER, T, exec, kitty"
         "SUPER, E, exec, nautilus"
         "SUPER, L, exec, hyprlock"
+        "SUPER, C, exec, gnome-system-monitor"
+
         "SUPER, Q, killactive,"
         "SUPER, W, fullscreen, 1"
-        "SUPER, M, exit,"
         "SUPER, F, togglefloating,"
         "SUPER, G, togglesplit,"
-        "SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         "ALT, TAB, cyclenext,"
         "ALT, TAB, bringactivetotop,"
@@ -231,6 +234,7 @@ in {
             "battery"
             "power-profiles-daemon"
             "clock"
+            "custom/exit"
           ];
           "cpu" = {
             states = {
@@ -257,8 +261,9 @@ in {
             format-ethernet = " {bandwidthDownOctets}";
             format-wifi = " {signalStrength}%";
             format-disconnected = "";
+            format-disabled = "";
             tooltip = false;
-            on-click = "kitty nmtui";
+            on-click = "rofi-network-manager";
           };
           "temperature" = {
             critical-threshold = 80;
@@ -337,12 +342,16 @@ in {
             interval = 1;
             on-click = "";
           };
+          "custom/exit" = {
+            format = "";
+            on-click = "rofi -show power-menu -modi power-menu:rofi-power-menu";
+          };
         }
       ];
       style = ''
         * {
           font-size: 12px;
-          font-family: Font Awesome, monospace;
+          font-family: Font Awesome, Fira Code, monospace;
           font-weight: bold;
           color: @text;
           transition: none;
@@ -373,9 +382,9 @@ in {
         .modules-left, .modules-right {
           background-color: @base;
           border: 2px solid @surface1;
-          border-radius: 15px;
+          border-radius: 10px;
         }
-        #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon {
+        #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit {
           margin: 0 10px;
         }
         .critical, .muted, .performance {
@@ -409,8 +418,37 @@ in {
   };
 
   services = {
-    dunst.enable = true;
     swww.enable = true;
+    hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+          ignore_dbus_inhibit = false;
+          lock_cmd = "hyprlock";
+          unlock_cmd = "pkill hyprlock";
+        };
+        listener = [
+          {
+            timeout = 120;
+            on-timeout = "hyprlock";
+          }
+          {
+            timeout = 300;
+            on-timeout = "systemctl suspend";
+          }
+        ];
+      };
+    };
+    dunst = {
+      enable = true;
+      settings.global = {
+        width = 300;
+        offset = "10x10";
+        corner_radius = 10;
+        frame_width = 2;
+      };
+    };
   };
 
   dconf = {
@@ -432,7 +470,7 @@ in {
 
   home = {
     packages = with pkgs; [
-      playerctl brightnessctl hyprlock waybar dunst kitty qt6ct wl-clipboard cliphist tailscale-systray swww rofi-wayland
+      playerctl brightnessctl hyprlock waybar dunst kitty qt6ct wl-clipboard cliphist tailscale-systray swww rofi-wayland rofi-network-manager rofi-power-menu
     ];
     pointerCursor = {
       gtk.enable = true;
