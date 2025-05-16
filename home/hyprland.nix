@@ -81,7 +81,7 @@ in {
 
         shadow = {
             enabled = true;
-            range = 4;
+            range = 8;
             render_power = 3;
             color = "rgba(1a1a1aee)";
         };
@@ -301,6 +301,7 @@ in {
             separate-outputs = false;
             rewrite = {
               "" = "${username}@${hostname}";
+              "~" = "${username}@${hostname}";
             };
             on-click-right = "hyprctl dispatch fullscreen 1";
             on-click-middle = "hyprctl dispatch killactive";
