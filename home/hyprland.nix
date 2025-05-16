@@ -146,8 +146,8 @@ in {
       };
 
       bind = [
-        ", PRINT, exec, hyprshot -m region"
-        "SUPER SHIFT, S, exec, hyprshot -m region"
+        ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
+        "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "SUPER, R, exec, rofi -show drun"
         "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
         "SUPER, N, exec, rofi-network-manager"
