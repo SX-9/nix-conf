@@ -1,4 +1,4 @@
-![image](ss.png)
+![image](hyprland-ss.png)
 
 > [!WARNING]
 > While the system when built and configured uses less than 4GB of memory, **building it for the first time requires 12GB of memory** so its recomended you create a swapfile or add more memory first if you dont have sufficient memory. Otherwise the system will crash while building from out of memory.
