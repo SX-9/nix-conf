@@ -219,6 +219,7 @@ in {
           position = "top";
 
           modules-left = [
+            "custom/start"
             "hyprland/workspaces"
             "hyprland/window"
           ];
@@ -242,6 +243,7 @@ in {
             };
             interval = 1;
             format = " {usage:2}%";
+            on-click = "gnome-system-monitor";
           };
           "memory" = {
             states = {
@@ -249,6 +251,7 @@ in {
             };
             interval = 1;
             format = " {percentage}%";
+            on-click = "gnome-system-monitor";
           };
           "disk" = {
             states = {
@@ -256,6 +259,7 @@ in {
             };
             interval = 5;
             format = " {percentage_used}%";
+            on-click = "gnome-system-monitor";
           };
           "network" = {
             format-ethernet = " {bandwidthDownOctets}";
@@ -269,6 +273,7 @@ in {
             critical-threshold = 80;
             format = " {temperatureC}°C";
             interval = 1;
+            on-click = "gnome-system-monitor";
           };
           "power-profiles-daemon" = {
             format = "{icon} {profile}";
@@ -346,6 +351,10 @@ in {
             format = "";
             on-click = "rofi -show power-menu -modi power-menu:rofi-power-menu";
           };
+          "custom/start" = {
+            format = "";
+            on-click = "rofi -show drun";
+          };
         }
       ];
       style = ''
@@ -366,7 +375,7 @@ in {
           border: none;
         }
 
-        #workspaces button:hover {
+        #workspaces button:hover, #custom-start:hover {
           border: none;
           outline: none;
           background: none;
@@ -379,18 +388,24 @@ in {
           background: @surface1;
         }
 
+        #custom-start {
+          padding: 0px 5px;
+          color: @sky;
+        }
+
         .modules-left, .modules-right {
           background-color: @base;
           border: 2px solid @surface1;
           border-radius: 10px;
+          padding: 0 5px;
         }
-        #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit {
-          margin: 0 10px;
+        #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start {
+          margin: 0 5px;
         }
         .critical, .muted, .performance {
           color: @red;
         }
-        .warning {
+        .warning, .urgent {
           color: @yellow;
         }
         .charging, .plugged, .power-saver {
@@ -419,6 +434,8 @@ in {
 
   services = {
     swww.enable = true;
+    hyprpolkitagent.enable = true;
+    # polkit-gnome.enable = true;
     hypridle = {
       enable = true;
       settings = {
@@ -470,7 +487,7 @@ in {
 
   home = {
     packages = with pkgs; [
-      playerctl brightnessctl hyprlock waybar dunst kitty qt6ct wl-clipboard cliphist tailscale-systray swww rofi-wayland rofi-network-manager rofi-power-menu
+      playerctl brightnessctl hyprlock waybar dunst kitty rofi-screenshot qt6ct wl-clipboard cliphist tailscale-systray swww rofi-wayland rofi-network-manager rofi-power-menu
     ];
     pointerCursor = {
       gtk.enable = true;
