@@ -303,7 +303,8 @@ in {
               "" = "${username}@${hostname}";
             };
             on-click-right = "hyprctl dispatch fullscreen 1";
-            on-click = "hyprctl dispatch close";
+            on-click-middle = "hyprctl dispatch close";
+            on-click = "hyprctl dispatch bringactivetotop";
           };
           "tray" = {
             spacing = 12;
