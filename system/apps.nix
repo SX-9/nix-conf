@@ -22,7 +22,6 @@
     pavucontrol
     jq
     cava
-    ventoy-full
     parsec-bin
     powertop
     smartmontools
