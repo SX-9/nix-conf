@@ -463,6 +463,11 @@ in {
     swww.enable = true;
     hyprpolkitagent.enable = true;
     # polkit-gnome.enable = true;
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+      package = pkgs.plasma5Packages.kdeconnect-kde;
+    };
     hypridle = {
       enable = true;
       settings = {
@@ -470,7 +475,7 @@ in {
           after_sleep_cmd = "hyprctl dispatch dpms on";
           ignore_dbus_inhibit = false;
           lock_cmd = "hyprlock";
-          unlock_cmd = "pkill hyprlock";
+          unlock_cmd = "pkill -USR1 hyprlock";
         };
         listener = [
           {
