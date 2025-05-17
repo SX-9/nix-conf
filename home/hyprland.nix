@@ -20,6 +20,7 @@ in {
     xwayland.enable = true;
     plugins = with inputs.hlp.packages."${pkgs.system}"; [
       # hyprbars
+      hyprexpo
     ];
     settings = {
       monitor = ",preferred,auto,auto";
@@ -74,6 +75,17 @@ in {
         #     "rgb(f9e2af), 10, W, hyprctl dispatch fullscreen 1"
         #   ];
         # };
+        hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+          bg_col = "rgb(111111)";
+          workspace_method = "center current";
+
+          enable_gesture = true;
+          gesture_fingers = 3;
+          gesture_distance = 300;
+          gesture_positive = false;
+        };
       };
 
       decoration = {
@@ -169,6 +181,8 @@ in {
 
         "SUPER, down, togglespecialworkspace, magic"
         "SUPER SHIFT, down, movetoworkspace, special:magic"
+
+        "SUPER, SPACE, hyprexpo:expo, toggle"
       ];
 
       binde = [
