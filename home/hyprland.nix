@@ -532,7 +532,7 @@ in {
       qt6ct tailscale-systray
       kitty bat btop ranger 
       hyprlock waybar dunst wl-clipboard swww cliphist
-      rofi-screenshot rofi-wayland rofi-network-manager rofi-power-menu
+      rofi-screenshot rofi-wayland rofi-network-manager rofi-power-menu w3m
     ];
     pointerCursor = {
       gtk.enable = true;
