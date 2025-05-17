@@ -462,7 +462,16 @@ in {
       enable = true;
       package = pkgs.rofi-wayland;
     };
-    ranger.enable = true;
+    ranger = {
+      enable = true;
+      aliases = {
+        "sh" = "shell zsh";
+        "code" = "shell code .";
+        "vim" = "shell vim";
+        "gedit" = "shell gnome-text-editor";
+        "img" = "shell eog .";
+      };
+    };
     btop.enable = true;
     vim.enable = true;
     bat.enable = true;
@@ -529,9 +538,9 @@ in {
   home = {
     packages = with pkgs; [
       playerctl brightnessctl
-      qt6ct tailscale-systray
+      qt6ct tailscale-systray networkmanagerapplet eog
       kitty bat btop ranger 
-      hyprlock waybar dunst wl-clipboard swww cliphist
+      hyprlock hyprshot waybar wl-clipboard dunst swww cliphist
       rofi-screenshot rofi-wayland rofi-network-manager rofi-power-menu w3m
     ];
     pointerCursor = {

@@ -30,7 +30,7 @@
   security.pam.services.gdm-password.enableGnomeKeyring = true;
 
   environment = {
-    systemPackages = with pkgs; if use-hyprland then [ libnotify networkmanagerapplet hyprshot plasma5Packages.kdeconnect-kde ] else [];
+    systemPackages = with pkgs; if use-hyprland then [ libnotify plasma5Packages.kdeconnect-kde ] else [];
     sessionVariables = if use-hyprland then {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
