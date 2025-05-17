@@ -76,10 +76,10 @@ in {
         #   ];
         # };
         hyprexpo = {
-          columns = 3;
+          columns = 2;
           gap_size = 5;
-          bg_col = "rgb(111111)";
-          workspace_method = "center current";
+          bg_col = "rgb(11111b)";
+          workspace_method = "first current";
 
           enable_gesture = true;
           gesture_fingers = 3;
@@ -447,7 +447,12 @@ in {
         }
       '';
     };
-    kitty.enable = true;
+    kitty = {
+      enable = true;
+      settings = {
+        background_opacity = 0.9;
+      };
+    };
     hyprlock = {
       settings = {
         background = [
