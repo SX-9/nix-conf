@@ -132,6 +132,11 @@
 
   security.rtkit.enable = true;
 
+  fonts.packages = with pkgs; [
+    corefonts
+    vistafonts
+  ];
+
   programs = {
     zsh.enable = true;
     nix-ld.enable = true;

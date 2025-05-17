@@ -45,8 +45,9 @@
   };
 
   environment = {
-    systemPackages = with pkgs; if use-hyprland then [ libsecret libnotify plasma5Packages.kdeconnect-kde ] else [];
+    systemPackages = with pkgs; if use-hyprland then [ libsecret libnotify kdePackages.kdeconnect-kde ] else [];
     sessionVariables = if use-hyprland then {
+      XDG_RUNTIME_DIR = "/run/user/$UID"; # https://discourse.nixos.org/t/login-keyring-did-not-get-unlocked-hyprland/40869/10
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
     } else {};
