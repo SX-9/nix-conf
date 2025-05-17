@@ -22,7 +22,6 @@
     pavucontrol
     jq
     cava
-    parsec-bin
     powertop
     smartmontools
     woeusb
