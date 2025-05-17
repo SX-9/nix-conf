@@ -27,6 +27,8 @@
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 
+  security.pam.services.gdm-password.enableGnomeKeyring = true;
+
   environment = {
     systemPackages = with pkgs; [ libnotify networkmanagerapplet hyprshot ];
     sessionVariables = if use-hyprland then {

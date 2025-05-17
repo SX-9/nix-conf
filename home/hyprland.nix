@@ -42,6 +42,9 @@ in {
         "XCURSOR_THEME,catppuccin-mocha-light-cursors"
         "HYPRCURSOR_SIZE,24"
         "HYPRCURSOR_THEME,catppuccin-mocha-light-cursors"
+
+        "CLIPHIST_MAX_ITEMS,100"
+
         "GTK_APPLICATION_PREFER_DARK_THEME,1"
         "GTK_THEME,Adwaita:dark"
         "QT_QPA_PLATFORMTHEME,qt6ct"
@@ -80,22 +83,23 @@ in {
         inactive_opacity = 0.9;
 
         shadow = {
-            enabled = true;
-            range = 8;
-            render_power = 3;
-            color = "rgba(1a1a1aee)";
+          enabled = true;
+          range = 8;
+          render_power = 3;
+          color = "rgba(1a1a1a99)";
         };
 
         blur = {
-            enabled = true;
-            size = 3;
-            passes = 1;
-            vibrancy = 0.1696;
+          enabled = true;
+          size = 3;
+          passes = 1;
+          vibrancy = 0.1696;
         };
       };
 
       animations = {
         enabled = true;
+        first_launch_animation = true;
 
         bezier = [
           "easeOutQuint,0.23,1,0.32,1"
@@ -151,7 +155,7 @@ in {
         "SUPER, R, exec, rofi -show drun"
         "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
         "SUPER, N, exec, rofi-network-manager"
-        "SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "SUPER, V, exec, rofi -modi clipboard:cliphist-rofi-img -show clipboard -show-icons"
 
         "SUPER, T, exec, kitty"
         "SUPER, E, exec, nautilus"
