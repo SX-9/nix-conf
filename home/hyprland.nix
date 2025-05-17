@@ -9,6 +9,8 @@ in {
     rofi = ctp;
     kitty = ctp;
     dunst = ctp;
+    btop = ctp;
+    bat = ctp;
     hyprland = {
       accent = "sapphire";
     } // ctp;
@@ -158,12 +160,14 @@ in {
         "SUPER, V, exec, rofi -modi clipboard:cliphist-rofi-img -show clipboard -show-icons"
 
         "SUPER, T, exec, kitty"
-        "SUPER, E, exec, nautilus"
+        "SUPER, Y, exec, kitty vim"
+        "SUPER, E, exec, kitty ranger ~"
+        "SUPER, C, exec, kitty btop"
         "SUPER, L, exec, hyprlock"
-        "SUPER, C, exec, gnome-system-monitor"
 
         "SUPER, Q, killactive,"
         "SUPER, W, fullscreen, 1"
+        "SUPER, S, fullscreen, 0"
         "SUPER, F, togglefloating,"
         "SUPER, G, togglesplit,"
 
@@ -250,7 +254,7 @@ in {
             };
             interval = 1;
             format = " {usage:2}%";
-            on-click = "gnome-system-monitor";
+            on-click = "kitty btop";
           };
           "memory" = {
             states = {
@@ -258,7 +262,7 @@ in {
             };
             interval = 1;
             format = " {percentage}%";
-            on-click = "gnome-system-monitor";
+            on-click = "kitty btop";
           };
           "disk" = {
             states = {
@@ -266,7 +270,7 @@ in {
             };
             interval = 5;
             format = " {percentage_used}%";
-            on-click = "gnome-system-monitor";
+            on-click = "kitty btop";
           };
           "network" = {
             format-ethernet = " {bandwidthDownOctets}";
@@ -280,7 +284,7 @@ in {
             critical-threshold = 80;
             format = " {temperatureC}°C";
             interval = 1;
-            on-click = "gnome-system-monitor";
+            on-click = "kitty btop";
           };
           "power-profiles-daemon" = {
             format = "{icon} {profile}";
@@ -450,6 +454,7 @@ in {
             blur_size = 8;
           }
         ];
+
       };
       enable = true;
     };
@@ -457,6 +462,10 @@ in {
       enable = true;
       package = pkgs.rofi-wayland;
     };
+    ranger.enable = true;
+    btop.enable = true;
+    vim.enable = true;
+    bat.enable = true;
   };
 
   services = {
@@ -519,7 +528,11 @@ in {
 
   home = {
     packages = with pkgs; [
-      playerctl brightnessctl hyprlock waybar dunst kitty rofi-screenshot qt6ct wl-clipboard cliphist tailscale-systray swww rofi-wayland rofi-network-manager rofi-power-menu
+      playerctl brightnessctl
+      qt6ct tailscale-systray
+      kitty bat btop ranger 
+      hyprlock waybar dunst wl-clipboard swww cliphist
+      rofi-screenshot rofi-wayland rofi-network-manager rofi-power-menu
     ];
     pointerCursor = {
       gtk.enable = true;

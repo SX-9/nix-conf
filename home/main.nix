@@ -6,6 +6,7 @@
   imports = if use-hyprland then [
     ./hyprland.nix
   ] else [];
+  
   home = {
     stateVersion = "24.11";
     username = "${username}";
