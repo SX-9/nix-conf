@@ -167,6 +167,11 @@ in {
         "SUPER, F, togglefloating,"
         "SUPER, G, togglesplit,"
 
+        "SUPER, down, togglespecialworkspace, magic"
+        "SUPER SHIFT, down, movetoworkspace, special:magic"
+      ];
+
+      binde = [
         "ALT, TAB, cyclenext,"
         "ALT, TAB, bringactivetotop,"
         "ALT SHIFT, TAB, cyclenext, prev"
@@ -175,9 +180,6 @@ in {
         "SUPER, TAB, bringactivetotop,"
         "SUPER SHIFT, TAB, cyclenext, prev"
         "SUPER SHIFT, TAB, bringactivetotop,"
-
-        "SUPER, down, togglespecialworkspace, magic"
-        "SUPER SHIFT, down, movetoworkspace, special:magic"
 
         "SUPER SHIFT, right, movetoworkspace, +1"
         "SUPER SHIFT, left, movetoworkspace, -1"
