@@ -15,7 +15,7 @@
   };
   imports = [
     ../hardware/scan.nix
-    ./hyprland.nix
+    ../rice/system.nix
     ./apps.nix
   ];
 

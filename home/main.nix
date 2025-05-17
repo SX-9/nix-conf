@@ -4,7 +4,7 @@
     enable = true;
   };
   imports = if use-hyprland then [
-    ./hyprland.nix
+    ../rice/home.nix
   ] else [];
   
   home = {
