@@ -171,10 +171,10 @@ in {
 
         "SUPER, F, togglefloating,"
         "SUPER, G, togglesplit,"
-        "SUPER ALT, up, swapwindow, u"
-        "SUPER ALT, down, swapwindow, d"
-        "SUPER ALT, left, swapwindow, l"
-        "SUPER ALT, right, swapwindow, r"
+        "SUPER CTRL, up, swapwindow, u"
+        "SUPER CTRL, down, swapwindow, d"
+        "SUPER CTRL, left, swapwindow, l"
+        "SUPER CTRL, right, swapwindow, r"
         
 
         "SUPER, down, togglespecialworkspace, magic"
