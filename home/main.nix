@@ -48,7 +48,7 @@
         "mkdistro-deb" = "mkdistro debian -n deb";
         "git-author-setup" = "git config --global user.name $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user | jq -r .login) && git config --global user.email $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user/emails | jq -r \".[1].email\")";
       };
-      initExtra = ''
+      initContent = ''
         if [[ $TERM_PROGRAM != 'vscode' ]]; then
           echo && ~/.fetch.sh color 2> /dev/null
         fi
