@@ -161,7 +161,7 @@ in {
 
         "SUPER, T, exec, kitty"
         "SUPER, Y, exec, kitty vim"
-        "SUPER, E, exec, kitty ranger ~"
+        "SUPER, E, exec, thunar ~" # kitty ranger ~"
         "SUPER, C, exec, kitty btop"
         "SUPER, L, exec, hyprlock"
 

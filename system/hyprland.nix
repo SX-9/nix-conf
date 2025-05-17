@@ -4,10 +4,20 @@
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
-  programs.hyprland = {
-    enable = use-hyprland;
-    package = inputs.hl.packages."${pkgs.system}".hyprland;
-    xwayland.enable = true;
+  programs = {
+    xfconf.enable = true;
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+    hyprland = {
+      enable = use-hyprland;
+      package = inputs.hl.packages."${pkgs.system}".hyprland;
+      xwayland.enable = true;
+    };
   };
 
   qt = {
@@ -28,9 +38,14 @@
   };
 
   security.pam.services.gdm-password.enableGnomeKeyring = true;
+  services = {
+    gvfs.enable = true;
+    tumbler.enable = true;
+    gnome.gnome-keyring.enable  = true;
+  };
 
   environment = {
-    systemPackages = with pkgs; if use-hyprland then [ libnotify plasma5Packages.kdeconnect-kde ] else [];
+    systemPackages = with pkgs; if use-hyprland then [ libsecret libnotify plasma5Packages.kdeconnect-kde ] else [];
     sessionVariables = if use-hyprland then {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
