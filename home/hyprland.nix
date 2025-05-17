@@ -478,7 +478,10 @@ in {
         "img" = "shell eog .";
       };
     };
-    btop.enable = true;
+    btop = {
+      enable = true;
+      settings.update_ms = 100;
+    };
     vim.enable = true;
     bat.enable = true;
   };

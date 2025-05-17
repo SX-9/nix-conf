@@ -41,6 +41,7 @@
         "hm-sw" = "home-manager switch --flake";
         "nix-sw" = "sudo nixos-rebuild switch --flake";
         "nix-hw-conf" = "nixos-generate-config --show-hardware-config";
+        "build-nixos-flake" = "nix-hw-conf > hardware/scan.nix; git add . -f; nix-sw .#thinkpad; hm-sw .#laptop";
         "mcl" = "portablemc start fabric:1.21.4 -u";
         "mkdistro" = "distrobox create -Y -i";
         "mkdistro-arch" = "mkdistro archlinux -n arch";
