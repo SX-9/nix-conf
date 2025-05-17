@@ -168,8 +168,14 @@ in {
         "SUPER, Q, killactive,"
         "SUPER, W, fullscreen, 1"
         "SUPER, S, fullscreen, 0"
+
         "SUPER, F, togglefloating,"
         "SUPER, G, togglesplit,"
+        "SUPER ALT, up, swapwindow, u"
+        "SUPER ALT, down, swapwindow, d"
+        "SUPER ALT, left, swapwindow, l"
+        "SUPER ALT, right, swapwindow, r"
+        
 
         "SUPER, down, togglespecialworkspace, magic"
         "SUPER SHIFT, down, movetoworkspace, special:magic"
