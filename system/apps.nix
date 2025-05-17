@@ -9,8 +9,8 @@
     gnomeExtensions.clipboard-history
     gnomeExtensions.freon
     gnome-tweaks
-    papirus-icon-theme
     gnome-network-displays
+    papirus-icon-theme
     
     libsForQt5.breeze-grub
     smartmontools

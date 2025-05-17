@@ -1,4 +1,4 @@
-{ lib, pkgs, hostname, legacy-boot, ... }: {
+{ lib, pkgs, hostname, legacy-boot, use-hyprland, ... }: {
   system.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -138,7 +138,7 @@
     steam.enable = true;
     kdeconnect = {
       enable = true;
-      package = lib.mkForce pkgs.gnomeExtensions.gsconnect;
+      package = if use-hyprland then pkgs.plasma5Packages.kdeconnect-kde else lib.mkForce pkgs.gnomeExtensions.gsconnect;
     };
   };
 }

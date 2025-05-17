@@ -17,8 +17,8 @@
   };
 
   fonts.packages = with pkgs; [
+    nerd-fonts.droid-sans-mono
     font-awesome
-    nerdfonts
     fira-code
   ];
 
@@ -30,7 +30,7 @@
   security.pam.services.gdm-password.enableGnomeKeyring = true;
 
   environment = {
-    systemPackages = with pkgs; [ libnotify networkmanagerapplet hyprshot ];
+    systemPackages = with pkgs; if use-hyprland then [ libnotify networkmanagerapplet hyprshot plasma5Packages.kdeconnect-kde ] else [];
     sessionVariables = if use-hyprland then {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";

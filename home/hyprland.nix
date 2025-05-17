@@ -19,7 +19,6 @@ in {
     package = inputs.hl.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
     plugins = with inputs.hlp.packages."${pkgs.system}"; [
-      # hyprbars
       hyprexpo
     ];
     settings = {
@@ -64,17 +63,6 @@ in {
       };
 
       plugin = {
-        # hyprbars = {
-        #   bar_height = 20;
-        #   bar_part_of_window = true;
-        #   bar_precedence_over_border = true;
-        #   bar_text_align = "left";
-        #   bar_color = "rgb(313244)";
-        #   hyprbars-button = [
-        #     "rgb(f38ba8), 10, Q, hyprctl dispatch killactive"
-        #     "rgb(f9e2af), 10, W, hyprctl dispatch fullscreen 1"
-        #   ];
-        # };
         hyprexpo = {
           columns = 2;
           gap_size = 5;
