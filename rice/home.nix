@@ -1,19 +1,6 @@
-{ pkgs, ... }: let 
-  ctp = {
-    flavor = "mocha";
-    enable = true;
-  };
-in {
+{ pkgs, ... }: {
   catppuccin = {
-    waybar = ctp;
-    rofi = ctp;
-    kitty = ctp;
-    dunst = ctp;
-    btop = ctp;
-    bat = ctp;
-    hyprland = {
-      accent = "sapphire";
-    } // ctp;
+    hyprland.accent = "sapphire";
   };
 
   imports = [
