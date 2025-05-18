@@ -192,7 +192,7 @@
         background: @surface0;
       }
 
-      #workspaces button.active {
+      #workspaces button.active, #submap {
         background: @surface1;
       }
 
@@ -202,7 +202,7 @@
         font-size: 16px;
       }
 
-      #window {
+      #window, #submap {
         padding: 0px 5px;
       }
 
