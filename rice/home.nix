@@ -70,7 +70,6 @@ in {
     kdeconnect = {
       enable = true;
       indicator = true;
-      package = pkgs.plasma5Packages.kdeconnect-kde;
     };
     hypridle = {
       enable = true;
