@@ -118,13 +118,14 @@
           format-source = "";
           format-source-muted = "";
           format-icons = {
-            headphone = "";
+            headphone = "";
             hands-free = "";
             headset = "";
             phone = "";
             portable = "";
             car = "";
             default = [
+              ""
               ""
               ""
               ""
@@ -164,7 +165,7 @@
     style = ''
       * {
         font-size: 12px;
-        font-family: Font Awesome, Fira Code, monospace;
+        font-family: Font Awesome, monospace;
         font-weight: bold;
         color: @text;
         transition: none;
