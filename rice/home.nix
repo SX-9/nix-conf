@@ -1,9 +1,14 @@
 { pkgs, ... }: {
   catppuccin = {
-    hyprland.accent = "sapphire";
+    hyprland.accent = "sky";
+    hyprlock = {
+      accent = "sapphire";
+      useDefaultConfig = false;
+    };
   };
 
   imports = [
+    ./hyprlock.nix
     ./hyprland.nix
     ./waybar.nix
   ];
@@ -14,19 +19,6 @@
       settings = {
         background_opacity = 0.9;
       };
-    };
-    hyprlock = {
-      settings = {
-        background = [
-          {
-            path = "screenshot";
-            blur_passes = 3;
-            blur_size = 8;
-          }
-        ];
-
-      };
-      enable = true;
     };
     rofi = {
       enable = true;

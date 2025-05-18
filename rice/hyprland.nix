@@ -43,15 +43,15 @@
         allow_tearing = false;
         layout = "dwindle";
 
-        "col.active_border" = "rgb(94e2d5)";
-        "col.inactive_border" = "rgb(bac2de)";
+        "col.active_border" = "$accent";
+        "col.inactive_border" = "$overlay2";
       };
 
       plugin = {
         hyprexpo = {
           columns = 2;
           gap_size = 5;
-          bg_col = "rgb(11111b)";
+          bg_col = "$crust";
           workspace_method = "first current";
 
           enable_gesture = true;
@@ -71,7 +71,7 @@
           enabled = true;
           range = 8;
           render_power = 3;
-          color = "rgba(1a1a1a99)";
+          color = "$crust";
         };
 
         blur = {
@@ -146,7 +146,7 @@
         "SUPER, Y, exec, kitty vim"
         "SUPER, E, exec, thunar ~" # kitty ranger ~"
         "SUPER, C, exec, kitty btop"
-        "SUPER, L, exec, hyprlock"
+        "SUPER, L, exec, loginctl lock-session"
 
         "SUPER, Q, killactive,"
         "SUPER, W, fullscreen, 1"
@@ -159,7 +159,6 @@
         "SUPER CTRL, left, swapwindow, l"
         "SUPER CTRL, right, swapwindow, r"
         
-
         "SUPER, down, togglespecialworkspace, magic"
         "SUPER SHIFT, down, movetoworkspace, special:magic"
 
