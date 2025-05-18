@@ -94,9 +94,9 @@
             "" = "${username}@${hostname}";
             "~" = "${username}@${hostname}";
           };
-          on-click-right = "hyprctl dispatch fullscreen 1";
+          on-click-right = "hyprctl dispatch fullscreen 0";
           on-click-middle = "hyprctl dispatch killactive";
-          on-click = "hyprctl dispatch bringactivetotop";
+          on-click = "hyprctl dispatch fullscreen 1";
         };
         "tray" = {
           spacing = 12;

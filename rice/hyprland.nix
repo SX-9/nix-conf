@@ -19,7 +19,7 @@
         # "nm-applet &"
         "tailscale-systray &"
         "waybar &"
-	      "rofi -show drun"
+	      "sleep 0.5 && rofi -show drun"
       ];
 
       env = [
@@ -185,6 +185,10 @@
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
         ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+      ];
+
+      layerrule = [
+        "noanim,selection"
       ];
 
       windowrule = [
