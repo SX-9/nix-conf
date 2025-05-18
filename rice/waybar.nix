@@ -25,7 +25,6 @@
           "battery"
           "power-profiles-daemon"
           "clock"
-          "custom/exit"
         ];
         "cpu" = {
           states = {
@@ -151,12 +150,9 @@
           interval = 1;
           on-click = "";
         };
-        "custom/exit" = {
-          format = "";
-          on-click = "rofi -show power-menu -modi power-menu:rofi-power-menu";
-        };
         "custom/start" = {
           format = "";
+          on-click-right = "rofi -show power-menu -modi power-menu:rofi-power-menu";
           on-click = "rofi -show drun";
         };
       }
