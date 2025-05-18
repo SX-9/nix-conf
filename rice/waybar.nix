@@ -166,8 +166,7 @@
         transition: none;
       }
 
-      window#waybar { background: rgba(0,0,0,0); border: none; }
-
+      
       #workspaces button {
         border-radius: 0px;
         margin: 0px;
@@ -175,7 +174,7 @@
         border: none;
       }
 
-      #workspaces button:hover, #custom-start:hover, #custom-exit:hover {
+      #workspaces button:hover, #custom-start:hover, #window:hover {
         border: none;
         outline: none;
         background: none;
@@ -192,6 +191,10 @@
         padding: 0px 5px;
         color: @sky;
         font-size: 16px;
+      }
+
+      #window {
+        padding: 0px 5px;
       }
 
       .modules-left, .modules-right {
