@@ -191,9 +191,9 @@
 
         "SUPER, SPACE, hyprexpo:expo, toggle"
 
-        "SUPER, P, submap, resize"
-        "SUPER, O, submap, swap"
-        "SUPER, I, submap, focus"
+        "SUPER, P, submap, focus"
+        "SUPER, O, submap, resize"
+        "SUPER, I, submap, swap"
       ];
     };
     extraConfig = ''
