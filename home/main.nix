@@ -35,18 +35,24 @@
         "sys-log" = "journalctl -f -b -u";
         "user" = "systemctl --user";
         "user-log" = "journalctl -f -b --user-unit";
+        
         "tsip" = "tailscale ip -4";
         "rmall" = "rm -rf ./* ./.*"; # scary!
         "fetch-update" = "rm -f ~/.fetch.sh && wget https://raw.githubusercontent.com/SX-9/fetch.sh/master/fetch.sh -O ~/.fetch.sh && chmod +x ~/.fetch.sh";
+        
         "hm-sw" = "home-manager switch --flake";
         "nix-sw" = "sudo nixos-rebuild switch --flake";
         "nix-hw-conf" = "nixos-generate-config --show-hardware-config";
-        "build-nixos-flake" = "nix-hw-conf > hardware/scan.nix; git add . -f; nix-sw .#thinkpad; hm-sw .#laptop";
-        "mcl" = "portablemc start fabric:1.21.4 -u";
+        "build-system-flake" = "nix-hw-conf > hardware/scan.nix; git add . -f; nix-sw .#thinkpad; hm-sw .#laptop -b bak";
+        "build-nixos-flake" = "nix-hw-conf > hardware/scan.nix; git add . -f; nix-sw .#thinkpad";
+        "build-home-flake" = "git add .; hm-sw .#laptop -b bak";
+
         "mkdistro" = "distrobox create -Y -i";
         "mkdistro-arch" = "mkdistro archlinux -n arch";
         "mkdistro-deb" = "mkdistro debian -n deb";
+
         "git-author-setup" = "git config --global user.name $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user | jq -r .login) && git config --global user.email $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user/emails | jq -r \".[1].email\")";
+        "mcl" = "portablemc start fabric:1.21.4 -u";
       };
       initContent = ''
         if [[ $TERM_PROGRAM != 'vscode' ]]; then
