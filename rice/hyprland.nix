@@ -187,7 +187,7 @@
       ];
 
       bindl = [
-        ", switch:on:Lid Switch, exec, hyprlock & systemctl suspend"
+        ", switch:on:Lid Switch, exec, loginctl lock-session & systemctl suspend"
       ];
 
       bindel = [
