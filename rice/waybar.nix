@@ -12,7 +12,6 @@
         modules-left = [
           "custom/start"
           "hyprland/workspaces"
-          "hyprland/submap"
           "hyprland/window"
         ];
         modules-right = [
@@ -25,6 +24,7 @@
           "pulseaudio"
           "battery"
           "power-profiles-daemon"
+          "hyprland/submap"
           "clock"
         ];
         "cpu" = {
