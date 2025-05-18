@@ -132,10 +132,11 @@
 
   security.rtkit.enable = true;
 
-  fonts.packages = with pkgs; [
-    corefonts
-    vistafonts
-  ];
+  # fonts.packages = with pkgs; [
+  #   corefonts
+  #   vistafonts
+  # ];
+  # ^^^ included in libre office
 
   programs = {
     zsh.enable = true;
