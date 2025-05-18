@@ -16,8 +16,9 @@
     };
     hyprland = {
       enable = use-hyprland;
-      package = inputs.hl.packages."${pkgs.system}".hyprland;
       xwayland.enable = true;
+      package = inputs.hl.packages."${pkgs.system}".hyprland;
+      portalPackage = inputs.hl.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
   };
 
@@ -30,12 +31,14 @@
   fonts.packages = with pkgs; [
     font-awesome
     nerd-fonts.droid-sans-mono
-    fira-code
   ];
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    extraPortals = [
+      inputs.hl.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
   security.pam.services.gdm-password.enableGnomeKeyring = true;
