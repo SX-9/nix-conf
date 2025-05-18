@@ -1,4 +1,4 @@
-{ pkgs, inputs, use-hyprland, ... }: {
+{ lib, pkgs, inputs, use-hyprland, ... }: {
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
@@ -6,6 +6,7 @@
 
   programs = {
     xfconf.enable = true;
+    kdeconnect.enable = lib.mkForce false; # enabled in home-manager
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
