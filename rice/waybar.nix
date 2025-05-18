@@ -212,7 +212,7 @@
         border-radius: 10px;
         padding: 0 5px;
       }
-      #submap #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start {
+      #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start {
         margin: 0 5px;
       }
       .critical, .muted, .performance {
