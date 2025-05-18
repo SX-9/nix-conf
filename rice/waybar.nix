@@ -12,6 +12,7 @@
         modules-left = [
           "custom/start"
           "hyprland/workspaces"
+          "hyprland/submap"
           "hyprland/window"
         ];
         modules-right = [
@@ -82,9 +83,6 @@
           on-scroll-down = "hyprctl dispatch workspace e+1";
           on-scroll-up = "hyprctl dispatch workspace e-1";
         };
-        "clock" = {
-          format = "{:%b %d, %I:%M %p}";
-        };
         "hyprland/window" = {
           icon = true;
           max-length = 45;
@@ -96,6 +94,13 @@
           on-click-right = "hyprctl dispatch fullscreen 0";
           on-click-middle = "hyprctl dispatch killactive";
           on-click = "hyprctl dispatch fullscreen 1";
+        };
+        "hyprland/submap" = {
+          format = " {}";
+          on-click = "hyprctl dispatch submap reset";
+        };
+        "clock" = {
+          format = "{:%b %d, %I:%M %p}";
         };
         "tray" = {
           spacing = 12;
@@ -166,6 +171,10 @@
         transition: none;
       }
 
+      window#waybar {
+        background: rgba(0,0,0,0);
+        border: none;
+      }
       
       #workspaces button {
         border-radius: 0px;
@@ -203,7 +212,7 @@
         border-radius: 10px;
         padding: 0 5px;
       }
-      #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start {
+      #submap #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start {
         margin: 0 5px;
       }
       .critical, .muted, .performance {

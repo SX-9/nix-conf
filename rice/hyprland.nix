@@ -122,35 +122,14 @@
           touchpad.natural_scroll = true;
       };
 
-      bind = [
-        ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
-        "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
-        "SUPER, R, exec, rofi -show drun"
-        "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
-        "SUPER, N, exec, rofi-network-manager"
-        "SUPER, V, exec, rofi -modi clipboard:cliphist-rofi-img -show clipboard -show-icons"
+      layerrule = [
+        "noanim,selection"
+      ];
 
-        "SUPER, T, exec, kitty"
-        "SUPER, Y, exec, kitty vim"
-        "SUPER, E, exec, thunar ~" # kitty ranger ~"
-        "SUPER, C, exec, kitty btop"
-        "SUPER, L, exec, loginctl lock-session"
-
-        "SUPER, Q, killactive,"
-        "SUPER, W, fullscreen, 1"
-        "SUPER, S, fullscreen, 0"
-
-        "SUPER, F, togglefloating,"
-        "SUPER, G, togglesplit,"
-        "SUPER CTRL, up, swapwindow, u"
-        "SUPER CTRL, down, swapwindow, d"
-        "SUPER CTRL, left, swapwindow, l"
-        "SUPER CTRL, right, swapwindow, r"
-        
-        "SUPER, down, togglespecialworkspace, magic"
-        "SUPER SHIFT, down, movetoworkspace, special:magic"
-
-        "SUPER, SPACE, hyprexpo:expo, toggle"
+      windowrule = [
+        "suppressevent maximize, class:.*"
+        "suppressevent minimize, class:.*"
+        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
 
       binde = [
@@ -186,16 +165,60 @@
         ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
         ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
       ];
+      
+      bind = [
+        ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
+        "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
+        "SUPER, R, exec, rofi -show drun"
+        "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
+        "SUPER, N, exec, rofi-network-manager"
+        "SUPER, V, exec, rofi -modi clipboard:cliphist-rofi-img -show clipboard -show-icons"
 
-      layerrule = [
-        "noanim,selection"
-      ];
+        "SUPER, T, exec, kitty"
+        "SUPER, Y, exec, kitty vim"
+        "SUPER, E, exec, thunar ~" # kitty ranger ~"
+        "SUPER, C, exec, kitty btop"
+        "SUPER, L, exec, loginctl lock-session"
 
-      windowrule = [
-        "suppressevent maximize, class:.*"
-        "suppressevent minimize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+        "SUPER, Q, killactive,"
+        "SUPER, W, fullscreen, 1"
+        "SUPER, S, fullscreen, 0"
+        "SUPER, F, togglefloating,"
+        "SUPER, G, togglesplit,"
+        
+        "SUPER, down, togglespecialworkspace, magic"
+        "SUPER SHIFT, down, movetoworkspace, special:magic"
+
+        "SUPER, SPACE, hyprexpo:expo, toggle"
+
+        "SUPER, P, submap, resize"
+        "SUPER, O, submap, swap"
+        "SUPER, I, submap, focus"
       ];
     };
+    extraConfig = ''
+      submap = resize
+      binde = , right, resizeactive, 10 0
+      binde = , left, resizeactive, -10 0
+      binde = , up, resizeactive, 0 -10
+      binde = , down, resizeactive, 0 10
+      bind = , ESCAPE, submap, reset
+
+      submap = swap
+      bind = , right, swapwindow, r
+      bind = , left, swapwindow, l
+      bind = , up, swapwindow, u
+      bind = , down, swapwindow, d
+      bind = , ESCAPE, submap, reset
+
+      submap = focus
+      bind = , right, movefocus, r
+      bind = , left, movefocus, l
+      bind = , up, movefocus, u
+      bind = , down, movefocus, d
+      bind = , ESCAPE, submap, reset
+
+      submap = reset
+    ''; # https://github.com/nix-community/home-manager/issues/6062
   };
 }
