@@ -19,7 +19,7 @@
           text = "cmd[update:60000] echo \"<span>$(date +\"%I:%M %p\")</span>\"";
           color = "$text";
           font_size = 75;
-          position = "0, 15";
+          position = "0, 10";
           shadow_passes = 1;
           shadow_boost = 0.5;
           halign = "center";
@@ -29,7 +29,7 @@
       input-field = [
         {
           size = "200, 50";
-          position = "0, 30";
+          position = "0, 10";
           valign = "bottom";
           halign = "center";
 
