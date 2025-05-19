@@ -1,4 +1,4 @@
-{ pkgs, hostname, legacy-boot, ... }: {
+{ pkgs, hostname, timezone, locale, legacy-boot, ... }: {
   system.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -89,8 +89,8 @@
     enable = true;
     extraPackages = [ pkgs.vaapiVdpau ];
   };
-  time.timeZone = "Asia/Jakarta";
-  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = timezone;
+  i18n.defaultLocale = locale;
 
   # GDM Temporary Fix: https://discourse.nixos.org/t/gnome-display-manager-fails-to-login-until-wi-fi-connection-is-established/50513/15
   systemd.services = {
