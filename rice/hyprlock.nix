@@ -42,7 +42,7 @@
           outer_color = "$accent";
           inner_color = "$surface0";
           font_color = "$text";
-          placeholder_text = "󰌾 Welcome back <span foreground=\"##$accentAlpha\">$USER</span>!";
+          placeholder_text = "󰌾 Howdy, <span foreground=\"##$accentAlpha\">$USER</span>!";
           
           capslock_color = "$yellow";
           check_color = "$green";
