@@ -23,6 +23,9 @@
     rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
+      terminal = "${pkgs.kitty}/bin/kitty";
+      # location = "top";
+      # yoffset = 10;
     };
     ranger = {
       enable = true;
@@ -30,7 +33,6 @@
         "sh" = "shell zsh";
         "code" = "shell code .";
         "vim" = "shell vim";
-        "gedit" = "shell gnome-text-editor";
         "img" = "shell eog .";
       };
     };
@@ -54,18 +56,21 @@
       enable = true;
       settings = {
         general = {
-          after_sleep_cmd = "hyprctl dispatch dpms on";
-          ignore_dbus_inhibit = false;
           lock_cmd = "hyprlock";
           unlock_cmd = "pkill -USR1 hyprlock";
         };
         listener = [
           {
             timeout = 120;
-            on-timeout = "hyprlock";
+            on-timeout = "brightnessctl s 10%-";
+            on-resume = "brightnessctl s +10%";
           }
           {
             timeout = 300;
+            on-timeout = "hyprlock";
+          }
+          {
+            timeout = 600;
             on-timeout = "systemctl suspend";
           }
         ];
@@ -103,9 +108,9 @@
     packages = with pkgs; [
       playerctl brightnessctl
       qt6ct tailscale-systray networkmanagerapplet eog
-      kitty bat btop ranger 
+      kitty bat btop ranger w3m gnome-calculator
       hyprlock hyprshot waybar wl-clipboard dunst swww cliphist
-      rofi-screenshot rofi-wayland rofi-network-manager rofi-power-menu w3m
+      rofi-network-manager rofi-power-menu rofi-wayland # rofi-calc # https://discourse.nixos.org/t/trouble-installing-rofi-plugin-rofi-calc/3847
     ];
     pointerCursor = {
       gtk.enable = true;

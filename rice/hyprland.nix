@@ -19,7 +19,7 @@
         # "nm-applet &"
         "tailscale-systray &"
         "waybar &"
-	      "sleep 0.5 && rofi -show drun"
+	      "rofi -show drun -show-icons"
       ];
 
       env = [
@@ -124,6 +124,7 @@
 
       layerrule = [
         "noanim,selection"
+        "noanim,swww-daemon"
       ];
 
       windowrule = [
@@ -169,27 +170,30 @@
       bind = [
         ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
-        "SUPER, R, exec, rofi -show drun"
-        "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
-        "SUPER, N, exec, rofi-network-manager"
+        "SUPER, R, exec, rofi -show drun -show-icons"
         "SUPER, V, exec, rofi -modi clipboard:cliphist-rofi-img -show clipboard -show-icons"
+        # "SUPER, B, exec, rofi -show calc -modi calc -no-show-match -no-sort"
+        "SUPER, N, exec, rofi-network-manager"
+        "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
 
         "SUPER, T, exec, kitty"
         "SUPER, Y, exec, kitty vim"
         "SUPER, E, exec, thunar ~" # kitty ranger ~"
         "SUPER, C, exec, kitty btop"
-        "SUPER, L, exec, loginctl lock-session"
+        "SUPER, X, exec, gnome-calculator"
+        "SUPER, Z, exec, google-chrome-stable"
 
         "SUPER, Q, killactive,"
         "SUPER, W, fullscreen, 1"
         "SUPER, S, fullscreen, 0"
         "SUPER, F, togglefloating,"
         "SUPER, G, togglesplit,"
+
+        "SUPER, L, exec, loginctl lock-session"
+        "SUPER, SPACE, hyprexpo:expo, toggle"
         
         "SUPER, down, togglespecialworkspace, magic"
         "SUPER SHIFT, down, movetoworkspace, special:magic"
-
-        "SUPER, SPACE, hyprexpo:expo, toggle"
 
         "SUPER, P, submap, focus"
         "SUPER, O, submap, resize"
@@ -202,21 +206,21 @@
       binde = , left, resizeactive, -10 0
       binde = , up, resizeactive, 0 -10
       binde = , down, resizeactive, 0 10
-      bind = , ESCAPE, submap, reset
+      bind = , RETURN, submap, reset
 
       submap = swap
       bind = , right, swapwindow, r
       bind = , left, swapwindow, l
       bind = , up, swapwindow, u
       bind = , down, swapwindow, d
-      bind = , ESCAPE, submap, reset
+      bind = , RETURN, submap, reset
 
       submap = focus
       bind = , right, movefocus, r
       bind = , left, movefocus, l
       bind = , up, movefocus, u
       bind = , down, movefocus, d
-      bind = , ESCAPE, submap, reset
+      bind = , RETURN, submap, reset
 
       submap = reset
     ''; # https://github.com/nix-community/home-manager/issues/6062
