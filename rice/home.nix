@@ -40,6 +40,7 @@
       enable = true;
       settings.update_ms = 100;
     };
+    zsh.shellAliases."ssh" = "TERM=xterm-256color ssh";
     vim.enable = true;
     bat.enable = true;
   };
