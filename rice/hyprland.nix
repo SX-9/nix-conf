@@ -99,6 +99,7 @@
           "layers, 1, 3.81, overshot, slidevert"
           "windows, 1, 4.79, easeOutQuint, popin 87%"
           "workspaces, 1, 5, easeOutQuint, slidefade 20%"
+          "specialWorkspace, 1, 5, easeOutQuint, slidefadevert 20%"
         ];
       };
 

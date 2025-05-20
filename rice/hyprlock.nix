@@ -40,7 +40,7 @@
           rounding = 10;
 
           outer_color = "$accent";
-          inner_color = "$surface0";
+          inner_color = "$crust";
           font_color = "$text";
           placeholder_text = "󰌾 Howdy, <span foreground=\"##$accentAlpha\">$USER</span>!";
           

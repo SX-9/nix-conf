@@ -207,7 +207,7 @@
       }
 
       .modules-left, .modules-right {
-        background-color: @base;
+        background-color: @crust;
         border: 2px solid @surface1;
         border-radius: 10px;
         padding: 0 5px;
