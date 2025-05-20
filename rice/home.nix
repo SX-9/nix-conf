@@ -105,10 +105,22 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme.name = "kvantum";
+    style = {
+      name = "kvantum";
+      package = pkgs.catppuccin-kvantum.override {
+        variant = "mocha";
+        accent = "sapphire";
+      };
+    };
+  };
+
   home = {
     packages = with pkgs; [
       playerctl brightnessctl
-      qt6ct tailscale-systray networkmanagerapplet eog
+      tailscale-systray networkmanagerapplet eog qt6ct kdePackages.qtstyleplugin-kvantum
       kitty bat btop ranger w3m gnome-calculator
       hyprlock hyprshot waybar wl-clipboard dunst swww cliphist
       rofi-network-manager rofi-power-menu rofi-wayland # rofi-calc # https://discourse.nixos.org/t/trouble-installing-rofi-plugin-rofi-calc/3847

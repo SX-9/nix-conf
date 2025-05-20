@@ -32,7 +32,7 @@
 
         "GTK_APPLICATION_PREFER_DARK_THEME,1"
         "GTK_THEME,Adwaita:dark"
-        "QT_QPA_PLATFORMTHEME,qt6ct"
+        "QT_QPA_PLATFORMTHEME,kvantum"
       ];
 
       general = {

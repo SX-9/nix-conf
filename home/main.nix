@@ -1,6 +1,7 @@
 { username, git, use-hyprland, ... }: {
   catppuccin = {
     flavor = "mocha";
+    accent = "sapphire";
     enable = true;
   };
   imports = if use-hyprland then [
