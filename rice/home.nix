@@ -19,6 +19,9 @@
       settings = {
         background_opacity = 0.9;
         window_padding_width = 2;
+        cursor_shape = "beam";
+        cursor_trail = 10;
+        copy_on_select = true;
       };
     };
     rofi = {
