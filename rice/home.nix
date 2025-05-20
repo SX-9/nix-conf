@@ -18,6 +18,7 @@
       enable = true;
       settings = {
         background_opacity = 0.9;
+        window_padding_width = 2;
       };
     };
     rofi = {
