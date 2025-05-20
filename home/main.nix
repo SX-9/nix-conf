@@ -44,8 +44,8 @@
         "hm-sw" = "home-manager switch --flake";
         "nix-sw" = "sudo nixos-rebuild switch --flake";
         "nix-hw-conf" = "nixos-generate-config --show-hardware-config";
-        "build-system-flake" = "nix-hw-conf > hardware/scan.nix; git add . -f; nix-sw .#thinkpad; hm-sw .#laptop -b bak";
-        "build-nixos-flake" = "nix-hw-conf > hardware/scan.nix; git add . -f; nix-sw .#thinkpad";
+        "build-all-flakes" = "nix-hw-conf > hardware/scan.nix; git add . -f; nix-sw .#thinkpad; hm-sw .#laptop -b bak";
+        "build-system-flake" = "nix-hw-conf > hardware/scan.nix; git add . -f; nix-sw .#thinkpad";
         "build-home-flake" = "git add .; hm-sw .#laptop -b bak";
 
         "mkdistro" = "distrobox create -Y -i";
