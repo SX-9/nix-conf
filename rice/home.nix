@@ -57,7 +57,10 @@
         indent-blankline-nvim
       ];
     };
-    zsh.shellAliases."ssh" = "TERM=xterm-256color ssh";
+    zsh.shellAliases = {
+      "cd-gvfs" = "cd /run/user/$(id -u)/gvfs";
+      "ssh" = "TERM=xterm-256color ssh";
+    };
     vim.enable = true;
     bat.enable = true;
   };
