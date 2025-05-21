@@ -1,4 +1,4 @@
-{ inputs, pkgs, flake-path, ... }: {
+{ inputs, pkgs, flake-path, ctp-opt, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hl.packages."${pkgs.system}".hyprland;
@@ -10,7 +10,7 @@
       monitor = ",preferred,auto,auto";
 
       exec-once = [
-        "hyprctl setcursor catppuccin-mocha-light-cursors 24"
+        # "hyprctl setcursor catppuccin-mocha-light-cursors 24"
         "gsettings set org.gnome.desktop.interface gtk-theme \"YOUR_DARK_GTK3_THEME\""
         "gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\""
         "wl-paste --type text --watch cliphist store"
@@ -24,9 +24,9 @@
 
       env = [
         "XCURSOR_SIZE,24"
-        "XCURSOR_THEME,catppuccin-mocha-light-cursors"
+        "XCURSOR_THEME,catppuccin-${ctp-opt.flavor}-light-cursors"
         "HYPRCURSOR_SIZE,24"
-        "HYPRCURSOR_THEME,catppuccin-mocha-light-cursors"
+        "HYPRCURSOR_THEME,catppuccin-${ctp-opt.flavor}-light-cursors"
 
         "CLIPHIST_MAX_ITEMS,100"
 

@@ -1,4 +1,4 @@
-{ username, hostname, ... }: {
+{ username, hostname, ctp-opt, ... }: {
   programs.waybar = {
     enable = true;
     settings = [
@@ -198,7 +198,7 @@
 
       #custom-start {
         padding: 0px 5px;
-        color: @sky;
+        color: @${ctp-opt.primary};
         font-size: 16px;
       }
 

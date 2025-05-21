@@ -1,10 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, ctp-opt, ... }: {
   catppuccin = {
-    hyprland.accent = "sky";
-    hyprlock = {
-      accent = "sapphire";
-      useDefaultConfig = false;
-    };
+    hyprland.accent = ctp-opt.primary;
+    hyprlock.useDefaultConfig = false;
   };
 
   imports = [
@@ -115,8 +112,8 @@
     style = {
       name = "kvantum";
       package = pkgs.catppuccin-kvantum.override {
-        variant = "mocha";
-        accent = "sapphire";
+        variant = ctp-opt.flavor;
+        accent = ctp-opt.accent;
       };
     };
   };
@@ -131,8 +128,8 @@
     ];
     pointerCursor = {
       gtk.enable = true;
-      package = pkgs.catppuccin-cursors.mochaLight;
-      name = "catppuccin-mocha-light-cursors";
+      package = pkgs.catppuccin-cursors."${ctp-opt.flavor}Light";
+      name = "catppuccin-${ctp-opt.flavor}-light-cursors";
       size = 24;
     };
   };
