@@ -160,6 +160,7 @@
         };
         "custom/start" = {
           format = "";
+          on-click-middle = "hyprctl dispatch togglespecialworkspace magic";
           on-click-right = "rofi -show power-menu -modi power-menu:rofi-power-menu";
           on-click = "rofi -show drun";
         };
