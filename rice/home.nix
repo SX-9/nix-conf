@@ -41,6 +41,22 @@
       enable = true;
       settings.update_ms = 100;
     };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      vimAlias = true;
+      plugins = with pkgs.vimPlugins; [
+        bufferline-nvim
+        nvim-web-devicons
+        nvim-treesitter
+        nvim-lspconfig
+        telescope-file-browser-nvim
+        nvim-tree-lua
+        nvim-cmp
+        barbar-nvim
+        indent-blankline-nvim
+      ];
+    };
     zsh.shellAliases."ssh" = "TERM=xterm-256color ssh";
     vim.enable = true;
     bat.enable = true;
