@@ -136,6 +136,7 @@
             ];
           };
           on-click = "pavucontrol";
+          on-click-middle = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
           on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
         "battery" = {
