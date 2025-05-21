@@ -1,14 +1,16 @@
 {
   hostname = "nixos";
   username = "satr14";
-  legacy-boot = false;
+  flake-path = "~/Projects/nix-conf"; # set this to the cloned repo path
+
+  legacy-boot = false; # enables grub if true
   timezone = "Asia/Jakarta";
   locale = "en_US.UTF-8";
 
-  partition = false; # set to true to enable disko partitioning
-  use-hyprland = false; # Hyprland will be enabled with GNOME as secondary DE
+  partition = false; # set to true to enable Disko partitioning when installing
+  use-hyprland = false; # if true, Hyprland will be enabled with GNOME as backup DE
 
-  git = {
+  git = { # setup your git author
     user = "satr14";
     email = "90962949+SX-9@users.noreply.github.com";
   };

@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, flake-path, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hl.packages."${pkgs.system}".hyprland;
@@ -181,6 +181,7 @@
         "SUPER, N, exec, rofi-network-manager"
         "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
 
+        "SUPER, A, exec, code ${flake-path}"
         "SUPER, T, exec, kitty"
         "SUPER, Y, exec, kitty vim"
         "SUPER, E, exec, thunar ~" # kitty ranger ~"
