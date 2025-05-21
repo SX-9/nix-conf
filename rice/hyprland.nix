@@ -135,7 +135,7 @@
 
         "float,title:^(Open|Print|Save).*,"
         "float,title:^(Preferences|Settings|Options|About).*,"
-        "float,title:^(MainPicker|Volume Control)$,"
+        "float,title:^(MainPicker|Volume Control|File Operation Progress)$,"
       ];
 
       binde = [

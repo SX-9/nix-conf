@@ -21,10 +21,10 @@
           "cpu"
           "memory"
           "disk"
-          "network"
           "pulseaudio"
           "battery"
           "power-profiles-daemon"
+          "network"
           "clock"
         ];
         "cpu" = {
@@ -52,7 +52,8 @@
           on-click = "kitty btop";
         };
         "network" = {
-          format-ethernet = " {bandwidthDownOctets}";
+          interval = 1;
+          format-ethernet = " {bandwidthTotalBytes}";
           format-wifi = " {signalStrength}%";
           format-disconnected = "";
           format-disabled = "";
@@ -220,7 +221,7 @@
       .critical, .muted, .performance {
         color: @red;
       }
-      .warning, .urgent {
+      .warning, .urgent, .disabled, .disconnected {
         color: @yellow;
       }
       .charging, .plugged, .power-saver {
