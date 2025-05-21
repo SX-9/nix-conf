@@ -101,6 +101,7 @@
         };
         "clock" = {
           format = "{:%b %d, %I:%M %p}";
+          on-click = "gnome-clocks";
         };
         "tray" = {
           spacing = 12;

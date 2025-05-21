@@ -122,7 +122,7 @@
     packages = with pkgs; [
       playerctl brightnessctl
       tailscale-systray networkmanagerapplet eog qt6ct kdePackages.qtstyleplugin-kvantum
-      kitty bat btop ranger w3m gnome-calculator
+      kitty bat btop ranger w3m gnome-calculator gnome-clocks
       hyprlock hyprshot waybar wl-clipboard dunst swww cliphist
       rofi-network-manager rofi-power-menu rofi-wayland # rofi-calc # https://discourse.nixos.org/t/trouble-installing-rofi-plugin-rofi-calc/3847
     ];
