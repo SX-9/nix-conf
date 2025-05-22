@@ -9,6 +9,7 @@
 
   partition = false; # set to true to enable Disko partitioning when installing
   use-hyprland = false; # if true, Hyprland will be enabled with GNOME as backup DE
+  enable-dm = true; # enable display manager (for server use)
 
   ctp-opt = { # configure Catppuccin theme
     primary = "sky";
