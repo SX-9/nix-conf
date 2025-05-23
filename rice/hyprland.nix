@@ -133,7 +133,7 @@
         "suppressevent minimize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
 
-        "float,title:^(Open|Print|Save).*,"
+        "float,title:^(Open|Print|Save|Rename).*,"
         "float,title:^(Preferences|Settings|Options|About).*,"
         "float,title:^(MainPicker|Volume Control|File Operation Progress)$,"
       ];
