@@ -13,10 +13,10 @@
         "docker"
       ];
       packages = with pkgs; [
-        spotify
         vscode
         discord
         google-chrome
+        firefox
         libreoffice
         vlc
         slack
