@@ -11,9 +11,12 @@
 
         modules-left = [
           "custom/start"
-          "hyprland/submap"
           "hyprland/workspaces"
           "hyprland/window"
+        ];
+        modules-center = [
+          "clock"
+          "hyprland/submap"
         ];
         modules-right = [
           "tray"
@@ -22,10 +25,9 @@
           "memory"
           "disk"
           "pulseaudio"
+          "network"
           "battery"
           "power-profiles-daemon"
-          "network"
-          "clock"
         ];
         "cpu" = {
           states = {
@@ -210,7 +212,7 @@
         padding: 0px 5px;
       }
 
-      .modules-left, .modules-right {
+      .modules-left, .modules-center, .modules-right {
         background-color: @crust;
         border: 2px solid @surface1;
         border-radius: 10px;

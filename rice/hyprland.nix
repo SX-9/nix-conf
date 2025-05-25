@@ -201,12 +201,20 @@
         "SUPER, down, togglespecialworkspace, magic"
         "SUPER SHIFT, down, movetoworkspace, special:magic"
 
+        "SUPER, U, submap, move"
         "SUPER, P, submap, focus"
         "SUPER, O, submap, resize"
         "SUPER, I, submap, swap"
       ];
     };
     extraConfig = ''
+      submap = move
+      bind = , right, movewindow, r
+      bind = , left, movewindow, l
+      bind = , up, movewindow, u
+      bind = , down, movewindow, d
+      bind = , RETURN, submap, reset
+
       submap = resize
       binde = , right, resizeactive, 10 0
       binde = , left, resizeactive, -10 0
