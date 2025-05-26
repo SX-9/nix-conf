@@ -37,6 +37,7 @@
     power-profiles-daemon.enable = true;
     fwupd.enable = true;
     thermald.enable = true;
+    logind.extraConfig = "HandlePowerKey=ignore";
     tlp = {
       enable = false;
       settings = {
@@ -61,6 +62,6 @@
     };
   };
   # systemd.services.thinkfan.preStart = "
-  #   /run/current-system/sw/bin/modprobe -rv thinkpad_acpi && /run/current-system/sw/bin/modprobe -v thinkpad_acpi
+  #   /run/current-system/sw/bin/modprobe -rv thinkpad_acpi && /run/current-system/sw/bin/modprobe -v thinkpad_acpi fan_control=1 experimental=1
   # ";
 }

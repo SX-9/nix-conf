@@ -46,9 +46,6 @@
     gvfs.enable = true;
     tumbler.enable = true;
     gnome.gnome-keyring.enable  = true;
-    logind.extraConfig = ''
-      HandlePowerKey=ignore
-    '';
   };
 
   environment = {
