@@ -201,8 +201,8 @@
         "SUPER, down, togglespecialworkspace, magic"
         "SUPER SHIFT, down, movetoworkspace, special:magic"
 
-        "SUPER, U, submap, move"
-        "SUPER, P, submap, focus"
+        "SUPER, U, submap, focus"
+        "SUPER, P, submap, move"
         "SUPER, O, submap, resize"
         "SUPER, I, submap, swap"
       ];
