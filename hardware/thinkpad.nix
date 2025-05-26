@@ -6,9 +6,33 @@
     kernel.sysctl."vm.laptop_mode" = 5;
     initrd.availableKernelModules = [ "thinkpad_acpi" ];
   };
-  systemd.services.thinkfan.preStart = "
-    /run/current-system/sw/bin/modprobe -rv thinkpad_acpi && /run/current-system/sw/bin/modprobe -v thinkpad_acpi
-  ";
+  environment = {
+    systemPackages = [ pkgs.zcfan ]; # thinkfan replacement for now
+    etc."zcfan.conf" = {
+      mode = "0644";
+      text = ''
+        max_temp 80
+        med_temp 70
+        low_temp 60
+        temp_hysteresis 10
+
+        max_level 7
+        med_level 4
+        low_level 1
+      '';
+    };
+  };
+  systemd.services.zcfan = {
+    enable = true;
+    description = "ZCFan - ThinkPad Fan Control";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.zcfan}/bin/zcfan";
+      Restart = "always";
+      RestartSec = "5s";
+    };
+  };
   services = {
     power-profiles-daemon.enable = true;
     fwupd.enable = true;
@@ -36,4 +60,7 @@
       ];
     };
   };
+  # systemd.services.thinkfan.preStart = "
+  #   /run/current-system/sw/bin/modprobe -rv thinkpad_acpi && /run/current-system/sw/bin/modprobe -v thinkpad_acpi
+  # ";
 }
