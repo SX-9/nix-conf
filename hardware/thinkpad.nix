@@ -12,13 +12,15 @@
       mode = "0644";
       text = ''
         max_temp 80
-        med_temp 70
-        low_temp 60
-        temp_hysteresis 10
-
         max_level 7
+
+        med_temp 70
         med_level 4
+
+        low_temp 60
         low_level 1
+
+        temp_hysteresis 10
       '';
     };
   };
@@ -26,6 +28,9 @@
     enable = true;
     description = "ZCFan - ThinkPad Fan Control";
     wantedBy = [ "multi-user.target" ];
+    preStart = "
+      /run/current-system/sw/bin/modprobe -rv thinkpad_acpi && /run/current-system/sw/bin/modprobe -v thinkpad_acpi fan_control=1 experimental=1
+    ";
     serviceConfig = {
       Type = "simple";
       ExecStart = "${pkgs.zcfan}/bin/zcfan";
@@ -61,7 +66,4 @@
       ];
     };
   };
-  # systemd.services.thinkfan.preStart = "
-  #   /run/current-system/sw/bin/modprobe -rv thinkpad_acpi && /run/current-system/sw/bin/modprobe -v thinkpad_acpi fan_control=1 experimental=1
-  # ";
 }
