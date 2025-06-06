@@ -99,6 +99,7 @@
         exit_window_retains_fullscreen = true;
         new_window_takes_over_fullscreen = 1;
         background_color = "$base";
+        vfr = true;
       };
 
       input = {
