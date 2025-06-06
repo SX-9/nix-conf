@@ -87,11 +87,7 @@
         ];
       };
 
-      dwindle = {
-        pseudotile = true;
-        preserve_split = true;
-      };
-
+      dwindle.preserve_split = true;
       master.new_status = "master";
       gestures.workspace_swipe = true;
 
@@ -128,9 +124,6 @@
 
         "keepaspectratio on, title:^(Picture in picture)$"
         "pin, title:^(Picture in picture)$"
-      ];
-
-      windowrulev2 = [
       ];
 
       binde = [
