@@ -102,6 +102,7 @@
     xserver = {
       enable = true;
       displayManager.gdm.enable = enable-dm;
+      displayManager.startx.enable = !enable-dm;
       desktopManager.gnome.enable = true;
       xkb = {
         layout = "us";
