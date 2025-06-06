@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  boot.plymouth.enable = false;
   systemd.targets = {
     sleep.enable = false;
     suspend.enable = false;
@@ -14,9 +15,9 @@
     };
     udev.extraRules = ''
       SUBSYSTEM=="cpu", ACTION=="add", TEST=="online", ATTR{online}=="0", ATTR{online}="1"
-    '';
-    openssh.settings.PermitRootLogin = "yes";
+    ''; # CPU hotplug
     qemuGuest.enable = true;
+    openssh.settings.PermitRootLogin = "yes";
   };
   # environment.systemPackages = with pkgs; [];
 }
