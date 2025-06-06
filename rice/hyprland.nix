@@ -3,9 +3,7 @@
     enable = true;
     package = inputs.hl.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
-    plugins = with inputs.hlp.packages."${pkgs.system}"; [
-      hyprexpo
-    ];
+    # plugins = with inputs.hlp.packages."${pkgs.system}"; [];
     settings = {
       monitor = ",preferred,auto,auto";
 
@@ -45,20 +43,6 @@
 
         "col.active_border" = "$accent";
         "col.inactive_border" = "$overlay2";
-      };
-
-      plugin = {
-        hyprexpo = {
-          columns = 2;
-          gap_size = 5;
-          bg_col = "$crust";
-          workspace_method = "first current";
-
-          enable_gesture = true;
-          gesture_fingers = 3;
-          gesture_distance = 300;
-          gesture_positive = false;
-        };
       };
 
       decoration = {
@@ -112,19 +96,24 @@
       gestures.workspace_swipe = true;
 
       misc = {
-          force_default_wallpaper = 0;
-          disable_hyprland_logo = true;
+        force_default_wallpaper = 0;
+        disable_hyprland_logo = true;
+        focus_on_activate = true;
+        middle_click_paste = true;
+        exit_window_retains_fullscreen = true;
+        new_window_takes_over_fullscreen = 1;
+        background_color = "$base";
       };
 
       input = {
-          kb_layout = "us";
-          follow_mouse = 1;
-          sensitivity = 0;
-          touchpad.natural_scroll = true;
+        kb_layout = "us";
+        follow_mouse = 1;
+        sensitivity = 0;
+        touchpad.natural_scroll = true;
       };
 
       layerrule = [
-        "noanim,selection"
+        "noanim,selection" # hyprshot overlay
         "noanim,swww-daemon"
       ];
 
@@ -136,6 +125,12 @@
         "float,title:^(Open|Print|Save|Rename).*,"
         "float,title:^(Preferences|Settings|Options|About).*,"
         "float,title:^(MainPicker|Volume Control|File Operation Progress)$,"
+
+        "keepaspectratio on, title:^(Picture in picture)$"
+        "pin, title:^(Picture in picture)$"
+      ];
+
+      windowrulev2 = [
       ];
 
       binde = [
@@ -194,9 +189,7 @@
         "SUPER, S, fullscreen, 0"
         "SUPER, F, togglefloating,"
         "SUPER, G, togglesplit,"
-
         "SUPER, L, exec, loginctl lock-session"
-        "SUPER, SPACE, hyprexpo:expo, toggle"
         
         "SUPER, down, togglespecialworkspace, magic"
         "SUPER SHIFT, down, movetoworkspace, special:magic"

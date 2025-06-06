@@ -1,4 +1,4 @@
-{ username, git, use-hyprland, ctp-opt, ... }: {
+{ username, git, use-hyprland, ctp-opt, flake-path, ... }: {
   catppuccin = {
     flavor = ctp-opt.flavor;
     accent = ctp-opt.accent;
@@ -44,6 +44,8 @@
         "hm-sw" = "home-manager switch --flake";
         "nix-sw" = "sudo nixos-rebuild switch --flake";
         "nix-hw-conf" = "nixos-generate-config --show-hardware-config";
+        "cd-conf" = "cd ${flake-path}";
+        "code-conf" = "code ${flake-path}";
 
         "mkdistro" = "distrobox create -Y -i";
         "mkdistro-arch" = "mkdistro archlinux -n arch";
@@ -53,7 +55,7 @@
         "mcl" = "portablemc start fabric:1.21 -u";
       };
       initContent = ''
-        if [[ $TERM_PROGRAM != 'vscode' ]]; then
+        if [[ $TERM_PROGRAM != 'vscode' && -z "$SSH_CONNECTION" ]]; then
           echo && ~/.fetch.sh color 2> /dev/null
         fi
       '';
