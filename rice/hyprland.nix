@@ -181,6 +181,7 @@
         "SUPER, Q, killactive,"
         "SUPER, W, fullscreen, 1"
         "SUPER, S, fullscreen, 0"
+        "SUPER, D, pin"
         "SUPER, F, togglefloating,"
         "SUPER, G, togglesplit,"
         "SUPER, L, exec, loginctl lock-session"
