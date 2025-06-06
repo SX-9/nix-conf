@@ -56,7 +56,7 @@
       };
       initContent = ''
         if [[ $TERM_PROGRAM != 'vscode' && -z "$SSH_CONNECTION" ]]; then
-          echo && ~/.fetch.sh color 2> /dev/null
+          ~/.fetch.sh color 2> /dev/null
         fi
       '';
       oh-my-zsh = {
