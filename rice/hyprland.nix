@@ -146,6 +146,7 @@
       bindm = [
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
+        "SUPER SHIFT, mouse:273, resizewindow"
       ];
 
       bindl = [
@@ -186,12 +187,13 @@
         "SUPER, G, togglesplit,"
         "SUPER, L, exec, loginctl lock-session"
         
-        "SUPER, down, togglespecialworkspace, magic"
-        "SUPER SHIFT, down, movetoworkspace, special:magic"
+        "SUPER, down, togglespecialworkspace, hidden"
+        "SUPER SHIFT, down, movetoworkspace, special:hidden"
+        "SUPER SHIFT, up, movetoworkspace, +0"
 
-        "SUPER, P, submap, focus"
+        "SUPER, P, submap, move"
         "SUPER, O, submap, resize"
-        "SUPER, I, submap, move"
+        "SUPER, I, submap, focus"
         "SUPER, U, submap, swap"
       ];
     };
@@ -201,28 +203,28 @@
       bind = , left, movewindow, l
       bind = , up, movewindow, u
       bind = , down, movewindow, d
-      bind = , RETURN, submap, reset
+      bind = , catchall, submap, reset
 
       submap = resize
       binde = , right, resizeactive, 10 0
       binde = , left, resizeactive, -10 0
       binde = , up, resizeactive, 0 -10
       binde = , down, resizeactive, 0 10
-      bind = , RETURN, submap, reset
+      bind = , catchall, submap, reset
 
       submap = swap
       bind = , right, swapwindow, r
       bind = , left, swapwindow, l
       bind = , up, swapwindow, u
       bind = , down, swapwindow, d
-      bind = , RETURN, submap, reset
+      bind = , catchall, submap, reset
 
       submap = focus
       bind = , right, movefocus, r
       bind = , left, movefocus, l
       bind = , up, movefocus, u
       bind = , down, movefocus, d
-      bind = , RETURN, submap, reset
+      bind = , catchall, submap, reset
 
       submap = reset
     ''; # https://github.com/nix-community/home-manager/issues/6062
