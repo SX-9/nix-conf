@@ -5,7 +5,7 @@
     xwayland.enable = true;
     # plugins = with inputs.hlp.packages."${pkgs.system}"; [];
     settings = {
-      monitor = ",preferred,auto,auto";
+      monitor = ",preferred,auto,1";
 
       exec-once = [
         # "hyprctl setcursor catppuccin-mocha-light-cursors 24"
@@ -111,7 +111,7 @@
 
       layerrule = [
         "noanim,selection" # hyprshot overlay
-        "noanim,swww-daemon"
+        "animation fade,swww-daemon"
       ];
 
       windowrule = [
@@ -199,10 +199,10 @@
     };
     extraConfig = ''
       submap = move
-      bind = , right, movewindow, r
-      bind = , left, movewindow, l
-      bind = , up, movewindow, u
-      bind = , down, movewindow, d
+      binde = , right, movewindow, r
+      binde = , left, movewindow, l
+      binde = , up, movewindow, u
+      binde = , down, movewindow, d
       bind = , catchall, submap, reset
 
       submap = resize
