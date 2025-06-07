@@ -9,17 +9,27 @@
       background = [
         {
           path = "screenshot";
-          brightness = 0.5;
-          blur_passes = 3;
-          blur_size = 2;
+          brightness = 0.2;
+          blur_passes = 5;
+          blur_size = 1;
         }
       ];
       label = [
         {
           text = "cmd[update:60000] echo \"<span>$(date +\"%I:%M %p\")</span>\"";
           color = "$text";
-          font_size = 75;
-          position = "0, 10";
+          font_size = 70;
+          position = "0, 30";
+          shadow_passes = 1;
+          shadow_boost = 0.5;
+          halign = "center";
+          valign = "center";
+        }
+        {
+          text = "󰌾 Howdy, <span foreground=\"##$accentAlpha\">$USER</span>!";
+          color = "$subtext0";
+          font_size = 15;
+          position = "0, -30";
           shadow_passes = 1;
           shadow_boost = 0.5;
           halign = "center";
@@ -42,7 +52,7 @@
           outer_color = "$accent";
           inner_color = "$crust";
           font_color = "$text";
-          placeholder_text = "󰌾 Howdy, <span foreground=\"##$accentAlpha\">$USER</span>!";
+          placeholder_text = "Type your password";
           
           capslock_color = "$yellow";
           check_color = "$green";
