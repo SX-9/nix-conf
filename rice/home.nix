@@ -29,6 +29,17 @@
       terminal = "${pkgs.kitty}/bin/kitty";
       # location = "top";
       # yoffset = 10;
+      theme = {
+        "entry".placeholder = "Search...";
+        "window" = {
+          border-radius = 10;
+          border = 2;
+        };
+        "listview" = {
+          columns = 2;
+          fixed-columns = true;
+        };
+      };
     };
     ranger = {
       enable = true;
