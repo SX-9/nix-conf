@@ -55,7 +55,7 @@
         "mcl" = "portablemc start fabric:1.21 -u";
       };
       initContent = ''
-        if [[ $TERM_PROGRAM != 'vscode' && -z "$SSH_CONNECTION" ]]; then
+        if [[ $TERM_PROGRAM != 'vscode' && -z "$SSH_CONNECTION" && $(tput cols) -ge 64 && $(tput lines) -ge 16 ]]; then
           ~/.fetch.sh color 2> /dev/null
         fi
       '';
