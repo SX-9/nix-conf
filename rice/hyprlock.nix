@@ -4,7 +4,7 @@
     settings = {
       general = {
         ignore_empty_input = true;
-        hide_cursor = true;
+        hide_cursor = false;
       };
       background = [
         {
@@ -16,7 +16,7 @@
       ];
       label = [
         {
-          text = "cmd[update:60000] echo \"<span>$(date +\"%I:%M %p\")</span>\"";
+          text = "$TIME12";
           color = "$text";
           font_size = 70;
           position = "0, 30";
