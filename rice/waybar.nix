@@ -164,7 +164,7 @@
           format = "";
           on-click-middle = "hyprctl dispatch togglespecialworkspace hidden";
           on-click-right = "rofi -show power-menu -modi power-menu:rofi-power-menu";
-          on-click = "rofi -show drun -show-icons";
+          on-click = "rofi -show drun -show-icons -display-drun ''";
         };
       }
     ];

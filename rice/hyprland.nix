@@ -16,8 +16,7 @@
 
         # "nm-applet &"
         "tailscale-systray &"
-        "waybar &"
-	      "rofi -show drun -show-icons"
+	      "rofi -show drun -show-icons -display-drun ''"
       ];
 
       env = [
@@ -80,7 +79,7 @@
           "global, 1, 10, default"
           "fade, 1, 3.03, quick"
           "border, 1, 10, quick"
-          "layers, 1, 3.81, overshot, slidevert"
+          "layers, 1, 3.81, easeOutQuint, slidevert"
           "windows, 1, 4.79, easeOutQuint, popin 87%"
           "workspaces, 1, 5, easeOutQuint, slidefade 20%"
           "specialWorkspace, 1, 5, easeOutQuint, slidefadevert 20%"
@@ -110,8 +109,10 @@
       };
 
       layerrule = [
-        "noanim,selection" # hyprshot overlay
-        "animation fade,swww-daemon"
+        "noanim, selection" # hyprshot overlay
+        "animation fade, swww-daemon"
+        "abovelock false, notifications"
+        "abovelock true, rofi"
       ];
 
       windowrule = [
@@ -151,6 +152,9 @@
 
       bindl = [
         ", switch:on:Lid Switch, exec, loginctl lock-session & systemctl suspend"
+        "SUPER, SPACE, exec, playerctl play-pause"
+        "SUPER, N, exec, rofi-network-manager"
+        "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
       ];
 
       bindel = [
@@ -165,18 +169,17 @@
       bind = [
         ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
-        "SUPER, R, exec, rofi -show drun -show-icons"
+        "SUPER, R, exec, rofi -show drun -show-icons -display-drun ''"
         "SUPER, V, exec, rofi -modi clipboard:cliphist-rofi-img -show clipboard -show-icons"
         # "SUPER, B, exec, rofi -show calc -modi calc -no-show-match -no-sort"
-        "SUPER, N, exec, rofi-network-manager"
-        "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
 
         "SUPER, A, exec, code ${flake-path}"
         "SUPER, T, exec, kitty"
-        "SUPER, Y, exec, kitty vim"
+        # "SUPER, Y, exec, kitty vim"
         "SUPER, E, exec, thunar ~" # kitty ranger ~"
         "SUPER, C, exec, kitty btop"
-        "SUPER, X, exec, gnome-calculator"
+        # "SUPER, X, exec, gnome-calculator"
+        "SUPER, X, exec, systemctl --user restart swww waybar"
         "SUPER, Z, exec, google-chrome-stable"
 
         "SUPER, Q, killactive,"

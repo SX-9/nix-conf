@@ -1,4 +1,4 @@
-{ pkgs, ctp-opt, ... }: {
+{ config, pkgs, ctp-opt, ... }: {
   catppuccin = {
     hyprland.accent = ctp-opt.primary;
     hyprlock.useDefaultConfig = false;
@@ -20,7 +20,6 @@
         cursor_shape = "beam";
         cursor_trail = 10;
         copy_on_select = true;
-
       };
     };
     rofi = {
@@ -29,15 +28,25 @@
       terminal = "${pkgs.kitty}/bin/kitty";
       # location = "top";
       # yoffset = 10;
-      theme = {
+      theme = let inherit (config.lib.formats.rasi) mkLiteral; in {
         "entry".placeholder = "Search...";
+        "scrollbar".border-radius = 10;
+        # "element-icon".size = mkLiteral "2em";
         "window" = {
           border-radius = 10;
           border = 2;
+          # fullscreen = true;
         };
         "listview" = {
-          columns = 2;
-          fixed-columns = true;
+          columns = 2; # 3;
+          lines = 9; # 3;
+          fixed-columns = false;
+        };
+        "element" = {
+          border-radius = 10;
+          padding = mkLiteral "4px";
+          spacing = mkLiteral "8px";
+          # orientation = mkLiteral "vertical";
         };
       };
     };
@@ -52,7 +61,10 @@
     };
     btop = {
       enable = true;
-      settings.update_ms = 100;
+      settings = {
+        update_ms = 100;
+        shown_boxes = "proc cpu";
+      };
     };
     neovim = {
       enable = true;
