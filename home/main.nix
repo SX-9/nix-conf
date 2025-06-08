@@ -41,7 +41,7 @@
         "rmall" = "rm -rf ./* ./.*"; # scary!
         "fetch-update" = "rm -f ~/.fetch.sh && wget https://raw.githubusercontent.com/SX-9/fetch.sh/master/fetch.sh -O ~/.fetch.sh && chmod +x ~/.fetch.sh";
         
-        "hm-sw" = "home-manager switch --flake";
+        "hm-sw" = "home-manager switch -b bak-hm --flake";
         "nix-sw" = "sudo nixos-rebuild switch --flake";
         "nix-hw-conf" = "nixos-generate-config --show-hardware-config";
         "cd-conf" = "cd ${flake-path}";
