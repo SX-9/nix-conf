@@ -1,4 +1,4 @@
-{ unlock_key, inputs, pkgs, flake-path, ctp-opt, ... }: {
+{ inputs, pkgs, flake-path, ctp-opt, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hl.packages."${pkgs.system}".hyprland;
@@ -155,7 +155,6 @@
         "SUPER, SPACE, exec, playerctl play-pause"
         "SUPER, N, exec, rofi-network-manager"
         "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
-        (if unlock_key then "${unlock_key}, exec, loginctl unlock-session" else "")
       ];
 
       bindel = [
