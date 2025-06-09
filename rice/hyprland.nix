@@ -51,7 +51,7 @@
         inactive_opacity = 0.9;
 
         shadow = {
-          enabled = true;
+          enabled = false;
           range = 8;
           render_power = 3;
           color = "$crust";
@@ -167,6 +167,9 @@
       ];
       
       bind = [
+        "SUPER, J, exec, notify-send -u critical Hyprland 'Reloading' && systemctl --user restart swww waybar && hyprctl reload"
+        "SUPER, K, exec, notify-send -u critical Hyprland 'Focus Mode' && systemctl --user stop swww waybar && hyprctl --batch 'keyword decoration:inactive_opacity 1.0; keyword decoration:blur:enabled 0; keyword general:gaps_in 0; keyword general:gaps_out 0; keyword general:border_size 1; keyword decoration:rounding 0'"
+
         ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "SUPER, R, exec, rofi -show drun -show-icons -display-drun ''"
@@ -179,7 +182,6 @@
         "SUPER, E, exec, thunar ~" # kitty ranger ~"
         "SUPER, C, exec, kitty btop"
         # "SUPER, X, exec, gnome-calculator"
-        "SUPER, X, exec, systemctl --user restart swww waybar"
         "SUPER, Z, exec, google-chrome-stable"
 
         "SUPER, Q, killactive,"
