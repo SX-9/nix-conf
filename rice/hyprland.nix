@@ -115,7 +115,7 @@
         "abovelock true, rofi"
       ];
 
-      windowrule = [
+      windowrulev2 = [
         "suppressevent maximize, class:.*"
         "suppressevent minimize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
@@ -167,6 +167,7 @@
       ];
       
       bind = [
+        "SUPER, H, exec, notify-send -u critical Hyprland 'Animations Off' && hyprctl keyword animations:enabled 0"
         "SUPER, J, exec, notify-send -u critical Hyprland 'Reloading' && systemctl --user restart swww waybar && hyprctl reload"
         "SUPER, K, exec, notify-send -u critical Hyprland 'Focus Mode' && systemctl --user stop swww waybar && hyprctl --batch 'keyword decoration:inactive_opacity 1.0; keyword decoration:blur:enabled 0; keyword general:gaps_in 0; keyword general:gaps_out 0; keyword general:border_size 1; keyword decoration:rounding 0'"
 
