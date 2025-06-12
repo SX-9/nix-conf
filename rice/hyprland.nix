@@ -5,7 +5,7 @@
     xwayland.enable = true;
     # plugins = with inputs.hlp.packages."${pkgs.system}"; [];
     settings = {
-      monitor = ",preferred,auto,1";
+      monitor = ",preferred,auto,1.2";
 
       exec-once = [
         # "hyprctl setcursor catppuccin-mocha-light-cursors 24"
@@ -51,10 +51,11 @@
         inactive_opacity = 0.9;
 
         shadow = {
-          enabled = false;
-          range = 8;
+          enabled = true;
+          range = 6;
           render_power = 3;
-          color = "$crust";
+          color_inactive = "rgba($crustAlpha99)";
+          color = "rgba($crustAlphaee)";
         };
 
         blur = {
@@ -167,9 +168,10 @@
       ];
       
       bind = [
-        "SUPER, H, exec, notify-send -u critical Hyprland 'Animations Off' && hyprctl keyword animations:enabled 0"
-        "SUPER, J, exec, notify-send -u critical Hyprland 'Reloading' && systemctl --user restart swww waybar && hyprctl reload"
-        "SUPER, K, exec, notify-send -u critical Hyprland 'Focus Mode' && systemctl --user stop swww waybar && hyprctl --batch 'keyword decoration:inactive_opacity 1.0; keyword decoration:blur:enabled 0; keyword general:gaps_in 0; keyword general:gaps_out 0; keyword general:border_size 1; keyword decoration:rounding 0'"
+        "SUPER, J, exec, notify-send -u critical Hyprland 'Caffein Mode' && notify-send '(SUPER+X to reset)' && systemctl --user stop hypridle"
+        "SUPER, K, exec, notify-send -u critical Hyprland 'Focus Mode' && notify-send '(SUPER+X to reset)' && systemctl --user stop swww waybar && hyprctl --batch 'keyword decoration:inactive_opacity 1.0; keyword decoration:blur:enabled 0; keyword general:gaps_in 0; keyword general:gaps_out 0; keyword general:border_size 1; keyword decoration:rounding 0; keyword decoration:shadow:enabled false'"
+        "SUPER, H, exec, notify-send Hyprland 'Animations Off' && hyprctl keyword animations:enabled 0"
+        "SUPER, X, exec, dunstctl close-all && systemctl --user restart swww waybar hypridle && hyprctl reload"
 
         ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
@@ -179,11 +181,9 @@
 
         "SUPER, A, exec, code ${flake-path}"
         "SUPER, T, exec, kitty"
-        # "SUPER, Y, exec, kitty vim"
         "SUPER, E, exec, thunar ~" # kitty ranger ~"
         "SUPER, C, exec, kitty btop"
-        # "SUPER, X, exec, gnome-calculator"
-        "SUPER, Z, exec, google-chrome-stable"
+        "SUPER, Y, exec, google-chrome-stable"
 
         "SUPER, Q, killactive,"
         "SUPER, W, fullscreen, 1"
