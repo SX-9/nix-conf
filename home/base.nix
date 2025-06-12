@@ -13,7 +13,6 @@
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
       gtk-enable-primary-paste = false;
-      icon-theme = "Papirus";
       show-battery-percentage = true;
       toolkit-accessibility = false;
     };
