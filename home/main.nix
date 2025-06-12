@@ -39,8 +39,10 @@
         
         "tsip" = "tailscale ip -4";
         "rmall" = "rm -rf ./* ./.*"; # scary!
+
         "fetch-update" = "rm -f ~/.fetch.sh && wget https://raw.githubusercontent.com/SX-9/fetch.sh/master/fetch.sh -O ~/.fetch.sh && chmod +x ~/.fetch.sh";
-        
+        "fetch" = "~/.fetch.sh";
+
         "hm-sw" = "home-manager switch -b bak-hm --flake";
         "nix-sw" = "sudo nixos-rebuild switch --flake";
         "nix-hw-conf" = "nixos-generate-config --show-hardware-config";
@@ -56,13 +58,13 @@
       };
       initContent = ''
         if [[ $TERM_PROGRAM != 'vscode' && -z "$SSH_CONNECTION" && $(tput cols) -ge 64 && $(tput lines) -ge 16 ]]; then
-          ~/.fetch.sh color 2> /dev/null
+          # ~/.fetch.sh -c 2> /dev/null
         fi
       '';
       oh-my-zsh = {
         enable = true;
         plugins = ["git"];
-        theme = "refined";
+        theme = "maran";
       };
     };
   };
