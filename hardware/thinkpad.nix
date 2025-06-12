@@ -1,6 +1,7 @@
 # CUSTOM CONFIG FOR THINKPADS ONLY
 
 { pkgs, ... }: {
+  hardware.enableRedistributableFirmware = true; # wifi firmware fix
   boot = {
     kernelPackages = pkgs.linuxPackages;
     kernel.sysctl."vm.laptop_mode" = 5;
@@ -12,21 +13,21 @@
       mode = "0644";
       text = ''
         max_temp 80
-        max_level 7
+        max_level full-speed
 
         med_temp 70
-        med_level 4
+        med_level 7
 
         low_temp 60
-        low_level 1
+        low_level auto
 
         temp_hysteresis 10
       '';
     };
   };
   systemd.services.zcfan = {
-    enable = true;
-    description = "ZCFan - ThinkPad Fan Control";
+    enable = false;
+    description = "ZCFan - (backup) ThinkPad Fan Control";
     wantedBy = [ "multi-user.target" ];
     preStart = "
       /run/current-system/sw/bin/modprobe -rv thinkpad_acpi && /run/current-system/sw/bin/modprobe -v thinkpad_acpi fan_control=1 experimental=1
@@ -39,15 +40,15 @@
     };
   };
   services = {
-    power-profiles-daemon.enable = true;
+    power-profiles-daemon.enable = false;
     fwupd.enable = true;
     thermald.enable = true;
     logind.extraConfig = "HandlePowerKey=ignore";
     tlp = {
-      enable = false;
+      enable = true;
       settings = {
-        STOP_CHARGE_THRESH_BAT0 = "75";
-        START_CHARGE_THRESH_BAT0 = "90";
+        STOP_CHARGE_THRESH_BAT0 = "85";
+        START_CHARGE_THRESH_BAT0 = "80";
         CPU_BOOST_ON_AC = "1";
         TLP_DEFAULT_MODE = "BAT";
         PLATFORM_PROFILE_ON_AC = "performance";
@@ -55,11 +56,11 @@
       };
     };
     thinkfan = {
-      enable = false; # https://github.com/NixOS/nixpkgs/issues/395739
+      enable = true; # https://github.com/NixOS/nixpkgs/issues/395739
       levels = [
-        [ "level auto"       0  70  ]
-        [ "level full-speed" 70 80  ]
-        [ "level disengaged" 80 150 ]
+        [ "level auto"       0  60  ]
+        [ "level 7"          60 70  ]
+        [ "level full-speed" 70 150 ]
       ];
       sensors = [
         { type = "hwmon"; query = "/sys/devices/platform/coretemp.0/hwmon"; }
