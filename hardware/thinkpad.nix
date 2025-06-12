@@ -1,14 +1,14 @@
 # CUSTOM CONFIG FOR THINKPADS ONLY
 
 { pkgs, ... }: {
-  hardware.enableRedistributableFirmware = true; # wifi firmware fix
+  hardware.enableRedistributableFirmware = true; # T480 WiFi firmware fix
   boot = {
     kernelPackages = pkgs.linuxPackages;
     kernel.sysctl."vm.laptop_mode" = 5;
     initrd.availableKernelModules = [ "thinkpad_acpi" ];
   };
   environment = {
-    systemPackages = [ pkgs.zcfan ]; # thinkfan replacement for now
+    systemPackages = [ pkgs.zcfan ]; # thinkfan replacement for L450
     etc."zcfan.conf" = {
       mode = "0644";
       text = ''
@@ -56,7 +56,7 @@
       };
     };
     thinkfan = {
-      enable = true; # https://github.com/NixOS/nixpkgs/issues/395739
+      enable = true; # Problems with L450: https://github.com/NixOS/nixpkgs/issues/395739
       levels = [
         [ "level auto"       0  60  ]
         [ "level 7"          60 70  ]
