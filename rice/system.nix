@@ -17,7 +17,7 @@
     hyprland = {
       enable = use-hyprland;
       xwayland.enable = true;
-      package = inputs.hl.packages."${pkgs.system}".hyprland;
+      package = if use-hyprland then inputs.hl.packages."${pkgs.system}".hyprland else pkgs.hyprland;
       portalPackage = inputs.hl.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
   };
