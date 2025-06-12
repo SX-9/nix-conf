@@ -17,9 +17,9 @@
         modules-center = [
           "clock"
           "hyprland/submap"
+          "tray"
         ];
         modules-right = [
-          "tray"
           "temperature"
           "cpu"
           "memory"
@@ -27,7 +27,7 @@
           "pulseaudio"
           "network"
           "battery"
-          "power-profiles-daemon"
+          # "power-profiles-daemon"
         ];
         "cpu" = {
           states = {
@@ -57,12 +57,13 @@
           interval = 1;
           format-ethernet = " {bandwidthTotalBytes}";
           format-wifi = " {signalStrength}%";
-          format-disconnected = "";
+          format-disconnected = "";
           format-disabled = "";
           tooltip = false;
           on-click = "rofi-network-manager";
         };
         "temperature" = {
+          hwmon-path =  "/sys/class/hwmon/hwmon2/temp1_input";
           critical-threshold = 80;
           format = " {temperatureC}°C";
           interval = 1;
