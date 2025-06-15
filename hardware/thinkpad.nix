@@ -59,8 +59,8 @@
       enable = true; # Problems with L450: https://github.com/NixOS/nixpkgs/issues/395739
       levels = [
         [ "level auto"       0  60  ]
-        [ "level 7"          60 70  ]
-        [ "level full-speed" 70 150 ]
+        [ "level full-speed" 60 70  ]
+        [ "level disengaged" 70 150 ]
       ];
       sensors = [
         { type = "hwmon"; query = "/sys/devices/platform/coretemp.0/hwmon"; }
