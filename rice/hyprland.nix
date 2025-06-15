@@ -113,7 +113,7 @@
         "noanim, selection" # hyprshot overlay
         "animation fade, swww-daemon"
         "abovelock false, notifications"
-        "abovelock true, rofi"
+        "abovelock false, waybar"
       ];
 
       windowrulev2 = [
