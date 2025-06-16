@@ -40,10 +40,10 @@
     };
   };
   services = {
+    logind.extraConfig = "HandlePowerKey=ignore"; # classmates keep pressing power button while im working :<
     power-profiles-daemon.enable = false;
     fwupd.enable = true;
     thermald.enable = true;
-    logind.extraConfig = "HandlePowerKey=ignore";
     tlp = {
       enable = true;
       settings = {
