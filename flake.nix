@@ -19,7 +19,7 @@
   };
 
   outputs = inputs: let
-    info = import ./info.nix;
+    info = import ./options.nix;
     args = {
       inherit inputs;
     } // info;
