@@ -1,4 +1,4 @@
-{ pkgs, hostname, timezone, locale, legacy-boot, enable-dm, ... }: {
+{ pkgs, swapfile, hostname, timezone, locale, legacy-boot, enable-dm, ... }: {
   system.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -53,7 +53,7 @@
   swapDevices = [
     {
       device = "/swapfile";
-      size = 2 * 1024;
+      size = swapfile;
     }
   ];
 
@@ -91,18 +91,18 @@
   time.timeZone = timezone;
   i18n.defaultLocale = locale;
 
-  # GDM Temporary Fix: https://discourse.nixos.org/t/gnome-display-manager-fails-to-login-until-wi-fi-connection-is-established/50513/15
   systemd.services = if enable-dm then {
     "getty@tty1".enable = false;
     "autovt@tty1".enable = false; 
   } else {};
+  # ^^ GDM Temporary Fix: https://discourse.nixos.org/t/gnome-display-manager-fails-to-login-until-wi-fi-connection-is-established/50513/15
 
   services = {
+    displayManager.gdm.enable = enable-dm;
+    desktopManager.gnome.enable = true;
     xserver = {
-      enable = true;
-      displayManager.gdm.enable = enable-dm;
       displayManager.startx.enable = !enable-dm;
-      desktopManager.gnome.enable = true;
+      enable = true;
       xkb = {
         layout = "us";
         variant = "";
