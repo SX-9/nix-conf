@@ -215,8 +215,8 @@
 
       .modules-left, .modules-center, .modules-right {
         background-color: @crust;
-        border: ${rice.borders.size}px solid @${if rice.borders.colored then "surface1" else "crust"};
-        border-radius: ${rice.borders.rounded}px;
+        border: ${builtins.toString rice.borders.size}px solid @${if rice.borders.colored then "surface1" else "crust"};
+        border-radius: ${builtins.toString rice.borders.rounded}px;
         padding: 0 5px;
       }
       #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start {
