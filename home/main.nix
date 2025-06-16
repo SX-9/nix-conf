@@ -1,10 +1,10 @@
-{ username, git, use-hyprland, ctp-opt, flake-path, ... }: {
+{ username, git, rice, ctp-opt, flake-path, ... }: {
   catppuccin = {
     flavor = ctp-opt.flavor;
     accent = ctp-opt.accent;
     enable = true;
   };
-  imports = if use-hyprland then [
+  imports = if rice.enable then [
     ../rice/home.nix
   ] else [];
   

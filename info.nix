@@ -1,15 +1,19 @@
 {
-  hostname = "nixos";
-  username = "satr14";
   flake-path = "~/Projects/nix-conf"; # set this to the cloned repo path
 
-  legacy-boot = false; # enables grub if true
+  hostname = "nixos";
+  username = "satr14";
+
   timezone = "Asia/Jakarta";
   locale = "en_US.UTF-8";
 
+  legacy-boot = false; # enables grub if true
   partition = false; # set to true to enable Disko partitioning when installing
-  use-hyprland = false; # if true, Hyprland will be enabled with GNOME as backup DE
   enable-dm = true; # enable display manager (for server use)
+
+  rice = {
+    enable = false; # if true, Hyprland will be enabled with GNOME as backup DE
+  };
 
   ctp-opt = { # configure Catppuccin theme
     primary = "sky";

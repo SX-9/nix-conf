@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, use-hyprland, ... }: {
+{ lib, pkgs, inputs, rice, ... }: {
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
@@ -15,9 +15,9 @@
       ];
     };
     hyprland = {
-      enable = use-hyprland;
+      enable = rice.enable;
       xwayland.enable = true;
-      package = if use-hyprland then inputs.hl.packages."${pkgs.system}".hyprland else pkgs.hyprland;
+      package = if rice.enable then inputs.hl.packages."${pkgs.system}".hyprland else pkgs.hyprland;
       portalPackage = inputs.hl.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
   };
@@ -49,8 +49,8 @@
   };
 
   environment = {
-    systemPackages = with pkgs; if use-hyprland then [ libsecret libnotify kdePackages.kdeconnect-kde ] else [];
-    sessionVariables = if use-hyprland then {
+    systemPackages = with pkgs; if rice.enable then [ libsecret libnotify kdePackages.kdeconnect-kde ] else [];
+    sessionVariables = if rice.enable then {
       XDG_RUNTIME_DIR = "/run/user/$UID"; # https://discourse.nixos.org/t/login-keyring-did-not-get-unlocked-hyprland/40869/10
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
