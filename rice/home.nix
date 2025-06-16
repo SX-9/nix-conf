@@ -1,4 +1,4 @@
-{ config, pkgs, ctp-opt, ... }: {
+{ config, pkgs, rice, ctp-opt, ... }: {
   catppuccin = {
     hyprland.accent = ctp-opt.primary;
     hyprlock.useDefaultConfig = false;
@@ -30,11 +30,11 @@
       # yoffset = 10;
       theme = let inherit (config.lib.formats.rasi) mkLiteral; in {
         "entry".placeholder = "Search...";
-        "scrollbar".border-radius = 10;
+        "scrollbar".border-radius = rice.borders.rounded;
         # "element-icon".size = mkLiteral "2em";
         "window" = {
-          border-radius = 10;
-          border = 2;
+          border-radius = rice.borders.rounded;
+          border = rice.borders.size;
           # fullscreen = true;
         };
         "listview" = {
@@ -43,7 +43,7 @@
           fixed-columns = false;
         };
         "element" = {
-          border-radius = 10;
+          border-radius = rice.borders.rounded;
           padding = mkLiteral "4px";
           spacing = mkLiteral "8px";
           # orientation = mkLiteral "vertical";
@@ -127,8 +127,8 @@
       settings.global = {
         width = 300;
         offset = "10x10";
-        corner_radius = 10;
-        frame_width = 2;
+        corner_radius = rice.borders.rounded;
+        frame_width = rice.borders.size;
       };
     };
   };

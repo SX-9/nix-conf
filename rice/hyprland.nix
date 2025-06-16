@@ -1,4 +1,4 @@
-{ inputs, pkgs, flake-path, ctp-opt, ... }: {
+{ inputs, pkgs, rice, flake-path, ctp-opt, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hl.packages."${pkgs.system}".hyprland;
@@ -35,17 +35,17 @@
       general = {
         gaps_in = 5;
         gaps_out = "10,10,10,10";
-        border_size = 2;
+        border_size = rice.borders.size;
         resize_on_border = true;
         allow_tearing = false;
         layout = "dwindle";
 
-        "col.active_border" = "$accent";
-        "col.inactive_border" = "$overlay2";
+        "col.active_border" = if rice.borders.colored then "$accent" else "$crust";
+        "col.inactive_border" = if rice.borders.colored then "$overlay2" else "$crust";
       };
 
       decoration = {
-        rounding = 10;
+        rounding = rice.borders.rounded;
         rounding_power = 2;
         active_opacity = 1.0;
         inactive_opacity = 0.9;

@@ -1,4 +1,4 @@
-{ username, hostname, ctp-opt, ... }: {
+{ username, hostname, ctp-opt, rice, ... }: {
   programs.waybar = {
     enable = true;
     settings = [
@@ -215,8 +215,8 @@
 
       .modules-left, .modules-center, .modules-right {
         background-color: @crust;
-        border: 2px solid @surface1;
-        border-radius: 10px;
+        border: ${rice.borders.size}px solid @${if rice.borders.colored then "surface1" else "crust"};
+        border-radius: ${rice.borders.rounded}px;
         padding: 0 5px;
       }
       #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start {

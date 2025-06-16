@@ -1,4 +1,4 @@
-{ ... }: {
+{ rice, ... }: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -45,11 +45,11 @@
 
           dots_center = true;
           fade_on_empty = false;
-          outline_thickness = 2;
+          outline_thickness = rice.borders.size;
           shadow_passes = 8;
-          rounding = 10;
+          rounding = rice.borders.rounded;
 
-          outer_color = "$accent";
+          outer_color = if rice.borders.colored then "$accent" else "$crust";
           inner_color = "$crust";
           font_color = "$text";
           placeholder_text = "Type your password";

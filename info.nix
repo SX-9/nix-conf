@@ -13,6 +13,11 @@
 
   rice = {
     enable = false; # if true, Hyprland will be enabled with GNOME as backup DE
+    borders = {
+      colored = true; # enable colored borders
+      rounded = 10; # rounded corners in pixel
+      size = 2; # border size in pixel
+    };
   };
 
   ctp-opt = { # configure Catppuccin theme
