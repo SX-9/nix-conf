@@ -14,7 +14,9 @@
     thermald.enable = true;
     tlp = {
       enable = true;
-      settings = {
+      settings = { # BAT1 = external battery, BAT0 = internal battery
+        STOP_CHARGE_THRESH_BAT0 = "85";
+        START_CHARGE_THRESH_BAT0 = "80";
         STOP_CHARGE_THRESH_BAT1 = "85";
         START_CHARGE_THRESH_BAT1 = "80";
         CPU_BOOST_ON_AC = "1";
