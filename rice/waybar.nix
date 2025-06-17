@@ -176,6 +176,7 @@
         font-weight: bold;
         color: @text;
         transition: none;
+        transition: all, 0.25s ease-out;
       }
 
       window#waybar {
