@@ -42,7 +42,7 @@
             critical = 85;
           };
           interval = 1;
-          format = " {percentage}%";
+          format = " {used:0.1f}GiB";
           on-click = "kitty btop";
         };
         "disk" = {
@@ -50,7 +50,7 @@
             critical = 85;
           };
           interval = 5;
-          format = " {percentage_used}%";
+          format = " {used}";
           on-click = "kitty btop";
         };
         "network" = {
