@@ -1,7 +1,10 @@
 # CUSTOM CONFIG FOR THINKPADS ONLY
 
 { pkgs, ... }: {
-  hardware.enableRedistributableFirmware = true; # T480 WiFi firmware fix
+  hardware = {
+    enableRedistributableFirmware = true; # T480 WiFi firmware fix
+    graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver intel-ocl ];
+  };
   boot = {
     kernelPackages = pkgs.linuxPackages;
     kernel.sysctl."vm.laptop_mode" = 5;

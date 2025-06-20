@@ -23,7 +23,7 @@
         zoom
         gimp
 
-        # davinci-resolve
+        davinci-resolve
         # ^^^ too poor to afford discrete GPU for this :(
 
         (wrapOBS {
