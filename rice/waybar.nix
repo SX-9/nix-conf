@@ -183,6 +183,14 @@
         background: rgba(0,0,0,0);
         border: none;
       }
+      #window, #submap { padding: 0px 5px; }
+      .modules-left, .modules-center, .modules-right {
+        background-color: @crust;
+        border: ${builtins.toString rice.borders.size}px solid @${if rice.borders.colored then "surface1" else "crust"};
+        border-radius: ${builtins.toString rice.borders.rounded}px;
+        padding: 0 5px;
+      }
+      #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start { padding: 0px 5px; }
       
       #workspaces button {
         border-radius: 0px;
@@ -210,28 +218,9 @@
         font-size: 16px;
       }
 
-      #window, #submap {
-        padding: 0px 5px;
-      }
-
-      .modules-left, .modules-center, .modules-right {
-        background-color: @crust;
-        border: ${builtins.toString rice.borders.size}px solid @${if rice.borders.colored then "surface1" else "crust"};
-        border-radius: ${builtins.toString rice.borders.rounded}px;
-        padding: 0 5px;
-      }
-      #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start {
-        margin: 0 5px;
-      }
-      .critical, .muted, .performance {
-        color: @red;
-      }
-      .warning, .urgent, .disabled, .disconnected {
-        color: @yellow;
-      }
-      .charging, .plugged, .power-saver {
-        color: @green;
-      }
+      .critical, .muted, .performance { color: @red; }
+      .warning, .urgent, .disabled, .disconnected { color: @yellow; }
+      .charging, .plugged, .power-saver { color: @green; }
     '';
   };
 }

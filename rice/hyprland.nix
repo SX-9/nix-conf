@@ -157,7 +157,6 @@
       bindm = [
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
-        "SUPER SHIFT, mouse:273, resizewindow"
       ];
 
       bindl = [
@@ -175,6 +174,10 @@
       ];
       
       bind = [
+        "SUPER SHIFT, P, exec, sh -c 'notify-send \"$(pkexec tlp ac)\"'"
+        "SUPER SHIFT, O, exec, sh -c 'notify-send \"$(pkexec tlp bat)\"'"
+        "SUPER SHIFT, I, exec, sh -c 'notify-send \"$(pkexec tlp start)\"'"
+
         "SUPER, N, exec, rofi-network-manager"
         "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
 
@@ -183,8 +186,10 @@
         "SUPER, H, exec, notify-send Hyprland 'Animations Off' && hyprctl keyword animations:enabled 0"
         "SUPER, X, exec, dunstctl close-all && systemctl --user restart swww waybar hypridle && hyprctl reload"
 
-        ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
+        ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
+        "ALT, PRINT, exec, hyprshot -m output -o ~/Pictures/Screenshots"
+
         "SUPER, R, exec, rofi -show drun -show-icons -display-drun ''"
         "SUPER, V, exec, rofi -modi clipboard:cliphist-rofi-img -show clipboard -show-icons"
         # "SUPER, B, exec, rofi -show calc -modi calc -no-show-match -no-sort"

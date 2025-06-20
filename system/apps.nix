@@ -48,6 +48,7 @@
     wakeonlan
     coreutils-full
     traceroute
+    lxappearance
 
     nixd
     gh
