@@ -190,7 +190,7 @@
         border-radius: ${builtins.toString rice.borders.rounded}px;
         padding: 0 5px;
       }
-      #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start { padding: 0px 5px; }
+      #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start { padding: 0px 5px; margin: 0px 5px; }
       
       #workspaces button {
         border-radius: 0px;
