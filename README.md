@@ -8,6 +8,7 @@
 > [!NOTE]
 > 1. This repository does not include the wallpaper used in the screenshot.
 > 2. Some app themes are configured via account syncing (vscode, google-chrome, etc) and are not configured via home-manager. You have to configure them yourself.
+> 3. Some `options.nix` are legacy/arent used. Most likely due to WIP.
 
 to enable swap:
 
