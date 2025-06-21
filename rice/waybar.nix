@@ -55,7 +55,7 @@
         };
         "network" = {
           interval = 1;
-          format-ethernet = " {bandwidthTotalBytes}";
+          format-ethernet = " {ifname}";
           format-wifi = " {signalStrength}%";
           format-disconnected = "";
           format-disabled = "";
