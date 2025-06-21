@@ -21,10 +21,7 @@
         vlc
         slack
         zoom
-        gimp
-
-        davinci-resolve
-        # ^^^ too poor to afford discrete GPU for this :(
+        inkscape
 
         (wrapOBS {
           plugins = with obs-studio-plugins; [

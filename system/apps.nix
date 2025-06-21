@@ -25,6 +25,7 @@
     powertop
     smartmontools
     woeusb
+    fastfetch
 
     wineWowPackages.waylandFull
     wineWowPackages.stable
