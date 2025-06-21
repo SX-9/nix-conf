@@ -8,9 +8,13 @@
     };
 
     hl.url = "github:hyprwm/Hyprland";
-    hlp = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hl";
+    # hlp = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hl";
+    # };
+    qs = {
+      url = "github:quickshell-mirror/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     
     na.url = "github:nix-community/nixos-anywhere";

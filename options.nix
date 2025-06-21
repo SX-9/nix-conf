@@ -15,6 +15,7 @@
 
   rice = {
     enable = false; # if true, Hyprland will be enabled with GNOME as backup DE
+    qs = false; # enable Quickshell
     borders = {
       colored = false; # enable colored borders
       rounded = 6; # rounded corners in pixel
