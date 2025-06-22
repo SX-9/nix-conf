@@ -82,7 +82,7 @@
           "layers, 1, 3.81, easeOutQuint, slidevert"
           "windows, 1, 4.79, easeOutQuint, popin 87%"
           "workspaces, 1, 5, easeOutQuint, slidefade 20%"
-          "specialWorkspace, 1, 5, easeOutQuint, slidefadevert 20%"
+          "specialWorkspace, 1, 5, easeOutQuint, slidefadevert ${if rice.top-bar then "" else "-"}20%"
         ];
       };
 
