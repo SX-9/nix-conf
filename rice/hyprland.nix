@@ -67,7 +67,7 @@
 
       animations = {
         enabled = true;
-        first_launch_animation = true;
+        first_launch_animation = false;
 
         bezier = [
           "easeOutQuint,0.23,1,0.32,1"
