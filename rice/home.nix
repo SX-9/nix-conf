@@ -32,6 +32,12 @@
         "entry".placeholder = "Search...";
         "scrollbar".border-radius = rice.borders.rounded;
         # "element-icon".size = mkLiteral "2em";
+        "*" = {
+          normal-foreground = mkLiteral "@text";
+          alternate-normal-foreground = mkLiteral "@text";
+          foreground = mkLiteral "@${ctp-opt.accent}";
+          border-color = mkLiteral (if rice.borders.colored then "@foreground" else "@overlay0");
+        };
         "window" = {
           border-radius = rice.borders.rounded;
           border = rice.borders.size;
