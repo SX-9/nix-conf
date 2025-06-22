@@ -183,7 +183,7 @@
         "SUPER, J, exec, notify-send -u critical Hyprland 'Caffein Mode' && notify-send '(SUPER+X to reset)' && systemctl --user stop hypridle"
         "SUPER, K, exec, notify-send -u critical Hyprland 'Focus Mode' && notify-send '(SUPER+X to reset)' && systemctl --user stop swww waybar && hyprctl --batch 'keyword decoration:inactive_opacity 1.0; keyword decoration:blur:enabled 0; keyword general:gaps_in 0; keyword general:gaps_out 0; keyword general:border_size 1; keyword decoration:rounding 0; keyword decoration:shadow:enabled false'"
         "SUPER, H, exec, notify-send Hyprland 'Animations Off' && hyprctl keyword animations:enabled 0"
-        "SUPER, X, exec, dunstctl close-all && systemctl --user restart swww waybar hypridle && hyprctl reload"
+        "SUPER, X, exec, dunstctl close-all && hyprctl reload && systemctl --user restart swww waybar hypridle"
 
         "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
