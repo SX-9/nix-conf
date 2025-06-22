@@ -3,11 +3,12 @@
     enable = true;
     settings = [
       {
-        margin-top = 10;
-        margin-left = 10;
-        margin-right = 10;
         layer = "top";
-        position = "top";
+        position = if rice.top-bar then "top" else "bottom";
+        margin-top = if rice.top-bar then rice.gap.outer else 0;
+        margin-bottom = if rice.top-bar then 0 else rice.gap.outer;
+        margin-right = rice.gap.outer;
+        margin-left = rice.gap.outer;
 
         modules-left = [
           "custom/start"

@@ -132,7 +132,7 @@
       enable = true;
       settings.global = {
         width = 300;
-        offset = "10x10";
+        offset = "${builtins.toString rice.gap.outer}x${builtins.toString rice.gap.outer}";
         corner_radius = rice.borders.rounded;
         frame_width = rice.borders.size;
       };

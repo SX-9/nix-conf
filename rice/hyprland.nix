@@ -32,8 +32,8 @@
       ];
 
       general = {
-        gaps_in = 5;
-        gaps_out = "10,10,10,10";
+        gaps_in = rice.gap.inner;
+        gaps_out = rice.gap.outer;
         border_size = rice.borders.size;
         resize_on_border = true;
         allow_tearing = false;
