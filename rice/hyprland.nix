@@ -16,7 +16,6 @@
 
         # "nm-applet &"
         "tailscale-systray &"
-	      "rofi -show drun -show-icons -display-drun ''"
       ];
 
       env = [
