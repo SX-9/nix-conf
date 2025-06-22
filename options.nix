@@ -15,7 +15,6 @@
   homelab = false; # enables all /homelab docker containers
 
   rice = {
-    qs = false; # enable Quickshell
     enable = false; # if true, Hyprland will be enabled with GNOME as backup DE
     top-bar = true; # enable top bar, false will put the bar at the bottom
     gap = { # set the gap size in pixel

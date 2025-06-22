@@ -619,26 +619,6 @@
         "type": "github"
       }
     },
-    "qs": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1750476762,
-        "narHash": "sha256-JHZaLyNhd8cwP1FVKwY7DVecDMezikGt0tQmRyVB+CM=",
-        "owner": "quickshell-mirror",
-        "repo": "quickshell",
-        "rev": "a5cbd37aeae8fdc3d65b58978b34cbd60e207e56",
-        "type": "github"
-      },
-      "original": {
-        "owner": "quickshell-mirror",
-        "repo": "quickshell",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "ctp": "ctp",
@@ -646,8 +626,7 @@
         "hl": "hl",
         "hm": "hm",
         "na": "na",
-        "nixpkgs": "nixpkgs_5",
-        "qs": "qs"
+        "nixpkgs": "nixpkgs_5"
       }
     },
     "systems": {

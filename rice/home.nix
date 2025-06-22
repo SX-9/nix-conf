@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, rice, ctp-opt, ... }: {
+{ config, pkgs, rice, ctp-opt, ... }: {
   catppuccin = {
     hyprland.accent = ctp-opt.primary;
     hyprlock.useDefaultConfig = false;
@@ -174,7 +174,6 @@
 
   home = {
     packages = with pkgs; [
-      inputs.qs.packages."${pkgs.system}".default # quickshell
       playerctl brightnessctl
       tailscale-systray networkmanagerapplet eog qt6ct kdePackages.qtstyleplugin-kvantum
       kitty bat btop ranger w3m gnome-calculator gnome-clocks

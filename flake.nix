@@ -12,10 +12,6 @@
     #   url = "github:hyprwm/hyprland-plugins";
     #   inputs.hyprland.follows = "hl";
     # };
-    qs = {
-      url = "github:quickshell-mirror/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     
     na.url = "github:nix-community/nixos-anywhere";
     dsk.url = "github:nix-community/disko";
