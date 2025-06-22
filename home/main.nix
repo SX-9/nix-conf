@@ -1,4 +1,4 @@
-{ username, git, rice, ctp-opt, flake-path, ... }: {
+{ pkgs, username, git, rice, ctp-opt, flake-path, ... }: {
   catppuccin = {
     flavor = ctp-opt.flavor;
     accent = ctp-opt.accent;
@@ -14,6 +14,14 @@
     homeDirectory = "/home/${username}";
   };
   programs = {
+    gh = {
+      enable = true;
+      settings.editor = "nvim";
+      gitCredentialHelper.enable = true;
+      extensions = with pkgs; [
+        gh-dash gh-skyline gh-eco
+      ];
+    };
     git = {
       enable = true;
       userName = git.user;
