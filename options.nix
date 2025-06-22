@@ -30,7 +30,7 @@
 
   ctp-opt = { # configure Catppuccin theme
     primary = "sky";
-    accent = "blue";
+    accent = "sapphire";
     flavor = "mocha";
   };
 
