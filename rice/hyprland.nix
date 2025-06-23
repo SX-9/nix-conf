@@ -9,7 +9,10 @@
     xwayland.enable = true;
     # plugins = with inputs.hlp.packages."${pkgs.system}"; [];
     settings = {
-      monitor = ",preferred,auto,1.2";
+      monitor = [
+        "eDP-1,preferred,auto,1.2"
+        ",preferred,auto,1"
+      ];
 
       exec-once = [
         # "hyprctl setcursor catppuccin-mocha-light-cursors 24"
