@@ -180,17 +180,18 @@
         transition: all, 0.25s ease-out;
       }
 
+      window#waybar, .modules-left, .modules-center, .modules-right { border-radius: ${builtins.toString rice.borders.rounded}px; }
+      .modules-left, .modules-center, .modules-right { padding: 0 5px; }
+      window#waybar.solo, window#waybar.fullscreen, .modules-left, .modules-center, .modules-right {
+        background-color: @crust;
+        border: ${builtins.toString rice.borders.size}px solid @surface0;
+      }
       window#waybar {
         background: rgba(0,0,0,0);
         border: none;
       }
+
       #window, #submap { padding: 0px 5px; }
-      .modules-left, .modules-center, .modules-right {
-        background-color: @crust;
-        border: ${builtins.toString rice.borders.size}px solid @${if rice.borders.colored then "surface1" else "crust"};
-        border-radius: ${builtins.toString rice.borders.rounded}px;
-        padding: 0 5px;
-      }
       #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start { padding: 0px 5px; margin: 0px 5px; }
       
       #workspaces button {
@@ -206,11 +207,11 @@
         background: none;
         color: @text;
         background-size: 300% 300%;
-        background: @surface0;
+        background: @base;
       }
 
       #workspaces button.active, #submap {
-        background: @surface1;
+        background: @surface0;
       }
 
       #custom-start {
