@@ -16,6 +16,8 @@
     na.url = "github:nix-community/nixos-anywhere";
     dsk.url = "github:nix-community/disko";
     ctp.url = "github:catppuccin/nix";
+
+    dm.url = "github:Bqrry4/sddm-stray"; # cool theme
   };
 
   outputs = inputs: let

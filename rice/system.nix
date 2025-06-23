@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, rice, ... }: {
+{ lib, pkgs, inputs, rice, enable-dm, ... }: {
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
@@ -46,10 +46,23 @@
     gvfs.enable = true;
     tumbler.enable = true;
     gnome.gnome-keyring.enable  = true;
+    displayManager = {
+      gdm.enable = lib.mkForce false;
+      sddm = {
+        enable = if rice.enable then enable-dm else false;
+        wayland.enable = true;
+        theme = "sddm-stray";
+        package = pkgs.kdePackages.sddm;
+        extraPackages = with pkgs.kdePackages; [
+          qtmultimedia
+          qtsvg
+        ];
+      };
+    };
   };
 
   environment = {
-    systemPackages = with pkgs; if rice.enable then [ libsecret libnotify kdePackages.kdeconnect-kde ] else [];
+    systemPackages = with pkgs; if rice.enable then [ libsecret libnotify kdePackages.kdeconnect-kde inputs.dm.packages.${pkgs.system}.default ] else [];
     sessionVariables = if rice.enable then {
       XDG_RUNTIME_DIR = "/run/user/$UID"; # https://discourse.nixos.org/t/login-keyring-did-not-get-unlocked-hyprland/40869/10
       WLR_NO_HARDWARE_CURSORS = "1";
