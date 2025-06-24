@@ -90,7 +90,7 @@
         };
         "hyprland/window" = {
           icon = true;
-          max-length = 45;
+          max-length = 55;
           separate-outputs = false;
           rewrite = {
             "" = "${username}@${hostname}";
