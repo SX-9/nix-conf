@@ -40,7 +40,7 @@
 
       general = {
         gaps_in = rice.gap.inner;
-        gaps_out = rice.gap.outer;
+        gaps_out = "${builtins.toString (if rice.top-bar then rice.gap.inner else rice.gap.outer)},${builtins.toString rice.gap.outer},${builtins.toString (if rice.top-bar then rice.gap.outer else rice.gap.inner)},${builtins.toString rice.gap.outer}";
         border_size = rice.borders.size;
         resize_on_border = true;
         allow_tearing = false;
