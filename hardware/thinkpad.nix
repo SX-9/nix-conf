@@ -35,9 +35,9 @@
         [ "level full-speed" 60 70  ]
         [ "level disengaged" 70 150 ]
       ];
-      sensors = [
-        { type = "hwmon"; query = "/sys/devices/platform/coretemp.0/hwmon"; }
-      ];
+      # sensors = [
+      #   { type = "hwmon"; query = "/sys/devices/platform/coretemp.0/hwmon"; }
+      # ];
     };
   };
 }
