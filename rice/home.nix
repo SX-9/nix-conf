@@ -133,7 +133,7 @@
       settings.global = {
         width = 300;
         origin = "${if rice.top-bar then "top" else "bottom"}-right";
-        offset = "${builtins.toString rice.gap.outer}x${builtins.toString rice.gap.outer}";
+        offset = "${builtins.toString rice.gap.outer}x${builtins.toString (rice.gap.outer / 2)}";
         corner_radius = rice.borders.rounded;
         frame_width = rice.borders.size;
       };

@@ -182,25 +182,23 @@
 
       window#waybar, .modules-left, .modules-center, .modules-right { border-radius: ${builtins.toString rice.borders.rounded}px; }
       .modules-left, .modules-center, .modules-right { padding: 0 5px; }
-      window#waybar.solo, window#waybar.fullscreen, .modules-left, .modules-center, .modules-right {
+      window#waybar.solo, .modules-left, .modules-center, .modules-right {
         background-color: @crust;
         border: ${builtins.toString rice.borders.size}px solid @surface0;
       }
-      window#waybar.solo .modules-right, window#waybar.solo .modules-center,
-      window#waybar.fullscreen .modules-right, window#waybar.fullscreen .modules-center {
+      window#waybar.solo .modules-right, window#waybar.solo .modules-center{
         border-left: none;
       }
-      window#waybar.solo .modules-left, window#waybar.solo .modules-center,
-      window#waybar.fullscreen .modules-left, window#waybar.fullscreen .modules-center {
+      window#waybar.solo .modules-left, window#waybar.solo .modules-center {
         border-right: none;
       }
-      window#waybar.solo .modules-center, window#waybar.fullscreen .modules-center {
+      window#waybar.solo .modules-center {
         border-radius: 0px;
       }
-      window#waybar.solo .modules-left, window#waybar.fullscreen .modules-left {
+      window#waybar.solo .modules-left {
         border-radius: ${builtins.toString rice.borders.rounded}px 0px 0px ${builtins.toString rice.borders.rounded}px;
       }
-      window#waybar.solo .modules-right, window#waybar.fullscreen .modules-right {
+      window#waybar.solo .modules-right {
         border-radius: 0px ${builtins.toString rice.borders.rounded}px ${builtins.toString rice.borders.rounded}px 0px;
       }
       window#waybar {
