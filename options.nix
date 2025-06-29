@@ -11,9 +11,10 @@
   partition = false; # set to true to enable Disko partitioning when installing
   enable-dm = true; # enable display manager (for server use)
 
-  swapfile = 4 * 1024; # swapfile size in MiB, set it to the same as RAM size for hibernation
+  swapfile = 0; # * 1024; # swapfile size in MB, set to 0 to disable
   homelab = false; # enables all /homelab docker containers
   wol = "enp0s31f6"; # set to iface name to enable Wake-on-LAN
+  resume-dev = ""; # set to swap partition to enable hibernation, e.g. /dev/disk/by-uuid/1721721a-bb5a-4166-a077-9500d30be2ac
 
   rice = {
     enable = false; # if true, Hyprland will be enabled with GNOME as backup DE

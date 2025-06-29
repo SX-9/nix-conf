@@ -1,20 +1,33 @@
 # CUSTOM CONFIG FOR THINKPADS ONLY
 
-{ pkgs, ... }: {
+{ pkgs, resume-dev, ... }: {
+  powerManagement.enable = true;
+  security.protectKernelImage = false; # https://discourse.nixos.org/t/hibernate-doesnt-work-anymore/24673/7
   hardware = {
     enableRedistributableFirmware = true; # T480 WiFi firmware fix
     graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver intel-ocl ];
   };
   boot = {
+    kernelParams = ["resume=${resume-dev}"];
+    resumeDevice = "${resume-dev}";
+
     kernelPackages = pkgs.linuxPackages;
     kernel.sysctl."vm.laptop_mode" = 5;
     initrd.availableKernelModules = [ "thinkpad_acpi" ];
   };
   services = {
-    logind.extraConfig = "HandlePowerKey=ignore"; # classmates keep pressing power button while im working :<
+    logind.powerKey = "ignore"; # classmates keep pressing power button while im working :<
     power-profiles-daemon.enable = false;
     fwupd.enable = true;
     thermald.enable = true;
+    upower = {
+      enable = true;
+      percentageCritical = 15;
+      percentageAction = 10;
+      usePercentageForPolicy = true;
+      allowRiskyCriticalPowerAction = true;
+      criticalPowerAction = "HybridSleep";
+    };
     tlp = {
       enable = true;
       settings = { # BAT1 = external battery, BAT0 = internal battery
