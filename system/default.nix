@@ -1,4 +1,4 @@
-{ pkgs, swapfile, hostname, timezone, locale, legacy-boot, enable-dm, ... }: {
+{ pkgs, swapfile, hostname, timezone, locale, legacy-boot, enable-dm, wol, ... }: {
   system.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -91,10 +91,21 @@
   time.timeZone = timezone;
   i18n.defaultLocale = locale;
 
-  systemd.services = if enable-dm then {
+  systemd.services = (if wol == "" then {} else {
+    "enable-wol" = {
+      description = "Reenable wake on lan every boot";
+      after = [ "network.target" ];
+      serviceConfig = {
+        Type = "simple";
+        RemainAfterExit = "true";
+        ExecStart = "${pkgs.ethtool}/sbin/ethtool -s ${wol} wol g";
+      };
+      wantedBy = [ "default.target" ];
+    };
+  }) // (if enable-dm then {
     "getty@tty1".enable = false;
     "autovt@tty1".enable = false; 
-  } else {};
+  } else {});
   # ^^ GDM Temporary Fix: https://discourse.nixos.org/t/gnome-display-manager-fails-to-login-until-wi-fi-connection-is-established/50513/15
 
   services = {

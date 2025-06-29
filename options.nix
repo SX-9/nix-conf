@@ -13,6 +13,7 @@
 
   swapfile = 4 * 1024; # swapfile size in MiB, set it to the same as RAM size for hibernation
   homelab = false; # enables all /homelab docker containers
+  wol = "enp0s31f6"; # set to iface name to enable Wake-on-LAN
 
   rice = {
     enable = false; # if true, Hyprland will be enabled with GNOME as backup DE

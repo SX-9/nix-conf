@@ -26,6 +26,7 @@
     smartmontools
     woeusb
     fastfetch
+    ethtool
 
     wineWowPackages.waylandFull
     wineWowPackages.stable
