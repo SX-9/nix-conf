@@ -17,14 +17,18 @@
 
   rice = {
     enable = false; # if true, Hyprland will be enabled with GNOME as backup DE
-    top-bar = true; # enable top bar, false will put the bar at the bottom
+    bar = {
+      top = true; # false will put the bar at the bottom
+      fragmented = true; # enable fragmented bar, false will make it a single block
+      minimal = false; # less verbose bar
+    };
     gap = { # set the gap size in pixel
-      outer = 10;
-      inner = 5;
+      outer = 8;
+      inner = 4;
     };
     borders = {
       colored = false; # enable colored borders
-      rounded = 6; # rounded corners in pixel
+      rounded = 0; # rounded corners in pixel
       size = 1; # border size in pixel
     };
   };
