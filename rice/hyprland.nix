@@ -40,7 +40,7 @@
 
       general = {
         gaps_in = rice.gap.inner;
-        gaps_out = "${builtins.toString (if rice.top-bar then rice.gap.inner else rice.gap.outer)},${builtins.toString rice.gap.outer},${builtins.toString (if rice.top-bar then rice.gap.outer else rice.gap.inner)},${builtins.toString rice.gap.outer}";
+        gaps_out = "${builtins.toString (if rice.bar.top then rice.gap.inner else rice.gap.outer)},${builtins.toString rice.gap.outer},${builtins.toString (if rice.bar.top then rice.gap.outer else rice.gap.inner)},${builtins.toString rice.gap.outer}";
         border_size = rice.borders.size;
         resize_on_border = true;
         allow_tearing = false;
@@ -89,7 +89,7 @@
           "layers, 1, 3.81, easeOutQuint, slidevert"
           "windows, 1, 4.79, easeOutQuint, popin 87%"
           "workspaces, 1, 5, easeOutQuint, slidefade 20%"
-          "specialWorkspace, 1, 5, easeOutQuint, slidefadevert ${if rice.top-bar then "" else "-"}20%"
+          "specialWorkspace, 1, 5, easeOutQuint, slidefadevert ${if rice.bar.top then "" else "-"}20%"
         ];
       };
 

@@ -4,9 +4,9 @@
     settings = [
       {
         layer = "top";
-        position = if rice.top-bar then "top" else "bottom";
-        margin-top = if rice.top-bar then rice.gap.outer else 0;
-        margin-bottom = if rice.top-bar then 0 else rice.gap.outer;
+        position = if rice.bar.top then "top" else "bottom";
+        margin-top = if rice.bar.top then rice.gap.outer else 0;
+        margin-bottom = if rice.bar.top then 0 else rice.gap.outer;
         margin-right = rice.gap.outer;
         margin-left = rice.gap.outer;
 
@@ -15,12 +15,18 @@
           "hyprland/workspaces"
           "hyprland/window"
         ];
-        modules-center = [
+        modules-center = if rice.bar.minimal then [] else [
           "clock"
-          "hyprland/submap"
           "tray"
+          "hyprland/submap"
         ];
-        modules-right = [
+        modules-right = if rice.bar.minimal then [
+          "tray"
+          "pulseaudio"
+          "network"
+          "battery"
+          "clock"
+        ] else [
           "temperature"
           "cpu"
           "memory"
@@ -28,7 +34,6 @@
           "pulseaudio"
           "network"
           "battery"
-          # "power-profiles-daemon"
         ];
         "cpu" = {
           states = {
@@ -182,23 +187,25 @@
 
       window#waybar, .modules-left, .modules-center, .modules-right { border-radius: ${builtins.toString rice.borders.rounded}px; }
       .modules-left, .modules-center, .modules-right { padding: 0 5px; }
-      window#waybar.solo, .modules-left, .modules-center, .modules-right {
+      window#waybar${if rice.bar.fragmented then ".solo" else ""}, .modules-left, ${if rice.bar.minimal then "" else ".modules-center,"} .modules-right {
         background-color: @crust;
         border: ${builtins.toString rice.borders.size}px solid @surface0;
       }
+      ${if rice.bar.fragmented then "
       window#waybar.solo .modules-right, window#waybar.solo .modules-center{
         border-left: none;
       }
       window#waybar.solo .modules-left, window#waybar.solo .modules-center {
         border-right: none;
       }
-      window#waybar.solo .modules-center {
+      " else ""}
+      window#waybar${if rice.bar.fragmented then ".solo" else ""} .modules-center {
         border-radius: 0px;
       }
-      window#waybar.solo .modules-left {
+      window#waybar${if rice.bar.fragmented then ".solo" else ""} .modules-left {
         border-radius: ${builtins.toString rice.borders.rounded}px 0px 0px ${builtins.toString rice.borders.rounded}px;
       }
-      window#waybar.solo .modules-right {
+      window#waybar${if rice.bar.fragmented then ".solo" else ""} .modules-right {
         border-radius: 0px ${builtins.toString rice.borders.rounded}px ${builtins.toString rice.borders.rounded}px 0px;
       }
       window#waybar {
