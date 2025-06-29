@@ -38,6 +38,8 @@
         "QT_QPA_PLATFORMTHEME,kvantum"
       ];
 
+      gestures.workspace_swipe = true;
+
       general = {
         gaps_in = rice.gap.inner;
         gaps_out = "${builtins.toString (if rice.bar.top then rice.gap.inner else rice.gap.outer)},${builtins.toString rice.gap.outer},${builtins.toString (if rice.bar.top then rice.gap.outer else rice.gap.inner)},${builtins.toString rice.gap.outer}";
@@ -48,6 +50,11 @@
 
         "col.active_border" = if rice.borders.colored then "$accent" else "$crust";
         "col.inactive_border" = if rice.borders.colored then "$overlay2" else "$crust";
+      };
+
+      dwindle = {
+        preserve_split = true;
+        pseudotile = true;
       };
 
       decoration = {
@@ -92,10 +99,6 @@
           "specialWorkspace, 1, 5, easeOutQuint, slidefadevert ${if rice.bar.top then "" else "-"}20%"
         ];
       };
-
-      dwindle.preserve_split = true;
-      master.new_status = "master";
-      gestures.workspace_swipe = true;
 
       misc = {
         force_default_wallpaper = 0;
