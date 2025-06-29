@@ -27,6 +27,7 @@
     woeusb
     fastfetch
     ethtool
+    lsof
 
     wineWowPackages.waylandFull
     wineWowPackages.stable

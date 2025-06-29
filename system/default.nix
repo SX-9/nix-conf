@@ -50,7 +50,7 @@
       "udev.log_priority=3"
     ];
   };
-  swapDevices = [
+  swapDevices = if swapfile == 0 then [] else [
     {
       device = "/swapfile";
       size = swapfile;
@@ -141,13 +141,18 @@
     resolved.enable = true;
   };
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    sudo.configFile = ''
+      Defaults insults
+      Defaults passwd_tries = 5
+    '';
+  };
 
-  # fonts.packages = with pkgs; [
-  #   corefonts
-  #   vistafonts
-  # ];
-  # ^^^ included in libre office
+  fonts.packages = with pkgs; [
+    corefonts
+    vistafonts
+  ];
 
   programs = {
     zsh.enable = true;

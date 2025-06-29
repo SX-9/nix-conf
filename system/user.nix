@@ -35,6 +35,7 @@
         ferium
         virt-manager
         appimage-run
+        gemini-cli
 
         zsh-completions
         zsh-syntax-highlighting
