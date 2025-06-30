@@ -1,4 +1,4 @@
-{ rice, username, hostname, ... }: {
+{ rice, ... }: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -31,20 +31,10 @@
 
       label = [
         {
-          text = "$TIME12";
+          text = "<span>  󰌾  </span>";
           color = "$text";
           font_size = 64;
-          position = "0, 32";
-          shadow_passes = 1;
-          shadow_boost = 0.5;
-          halign = "center";
-          valign = "center";
-        }
-        {
-          text = "<span foreground=\"##$accentAlpha\">${username}</span>@${hostname}";
-          color = "$subtext0";
-          font_size = 16;
-          position = "0, -32";
+          position = "0, 0";
           shadow_passes = 1;
           shadow_boost = 0.5;
           halign = "center";
@@ -69,6 +59,7 @@
           inner_color = "$crust";
           font_color = "$text";
           placeholder_text = "Type your password";
+          font_family = "monospace";
           
           capslock_color = "$yellow";
           check_color = "$green";
