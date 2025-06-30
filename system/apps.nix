@@ -28,6 +28,7 @@
     fastfetch
     ethtool
     lsof
+    gucharmap
 
     wineWowPackages.waylandFull
     wineWowPackages.stable
