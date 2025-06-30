@@ -100,6 +100,7 @@
           rewrite = {
             "" = "${username}@${hostname}";
             "~" = "${username}@${hostname}";
+            "btop" = "${username}@${hostname}";
           };
           on-click-right = "hyprctl dispatch fullscreen 0";
           on-click-middle = "hyprctl dispatch killactive";
@@ -127,18 +128,11 @@
         };
         "pulseaudio" = {
           format = "{icon} {volume}% {format_source}";
-          format-bluetooth = "{volume}% {icon} {format_source}";
-          format-bluetooth-muted = " {icon} {volume}% {format_source_muted}";
           format-muted = " {volume}% {format_source_muted}";
           format-source = "";
           format-source-muted = "";
           format-icons = {
             headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
             default = [
               ""
               ""

@@ -1,5 +1,3 @@
-# CUSTOM CONFIG FOR THINKPADS ONLY
-
 { pkgs, resume-dev, ... }: {
   powerManagement.enable = true;
   security.protectKernelImage = false; # https://discourse.nixos.org/t/hibernate-doesnt-work-anymore/24673/7
@@ -8,7 +6,7 @@
     graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver intel-ocl ];
   };
   boot = {
-    kernelParams = ["resume=${resume-dev}"];
+    kernelParams = if resume-dev == "" then [] else ["resume=${resume-dev}"];
     resumeDevice = "${resume-dev}";
 
     kernelPackages = pkgs.linuxPackages;
