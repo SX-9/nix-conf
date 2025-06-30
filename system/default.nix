@@ -151,7 +151,6 @@
 
   fonts.packages = with pkgs; [
     corefonts
-    vistafonts
   ];
 
   programs = {
