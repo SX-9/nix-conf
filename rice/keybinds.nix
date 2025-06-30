@@ -32,7 +32,7 @@
       ];
 
       bindl = [
-        ", switch:on:Lid Switch, exec, loginctl lock-session & systemctl suspend"
+        ", switch:on:Lid Switch, exec, systemctl suspend"
         "SUPER, SPACE, exec, playerctl play-pause"
       ];
 
@@ -70,7 +70,7 @@
         "SUPER, A, exec, code ${flake-path}"
         "SUPER, T, exec, kitty"
         "SUPER, E, exec, thunar ~" # kitty ranger ~"
-        "SUPER, C, exec, kitty btop"
+        "SUPER, C, exec, [float; size 75%] kitty btop"
         "SUPER, Y, exec, google-chrome-stable"
         "SUPER, D, exec, steam steam://open/bigpicture"
 

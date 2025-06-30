@@ -110,6 +110,8 @@
         general = {
           lock_cmd = "hyprlock";
           unlock_cmd = "pkill -USR1 hyprlock";
+          before_sleep_cmd = "hyprlock";
+          after_sleep_cmd = "pkill -USR2 hyprlock";
         };
         listener = [
           {
@@ -120,6 +122,7 @@
           {
             timeout = 300;
             on-timeout = "hyprlock";
+            on-resume = "pkill -USR2 hyprlock";
           }
           {
             timeout = 600;

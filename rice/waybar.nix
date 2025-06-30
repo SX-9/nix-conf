@@ -41,7 +41,7 @@
           };
           interval = 1;
           format = " {usage:2}%";
-          on-click = "kitty btop";
+          on-click = "hyprctl dispatch exec [float; size 75%] kitty btop";
         };
         "memory" = {
           states = {
@@ -49,7 +49,7 @@
           };
           interval = 1;
           format = " {used:0.1f}GiB";
-          on-click = "kitty btop";
+          on-click = "hyprctl dispatch exec [float; size 75%] kitty btop";
         };
         "disk" = {
           states = {
@@ -57,7 +57,7 @@
           };
           interval = 5;
           format = " {used}";
-          on-click = "kitty btop";
+          on-click = "hyprctl dispatch exec [float; size 75%] kitty btop";
         };
         "network" = {
           interval = 1;
@@ -73,7 +73,7 @@
           critical-threshold = 80;
           format = " {temperatureC}°C";
           interval = 1;
-          on-click = "kitty btop";
+          on-click = "hyprctl dispatch exec [float; size 75%] kitty btop";
         };
         "power-profiles-daemon" = {
           format = "{icon} {profile}";
