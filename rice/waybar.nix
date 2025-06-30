@@ -41,7 +41,7 @@
           };
           interval = 1;
           format = " {usage:2}%";
-          on-click = "hyprctl dispatch exec [float; size 75%] kitty btop";
+          on-click = "hyprctl dispatch exec '[float; size 75%]' kitty btop";
         };
         "memory" = {
           states = {
@@ -49,15 +49,15 @@
           };
           interval = 1;
           format = " {used:0.1f}GiB";
-          on-click = "hyprctl dispatch exec [float; size 75%] kitty btop";
+          on-click = "hyprctl dispatch exec '[float; size 75%]' kitty btop";
         };
         "disk" = {
           states = {
             critical = 85;
           };
           interval = 5;
-          format = " {used}";
-          on-click = "hyprctl dispatch exec [float; size 75%] kitty btop";
+          format = " {used}";
+          on-click = "hyprctl dispatch exec '[float; size 75%]' kitty btop";
         };
         "network" = {
           interval = 1;
@@ -73,7 +73,7 @@
           critical-threshold = 80;
           format = " {temperatureC}°C";
           interval = 1;
-          on-click = "hyprctl dispatch exec [float; size 75%] kitty btop";
+          on-click = "hyprctl dispatch exec '[float; size 75%]' kitty btop";
         };
         "power-profiles-daemon" = {
           format = "{icon} {profile}";
@@ -127,18 +127,10 @@
           on-scroll-down = "minimize";
         };
         "pulseaudio" = {
-          format = "{icon} {volume}% {format_source}";
-          format-muted = " {volume}% {format_source_muted}";
+          format = " {volume}%{format_source}";
+          format-muted = " {volume}%{format_source_muted}";
           format-source = "";
-          format-source-muted = "";
-          format-icons = {
-            headphone = "";
-            default = [
-              ""
-              ""
-              ""
-            ];
-          };
+          format-source-muted = " ";
           on-click = "pavucontrol";
           on-click-middle = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
           on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
@@ -162,7 +154,7 @@
           on-click = "";
         };
         "custom/start" = {
-          format = "";
+          format = "";
           on-click-middle = "hyprctl dispatch togglespecialworkspace hidden";
           on-click-right = "rofi -show power-menu -modi power-menu:rofi-power-menu";
           on-click = "rofi -show drun -show-icons -display-drun ''";
@@ -172,7 +164,7 @@
     style = ''
       * {
         font-size: 12px;
-        font-family: Font Awesome, monospace;
+        font-family: Font Awesome, DroidSansM Nerd Fonts, monospace;
         font-weight: bold;
         color: @text;
         transition: none;
@@ -234,6 +226,7 @@
         padding: 0px 5px;
         color: @${ctp-opt.primary};
         font-size: 16px;
+        font-weight: normal;
       }
 
       .critical, .muted, .performance { color: @red; }
