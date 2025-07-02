@@ -55,9 +55,10 @@
     lxappearance
 
     nixd
-    gh
     git
+    gh
     go
+    bun
     nodejs
     nodePackages.npm
     python311
