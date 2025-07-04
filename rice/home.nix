@@ -110,8 +110,8 @@
         general = {
           lock_cmd = "hyprlock";
           unlock_cmd = "pkill -USR1 hyprlock";
-          before_sleep_cmd = "hyprlock";
-          after_sleep_cmd = "pkill -USR2 hyprlock";
+          before_sleep_cmd = "hyprlock && notify-send -u critical Hyprland 'System is going to sleep'";
+          after_sleep_cmd = "pkill -USR2 hyprlock && dunstctl close-all";
         };
         listener = [
           {
