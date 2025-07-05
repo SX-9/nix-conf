@@ -38,7 +38,10 @@
         "QT_QPA_PLATFORMTHEME,kvantum"
       ];
 
-      gestures.workspace_swipe = true;
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_forever = true;
+      };
 
       general = {
         gaps_in = rice.gap.inner;

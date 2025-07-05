@@ -1,4 +1,4 @@
-{ flake-path, ... }: {
+{ ... }: {
   wayland.windowManager.hyprland = {
     settings = {
       binde = [
@@ -67,7 +67,7 @@
         "SUPER, V, exec, rofi -modi clipboard:cliphist-rofi-img -show clipboard -show-icons"
         # "SUPER, B, exec, rofi -show calc -modi calc -no-show-match -no-sort"
 
-        "SUPER, A, exec, code ${flake-path}"
+        "SUPER, A, exec, code"
         "SUPER, T, exec, kitty"
         "SUPER, E, exec, thunar ~" # kitty ranger ~"
         "SUPER, C, exec, [float; size 75%] kitty btop"

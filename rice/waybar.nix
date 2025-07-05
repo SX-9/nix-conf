@@ -173,25 +173,25 @@
 
       window#waybar, .modules-left, .modules-center, .modules-right { border-radius: ${builtins.toString rice.borders.rounded}px; }
       .modules-left, .modules-center, .modules-right { padding: 0 5px; }
-      window#waybar${if rice.bar.fragmented then ".solo" else ""}, .modules-left, ${if rice.bar.minimal then "" else ".modules-center,"} .modules-right {
+      window#waybar${if rice.bar.fragmented then ":not(.empty):not(.floating)" else ""}, .modules-left, ${if rice.bar.minimal then "" else ".modules-center,"} .modules-right {
         background-color: @crust;
         border: ${builtins.toString rice.borders.size}px solid @surface0;
       }
       ${if rice.bar.fragmented then "
-      window#waybar.solo .modules-right, window#waybar.solo .modules-center{
+      window#waybar:not(.empty):not(.floating) .modules-right, window#waybar:not(.empty):not(.floating) .modules-center{
         border-left: none;
       }
-      window#waybar.solo .modules-left, window#waybar.solo .modules-center {
+      window#waybar:not(.empty):not(.floating) .modules-left, window#waybar:not(.empty):not(.floating) .modules-center {
         border-right: none;
       }
       " else ""}
-      window#waybar${if rice.bar.fragmented then ".solo" else ""} .modules-center {
+      window#waybar${if rice.bar.fragmented then ":not(.empty):not(.floating)" else ""} .modules-center {
         border-radius: 0px;
       }
-      window#waybar${if rice.bar.fragmented then ".solo" else ""} .modules-left {
+      window#waybar${if rice.bar.fragmented then ":not(.empty):not(.floating)" else ""} .modules-left {
         border-radius: ${builtins.toString rice.borders.rounded}px 0px 0px ${builtins.toString rice.borders.rounded}px;
       }
-      window#waybar${if rice.bar.fragmented then ".solo" else ""} .modules-right {
+      window#waybar${if rice.bar.fragmented then ":not(.empty):not(.floating)" else ""} .modules-right {
         border-radius: 0px ${builtins.toString rice.borders.rounded}px ${builtins.toString rice.borders.rounded}px 0px;
       }
       window#waybar {
