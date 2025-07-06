@@ -1,4 +1,5 @@
-{ pkgs, resume-dev, ... }: {
+{ pkgs, lib, resume-dev, ... }: {
+  time.timeZone = lib.mkForce null;
   powerManagement.enable = true;
   security.protectKernelImage = false; # https://discourse.nixos.org/t/hibernate-doesnt-work-anymore/24673/7
   hardware = {
@@ -16,7 +17,7 @@
   services = {
     logind.powerKey = "ignore"; # classmates keep pressing power button while im working :<
     power-profiles-daemon.enable = false;
-    automatice-timezoned.enable = true;
+    automatic-timezoned.enable = true;
     thermald.enable = true;
     fwupd.enable = true;
     upower = {
