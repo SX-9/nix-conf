@@ -17,9 +17,13 @@
   services = {
     logind.powerKey = "ignore"; # classmates keep pressing power button while im working :<
     power-profiles-daemon.enable = false;
-    automatic-timezoned.enable = true;
+    automatic-timezoned.enable = false;
     thermald.enable = true;
     fwupd.enable = true;
+    tzupdate = {
+      enable = true;
+      timer.enable = true;
+    };
     upower = {
       enable = true;
       percentageCritical = 15;
