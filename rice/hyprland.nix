@@ -124,8 +124,9 @@
       layerrule = [
         "noanim, selection" # hyprshot overlay
         "animation fade, swww-daemon"
-        "abovelock false, notifications"
         "abovelock false, waybar"
+        "abovelock true, notifications"
+        "abovelock true, selection"
       ];
 
       windowrulev2 = [

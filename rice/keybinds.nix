@@ -33,6 +33,7 @@
 
       bindl = [
         ", switch:on:Lid Switch, exec, systemctl suspend"
+        ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "SUPER, SPACE, exec, playerctl play-pause"
       ];
 
@@ -60,7 +61,6 @@
         "SUPER, Z, exec, dunstctl close-all"
 
         "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
-        ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "ALT, PRINT, exec, hyprshot -m output -o ~/Pictures/Screenshots"
 
         "SUPER, R, exec, rofi -show drun -show-icons -display-drun ''"
