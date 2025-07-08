@@ -136,7 +136,7 @@
     dunst = {
       enable = true;
       settings.global = {
-        font = rice.font;
+        font = "${rice.font} 8";
         width = 300;
         origin = "${if rice.bar.top then "top" else "bottom"}-right";
         offset = "${builtins.toString rice.gap.outer}x${builtins.toString (rice.gap.outer / 2)}";
