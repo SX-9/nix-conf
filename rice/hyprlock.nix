@@ -32,7 +32,7 @@
       label = [
         {
           text = "<span>  󰌾  </span>";
-          color = "$text";
+          color = "$subtext1";
           font_size = 64;
           position = "0, 0";
           shadow_passes = 1;
@@ -59,7 +59,8 @@
           inner_color = "$crust";
           font_color = "$text";
           placeholder_text = "Type your password";
-          font_family = "monospace";
+          font_family = rice.font;
+          # font_family = "monospace";
           
           capslock_color = "$yellow";
           check_color = "$green";

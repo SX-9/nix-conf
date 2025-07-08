@@ -164,7 +164,7 @@
     style = ''
       * {
         font-size: 12px;
-        font-family: Font Awesome, DroidSansM Nerd Fonts, monospace;
+        font-family: Font Awesome, Stray, monospace;
         font-weight: bold;
         color: @text;
         transition: none;

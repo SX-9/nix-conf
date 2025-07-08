@@ -14,6 +14,7 @@
     kitty = {
       enable = true;
       settings = {
+        font_family = rice.font;
         background_opacity = 0.8;
         background_blur = 4;
         window_padding_width = 8;
@@ -33,6 +34,7 @@
         "scrollbar".border-radius = rice.borders.rounded;
         # "element-icon".size = mkLiteral "2em";
         "*" = {
+          font = "${rice.font} 12";
           normal-foreground = mkLiteral "@text";
           alternate-normal-foreground = mkLiteral "@text";
           foreground = mkLiteral "@${ctp-opt.accent}";
@@ -134,6 +136,7 @@
     dunst = {
       enable = true;
       settings.global = {
+        font = rice.font;
         width = 300;
         origin = "${if rice.bar.top then "top" else "bottom"}-right";
         offset = "${builtins.toString rice.gap.outer}x${builtins.toString (rice.gap.outer / 2)}";

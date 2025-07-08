@@ -1,7 +1,7 @@
 {
   flake-path = "~/Projects/nix-conf"; # set this to the cloned repo path
 
-  hostname = "thinkpad";
+  hostname = "nixos";
   username = "satr14";
 
   timezone = "Asia/Jakarta";
@@ -18,7 +18,7 @@
 
   rice = {
     enable = false; # if true, Hyprland will be enabled with GNOME as backup DE
-    font = ""; # global font for rice GUIs, leave empty to use monospace
+    font = "monospace"; # global font for rice GUIs, leave empty to use monospace
     bar = {
       top = true; # false will put the bar at the bottom
       fragmented = true; # enable fragmented bar, false will make it a single block
