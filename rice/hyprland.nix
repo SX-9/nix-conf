@@ -12,7 +12,7 @@
     ];
     settings = {
       monitor = [
-        "eDP-1,preferred,auto,1.2"
+        "eDP-1,preferred,auto,1"
         ",preferred,auto,1"
       ];
 
@@ -39,6 +39,12 @@
         "GTK_THEME,Adwaita:dark"
         "QT_QPA_PLATFORMTHEME,kvantum"
       ];
+
+      plugins = {
+        hyprfocus = {
+          mode = "fade";
+        };
+      };
 
       gestures = {
         workspace_swipe = true;
@@ -102,7 +108,7 @@
           "windows, 1, 4.79, easeOutQuint, popin 87%"
           "workspaces, 1, 5, easeOutQuint, slidefade 20%"
           "specialWorkspace, 1, 5, easeOutQuint, slidefadevert ${if rice.bar.top then "" else "-"}20%"
-          "hyprfocusIn, 1, 1.5, overshot"
+          "hyprfocusIn, 1, 1, easeOutQuint"
         ];
       };
 
