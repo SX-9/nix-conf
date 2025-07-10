@@ -16,6 +16,7 @@
         vscode
         discord
         google-chrome
+        brave
         firefox
         libreoffice
         vlc
