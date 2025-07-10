@@ -56,12 +56,5 @@
 
     nixd
     git
-    gh
-    go
-    bun
-    nodejs
-    nodePackages.npm
-    python311
-    jdk23_headless
   ];
 }

@@ -39,6 +39,15 @@
 
         zsh-completions
         zsh-syntax-highlighting
+
+        gh
+        go
+        bun
+        deno
+        nodejs
+        nodePackages.npm
+        python314
+        jdk23_headless
       ];
     };
   };
