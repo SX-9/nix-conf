@@ -8,10 +8,10 @@
     };
 
     hl.url = "github:hyprwm/Hyprland";
-    # hlp = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hl";
-    # };
+    hlp = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hl";
+    };
     
     na.url = "github:nix-community/nixos-anywhere";
     dsk.url = "github:nix-community/disko";

@@ -7,7 +7,9 @@
     enable = true;
     package = inputs.hl.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
-    # plugins = with inputs.hlp.packages."${pkgs.system}"; [];
+    plugins = with inputs.hlp.packages."${pkgs.system}"; [
+      xtra-dispatchers hyprfocus
+    ];
     settings = {
       monitor = [
         "eDP-1,preferred,auto,1.2"
@@ -100,6 +102,7 @@
           "windows, 1, 4.79, easeOutQuint, popin 87%"
           "workspaces, 1, 5, easeOutQuint, slidefade 20%"
           "specialWorkspace, 1, 5, easeOutQuint, slidefadevert ${if rice.bar.top then "" else "-"}20%"
+          "hyprfocusIn, 1, 1.5, overshot"
         ];
       };
 
