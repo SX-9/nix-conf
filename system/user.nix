@@ -11,6 +11,7 @@
         "dialout"
         "libvirtd"
         "docker"
+        "input"
       ];
       packages = with pkgs; [
         vscode
