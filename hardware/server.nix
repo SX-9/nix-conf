@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  boot.plymouth.enable = false;
+{ lib, pkgs, ... }: {
+  boot.plymouth.enable = lib.mkForce false;
   systemd.targets = {
     sleep.enable = false;
     suspend.enable = false;
