@@ -7,12 +7,18 @@
     hybrid-sleep.enable = false;
   };
   services = {
-    colord.enable = true; # fix for color glitch on chromium based apps
+    sunshine = {
+      enable = true;
+      autoStart = true;
+      capSysAdmin = true;
+      openFirewall = true;
+    };
     xrdp = {
       enable = true;
       audio.enable = true;
       defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
     };
+    colord.enable = true; # fix for color glitch on chromium based apps
     udev.extraRules = ''
       SUBSYSTEM=="cpu", ACTION=="add", TEST=="online", ATTR{online}=="0", ATTR{online}="1"
     ''; # CPU hotplug

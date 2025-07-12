@@ -24,6 +24,7 @@
         slack
         zoom
         inkscape
+        moonlight-qt
 
         (wrapOBS {
           plugins = with obs-studio-plugins; [
