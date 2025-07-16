@@ -63,7 +63,7 @@
         "mkdistro-deb" = "mkdistro debian -n deb";
 
         "git-author-setup" = "git config --global user.name $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user | jq -r .login) && git config --global user.email $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user/emails | jq -r \".[1].email\")";
-        "mcl" = "portablemc start fabric:1.21 -u";
+        "mcl" = "portablemc start fabric:1.21.7 -u";
       };
       initContent = ''
         if [[ $TERM_PROGRAM != 'vscode' && -z "$SSH_CONNECTION" && $(tput cols) -ge 64 && $(tput lines) -ge 16 ]]; then
