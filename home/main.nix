@@ -45,6 +45,7 @@
         "user" = "systemctl --user";
         "user-log" = "journalctl -f -b --user-unit";
         
+        "ts" = "sudo tailscale";
         "tsip" = "tailscale ip -4";
         "rmall" = "rm -rf ./* ./.*"; # scary!
 
