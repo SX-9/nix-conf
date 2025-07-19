@@ -77,7 +77,7 @@
         "SUPER, T, exec, kitty"
         "SUPER, E, exec, thunar ~" # kitty ranger ~"
         "SUPER, C, exec, [float; size 75%] kitty btop"
-        "SUPER, Y, exec, google-chrome-stable"
+        "SUPER, Y, exec, brave"
         "SUPER, D, exec, steam steam://open/bigpicture"
 
         "SUPER, Q, killactive,"
