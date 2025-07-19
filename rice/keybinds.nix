@@ -1,4 +1,14 @@
 { ... }: {
+  services.fusuma.settings = {
+    swipe = {
+      "4".down.sendkey = "LEFTMETA+L";
+      "3".up.sendkey = "LEFTMETA+DOWN";
+      "3".down.sendkey = "LEFTMETA+DOWN";
+    };
+    hold = {
+      "3".sendkey = "LEFTMETA+W";
+    };
+  };
   wayland.windowManager.hyprland = {
     settings = {
       binde = [

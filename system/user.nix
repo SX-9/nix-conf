@@ -12,6 +12,7 @@
         "libvirtd"
         "docker"
         "input"
+        "ydotool"
       ];
       packages = with pkgs; [
         vscode

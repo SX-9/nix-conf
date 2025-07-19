@@ -5,6 +5,7 @@
   };
 
   programs = {
+    ydotool.enable = true;
     xfconf.enable = true;
     kdeconnect.enable = lib.mkForce false; # enabled in home-manager
     thunar = {

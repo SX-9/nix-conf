@@ -105,6 +105,8 @@
           on-click-right = "hyprctl dispatch fullscreen 0";
           on-click-middle = "hyprctl dispatch killactive";
           on-click = "hyprctl dispatch fullscreen 1";
+          on-scroll-up = "hyprctl dispatch cyclenext";
+          on-scroll-down = "hyprctl dispatch cyclenext prev";
         };
         "hyprland/submap" = {
           format = " {}";

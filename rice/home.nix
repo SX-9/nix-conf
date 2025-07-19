@@ -102,6 +102,10 @@
     swww.enable = true;
     hyprpolkitagent.enable = true;
     # polkit-gnome.enable = true;
+    fusuma = {
+      extraPackages = with pkgs; [ ydotool systemd coreutils-full ];
+      enable = true;
+    };
     kdeconnect = {
       enable = true;
       indicator = true;
@@ -186,7 +190,7 @@
 
   home = {
     packages = with pkgs; [
-      playerctl brightnessctl
+      playerctl brightnessctl ydotool
       tailscale-systray networkmanagerapplet eog qt6ct kdePackages.qtstyleplugin-kvantum
       kitty bat btop ranger w3m gnome-calculator gnome-clocks
       hyprlock hyprshot waybar hypridle wl-clipboard dunst swww cliphist wayvnc
