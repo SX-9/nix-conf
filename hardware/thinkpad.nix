@@ -4,7 +4,16 @@
   security.protectKernelImage = false; # https://discourse.nixos.org/t/hibernate-doesnt-work-anymore/24673/7
   hardware = {
     enableRedistributableFirmware = true; # T480 WiFi firmware fix
-    graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver intel-ocl ];
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiIntel
+        intel-media-driver
+        intel-ocl 
+        intel-compute-runtime
+      ];
+    };
   };
   boot = {
     kernelParams = if resume-dev == "" then [] else ["resume=${resume-dev}"];

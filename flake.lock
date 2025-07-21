@@ -267,6 +267,22 @@
         "type": "github"
       }
     },
+    "hw": {
+      "locked": {
+        "lastModified": 1752666637,
+        "narHash": "sha256-P8J72psdc/rWliIvp8jUpoQ6qRDlVzgSDDlgkaXQ0Fw=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "d1bfa8f6ccfb5c383e1eba609c1eb67ca24ed153",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
@@ -710,6 +726,7 @@
         "hl": "hl",
         "hlp": "hlp",
         "hm": "hm",
+        "hw": "hw",
         "na": "na",
         "nixpkgs": "nixpkgs_6"
       }

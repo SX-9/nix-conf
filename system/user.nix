@@ -24,8 +24,10 @@
         vlc
         slack
         zoom
-        inkscape
+        zoom-us
         moonlight-qt
+        inkscape
+        davinci-resolve
 
         (wrapOBS {
           plugins = with obs-studio-plugins; [
