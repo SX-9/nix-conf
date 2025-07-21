@@ -47,6 +47,7 @@
     flavor = "mocha";
   };
 
+  mc.email = "user@example.com"; # set your Minecraft email for portablemc
   git = { # setup your git author
     user = "satr14";
     email = "90962949+SX-9@users.noreply.github.com";

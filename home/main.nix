@@ -1,4 +1,4 @@
-{ pkgs, username, git, rice, ctp-opt, flake-path, ... }: {
+{ pkgs, username, git, rice, ctp-opt, flake-path, mc, ... }: {
   catppuccin = {
     flavor = ctp-opt.flavor;
     accent = ctp-opt.accent;
@@ -63,7 +63,7 @@
         "mkdistro-deb" = "mkdistro debian -n deb";
 
         "git-author-setup" = "git config --global user.name $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user | jq -r .login) && git config --global user.email $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user/emails | jq -r \".[1].email\")";
-        "mcl" = "portablemc start fabric:1.21.7 -u";
+        "mcl" = "portablemc start fabric:1.21.7 -l ${mc.email}";
         "mc" = "ferium upgrade; mcl ${username}";
       };
       initContent = ''
