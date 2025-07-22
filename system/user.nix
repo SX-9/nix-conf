@@ -13,18 +13,20 @@
         "docker"
         "input"
         "ydotool"
+        "adbusers"
+        "kvm"
       ];
       packages = with pkgs; [
         vscode
         discord
-        google-chrome
+        slack
         brave
         firefox
+        google-chrome
+
         libreoffice
-        vlc
-        slack
-        zoom
         zoom-us
+        vlc
         moonlight-qt
         inkscape
         davinci-resolve
@@ -42,6 +44,7 @@
         virt-manager
         appimage-run
         gemini-cli
+        android-studio
 
         zsh-completions
         zsh-syntax-highlighting
