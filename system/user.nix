@@ -55,6 +55,8 @@
         deno
         nodejs
         nodePackages.npm
+        nodePackages.pnpm
+        nodePackages.yarn
         python314
         jdk23_headless
       ];
