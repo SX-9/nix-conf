@@ -47,7 +47,10 @@
     flavor = "mocha";
   };
 
-  mc.email = "user@example.com"; # set your Minecraft email for portablemc
+  mc = {
+    email = "user@example.com"; # set your Minecraft email for portablemc
+    version = "fabric:1.21.7:0.16.14"; # set the Minecraft version and modloader version
+  };
   git = { # setup your git author
     user = "satr14";
     email = "90962949+SX-9@users.noreply.github.com";
