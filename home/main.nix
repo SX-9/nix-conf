@@ -29,6 +29,14 @@
       extraConfig.pull.rebase = "true";
     };
     tmux.enable = true;
+    pay-respects = {
+      enable = true;
+      enableZshIntegration = true;
+      options = [
+        "--alias"
+        "f"
+      ];
+    };
     zsh = {
       enable = true;
       syntaxHighlighting.enable = true;
@@ -48,6 +56,7 @@
         "ts" = "sudo tailscale";
         "tsip" = "tailscale ip -4";
         "rmall" = "rm -rf ./* ./.*"; # scary!
+        "srmall" = "sudo rm -rf ./* ./.*"; # also scary!
 
         "fetch-update" = "rm -f ~/.fetch.sh && wget https://raw.githubusercontent.com/SX-9/fetch.sh/master/fetch.sh -O ~/.fetch.sh && chmod +x ~/.fetch.sh";
         "fetch" = "~/.fetch.sh";
