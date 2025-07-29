@@ -126,6 +126,12 @@
       pulse.enable = true;
       jack.enable = true;
     };
+    sunshine = {
+      enable = true;
+      autoStart = true;
+      capSysAdmin = true;
+      openFirewall = true;
+    };
     avahi = {
       enable = true;
       nssmdns4 = true;
