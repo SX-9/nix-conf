@@ -1,6 +1,10 @@
 { pkgs, lib, resume-dev, ... }: {
   time.timeZone = lib.mkForce null;
-  powerManagement.enable = true;
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "powersave";
+    powertop.enable = true;
+  };
   security.protectKernelImage = false; # https://discourse.nixos.org/t/hibernate-doesnt-work-anymore/24673/7
   hardware = {
     enableRedistributableFirmware = true; # T480 WiFi firmware fix
@@ -29,6 +33,10 @@
     automatic-timezoned.enable = false;
     thermald.enable = true;
     fwupd.enable = true;
+    udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"
+      ACTION=="add", SUBSYSTEM=="pci", TEST=="power/control", ATTR{power/control}="auto"
+    '';
     tzupdate = {
       enable = true;
       timer.enable = true;
