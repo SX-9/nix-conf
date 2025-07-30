@@ -29,7 +29,7 @@
         vlc
         moonlight-qt
         inkscape
-        davinci-resolve
+        kdePackages.kdenlive
 
         (wrapOBS {
           plugins = with obs-studio-plugins; [
