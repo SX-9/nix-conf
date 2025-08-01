@@ -1,4 +1,4 @@
-{ config, pkgs, rice, ctp-opt, ... }: {
+{ config, pkgs, rice, ctp-opt, hostname, ... }: {
   catppuccin = {
     hyprland.accent = ctp-opt.primary;
     hyprlock.useDefaultConfig = false;
@@ -116,7 +116,7 @@
         general = {
           lock_cmd = "hyprlock";
           unlock_cmd = "pkill -USR1 hyprlock";
-          before_sleep_cmd = "notify-send -u critical Hyprland 'System is going to sleep' && hyprlock";
+          before_sleep_cmd = "notify-send -u critical ${hostname} 'System is going to sleep' && hyprlock";
           after_sleep_cmd = "dunstctl close-all && pkill -USR2 hyprlock";
         };
         listener = [
