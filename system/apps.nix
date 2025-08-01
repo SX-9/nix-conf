@@ -27,6 +27,8 @@
     woeusb
     fastfetch
     ethtool
+    dig
+    dnslookup
     lsof
     gucharmap
 
