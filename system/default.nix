@@ -20,6 +20,7 @@
   ];
 
   boot = {
+    kernelModules = [ "rndis_host" "cdc_ether" ];
     supportedFilesystems = [ "ext4" "btrfs" "vfat" "ntfs" ];
     loader = {
       efi.canTouchEfiVariables = true;
