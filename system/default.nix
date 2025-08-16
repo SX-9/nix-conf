@@ -22,6 +22,10 @@
   boot = {
     kernelModules = [ "rndis_host" "cdc_ether" ];
     supportedFilesystems = [ "ext4" "btrfs" "vfat" "ntfs" ];
+    kernel.sysctl = {
+      "net.ipv4.ip_forward" = 1;
+      "net.ipv6.conf.all.forwarding" = 1;
+    };
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
@@ -142,6 +146,7 @@
       drivers = with pkgs; [ hplip ];
     };
     pulseaudio.enable = false;
+    cloudflare-warp.enable = true;
     flatpak.enable = true;
     openssh.enable = true;
     tailscale.enable = true;
