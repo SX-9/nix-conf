@@ -34,7 +34,7 @@
     thermald.enable = true;
     fwupd.enable = true;
     udev.extraRules = ''
-      ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"
+      #ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"
       ACTION=="add", SUBSYSTEM=="pci", TEST=="power/control", ATTR{power/control}="auto"
     '';
     tzupdate = {
