@@ -56,6 +56,7 @@
     traceroute
     lxappearance
 
+    nix-index
     nixd
     git
   ];

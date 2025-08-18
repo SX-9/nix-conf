@@ -66,7 +66,7 @@
           format-disconnected = "";
           format-disabled = "";
           tooltip = false;
-          on-click = "rofi-network-manager";
+          on-click = "nm-connection-editor";
         };
         "temperature" = {
           hwmon-path =  "/sys/class/hwmon/hwmon2/temp1_input";
@@ -114,8 +114,7 @@
         };
         "clock" = {
           format = "{:%b %d, %I:%M %p}";
-          on-click = "gnome-clocks";
-        };
+       };
         "tray" = {
           spacing = 12;
         };

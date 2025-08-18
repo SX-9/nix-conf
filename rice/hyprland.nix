@@ -18,8 +18,6 @@
 
       exec-once = [
         # "hyprctl setcursor catppuccin-mocha-light-cursors 24"
-        "gsettings set org.gnome.desktop.interface gtk-theme \"YOUR_DARK_GTK3_THEME\""
-        "gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\""
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
 
@@ -146,7 +144,7 @@
 
         "float,title:^(Open|Print|Save|Rename).*,"
         "float,title:^(Preferences|Settings|Options|About).*,"
-        "float,title:^(MainPicker|Volume Control|File Operation Progress)$,"
+        "float,title:^(MainPicker|Volume Control|File Operation Progress|Network Connections)$,"
 
         "keepaspectratio on, title:^(Picture in picture)$"
         "pin, title:^(Picture in picture)$"
