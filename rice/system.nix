@@ -63,7 +63,11 @@
   };
 
   environment = {
-    systemPackages = with pkgs; if rice.enable then [ libsecret libnotify kdePackages.kdeconnect-kde inputs.dm.packages.${pkgs.system}.default ] else [];
+    systemPackages = with pkgs; if rice.enable then [
+      libsecret libnotify kdePackages.kdeconnect-kde
+      inputs.qs.packages.${pkgs.system}.default
+      inputs.dm.packages.${pkgs.system}.default
+    ] else [];
     sessionVariables = if rice.enable then {
       XDG_RUNTIME_DIR = "/run/user/$UID"; # https://discourse.nixos.org/t/login-keyring-did-not-get-unlocked-hyprland/40869/10
       WLR_NO_HARDWARE_CURSORS = "1";
