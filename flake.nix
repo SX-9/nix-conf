@@ -17,6 +17,11 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    win = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     hw.url = "github:NixOS/nixos-hardware/master";
     na.url = "github:nix-community/nixos-anywhere";

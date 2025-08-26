@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
+{ pkgs, inputs, ... }: {
+  environment.systemPackages = (with pkgs; [
     gnomeExtensions.dash-to-panel
     gnomeExtensions.alphabetical-app-grid
     gnomeExtensions.gsconnect
@@ -55,9 +55,14 @@
     coreutils-full
     traceroute
     lxappearance
+    freerdp
 
     nix-index
     nixd
     git
-  ];
+
+  ]) ++ (with inputs.win.packages."${pkgs.system}"; [
+    winapps
+    winapps-launcher
+  ]);
 }
