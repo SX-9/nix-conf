@@ -132,7 +132,7 @@
       bind = , catchall, submap, reset
 
       submap = disabled-all-keybinds
-      bind = , ESC, submap, reset
+      bind = , ESCAPE, submap, reset
 
       submap = reset
     ''; # https://github.com/nix-community/home-manager/issues/6062
