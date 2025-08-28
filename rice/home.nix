@@ -94,6 +94,7 @@
       "cd-gvfs" = "cd /run/user/$(id -u)/gvfs";
       "ssh" = "TERM=xterm-256color ssh";
     };
+    wlogout.enable = true;
     vim.enable = true;
     bat.enable = true;
   };

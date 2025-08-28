@@ -2,11 +2,13 @@
   services.fusuma.settings = {
     swipe = {
       "4".down.sendkey = "LEFTMETA+L";
-      "3".up.sendkey = "LEFTMETA+DOWN";
+      "4".up.sendkey = "LEFTMETA+M";
+      "3".up.sendkey = "LEFTMETA+W";
       "3".down.sendkey = "LEFTMETA+DOWN";
     };
     hold = {
-      "3".sendkey = "LEFTMETA+W";
+      "3".sendkey = "LEFTMETA+SPACE";
+      "4".sendkey = "LEFTMETA+C";
     };
   };
   wayland.windowManager.hyprland = {
@@ -39,6 +41,7 @@
       bindm = [
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
+        "SUPER, mouse:274, killactive"
       ];
 
       bindl = [
@@ -58,12 +61,13 @@
       
       bind = [
         "SUPER, N, exec, rofi-network-manager"
-        "SUPER, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
+        "SUPER, M, exec, wlogout"
 
         "SUPER, J, exec, notify-send -u critical ${hostname} 'Caffein Mode' && notify-send '(SUPER+X to reset)' && systemctl --user stop hypridle"
         "SUPER, K, exec, notify-send -u critical ${hostname} 'Focus Mode' && notify-send '(SUPER+X to reset)' && systemctl --user stop swww waybar && hyprctl --batch 'keyword decoration:inactive_opacity 1.0; keyword decoration:blur:enabled 0; keyword general:gaps_in 0; keyword general:gaps_out 0; keyword general:border_size 1; keyword decoration:rounding 0; keyword decoration:shadow:enabled false'"
+        "SUPER, B, submap, disabled-all-keybinds"
         "SUPER, H, exec, notify-send ${hostname} 'Animations Off' && hyprctl keyword animations:enabled 0"
-        "SUPER, X, exec, dunstctl close-all && hyprctl reload && systemctl --user restart swww waybar hypridle"
+        "SUPER, X, exec, dunstctl close-all && hyprctl reload && hyprctl dispatch submap reset && systemctl --user restart swww waybar hypridle"
         "SUPER, Z, exec, dunstctl close-all"
 
         "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
@@ -126,6 +130,9 @@
       bind = , up, movefocus, u
       bind = , down, movefocus, d
       bind = , catchall, submap, reset
+
+      submap = disabled-all-keybinds
+      bind = , ESC, submap, reset
 
       submap = reset
     ''; # https://github.com/nix-community/home-manager/issues/6062

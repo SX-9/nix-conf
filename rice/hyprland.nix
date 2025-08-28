@@ -132,6 +132,7 @@
       layerrule = [
         "noanim, selection" # hyprshot overlay
         "animation fade, swww-daemon"
+        "animation fade, logout_dialog"
         "abovelock false, waybar"
         "abovelock true, notifications"
         "abovelock true, selection"
