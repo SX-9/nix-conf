@@ -95,6 +95,7 @@
   };
   time.timeZone = timezone;
   i18n.defaultLocale = locale;
+  environment.localBinInPath = true;
 
   systemd.services = (if wol == "" then {} else {
     "enable-wol" = {

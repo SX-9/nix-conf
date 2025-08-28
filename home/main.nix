@@ -91,6 +91,8 @@
         "mkdistro" = "distrobox create -Y -i";
         "mkdistro-arch" = "mkdistro archlinux -n arch";
         "mkdistro-deb" = "mkdistro debian -n deb";
+        "win11-compose" = "docker compose --file ~/.config/winapps/compose.yaml";
+        "wm-ctl" = "hyprctl --instance 0";
 
         "git-author-setup" = "git config --global user.name $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user | jq -r .login) && git config --global user.email $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user/emails | jq -r \".[1].email\")";
         "mcl" = "portablemc start ${mc.version} -l ${mc.email}";
