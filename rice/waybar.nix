@@ -156,8 +156,8 @@
         };
         "custom/start" = {
           format = "";
-          on-click-middle = "hyprctl dispatch togglespecialworkspace hidden";
-          on-click-right = "rofi -show power-menu -modi power-menu:rofi-power-menu";
+          on-click-middle = "wlogout";
+          on-click-right = "hyprctl dispatch togglespecialworkspace hidden";
           on-click = "rofi -show drun -show-icons -display-drun ''";
         };
       }
