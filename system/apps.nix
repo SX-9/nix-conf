@@ -12,7 +12,6 @@
     gnome-network-displays
     papirus-icon-theme
     
-    libsForQt5.breeze-grub
     smartmontools
     lm_sensors
     ntfs3g
@@ -31,6 +30,7 @@
     dnslookup
     lsof
     gucharmap
+    ncdu
 
     wineWowPackages.waylandFull
     wineWowPackages.stable
@@ -60,7 +60,6 @@
     nix-index
     nixd
     git
-
   ]) ++ (with inputs.win.packages."${pkgs.system}"; [
     winapps
     winapps-launcher

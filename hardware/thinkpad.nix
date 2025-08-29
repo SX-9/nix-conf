@@ -16,6 +16,8 @@
         intel-media-driver
         intel-ocl 
         intel-compute-runtime
+        vaapiVdpau
+        libvdpau-va-gl 
       ];
     };
   };
@@ -28,7 +30,7 @@
     initrd.availableKernelModules = [ "thinkpad_acpi" ];
   };
   services = {
-    logind.powerKey = "ignore"; # classmates keep pressing power button while im working :<
+    logind.settings.Login.HandlePowerKey = "ignore"; # classmates keep pressing power button while im working :<
     power-profiles-daemon.enable = false;
     automatic-timezoned.enable = false;
     thermald.enable = true;

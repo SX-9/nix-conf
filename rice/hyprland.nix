@@ -7,9 +7,6 @@
     enable = true;
     package = inputs.hl.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
-    plugins = with inputs.hlp.packages."${pkgs.system}"; [
-      xtra-dispatchers hyprfocus
-    ];
     settings = {
       monitor = [
         "eDP-1,preferred,auto,1"

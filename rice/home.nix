@@ -1,7 +1,12 @@
-{ config, pkgs, rice, ctp-opt, hostname, ... }: {
+{ lib, config, pkgs, rice, ctp-opt, hostname, ... }: {
   catppuccin = {
     hyprland.accent = ctp-opt.primary;
     hyprlock.useDefaultConfig = false;
+    wlogout.extraStyle = ''
+      button {
+        color: transparent;
+      }
+    '';
   };
 
   imports = [
@@ -13,6 +18,7 @@
   programs = {
     kitty = {
       enable = true;
+      package = pkgs.kitty;
       settings = {
         font_family = rice.font;
         background_opacity = 0.8;
@@ -169,7 +175,7 @@
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      package = lib.mkForce pkgs.papirus-icon-theme;
     };
     theme = {
       name = "Adwaita-dark";

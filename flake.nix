@@ -7,28 +7,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hl.url = "github:hyprwm/Hyprland";
-    hlp = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hl";
-    };
-
-    qs = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     win = {
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
+    gl.url = "github:nix-community/nixGL";
+    hl.url = "github:hyprwm/Hyprland";
     hw.url = "github:NixOS/nixos-hardware/master";
     na.url = "github:nix-community/nixos-anywhere";
     dsk.url = "github:nix-community/disko";
     ctp.url = "github:catppuccin/nix";
-
-    dm.url = "github:Bqrry4/sddm-stray"; # cool theme
+    dm.url = "github:Bqrry4/sddm-stray";
   };
 
   outputs = inputs: let
@@ -58,6 +48,7 @@
     };
     pkgs = import inputs.nixpkgs {
       system = "x86_64-linux";
+      overlays = [ inputs.gl.overlay ];
       config.allowUnfree = true;
     };
 

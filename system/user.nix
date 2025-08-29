@@ -29,6 +29,7 @@
         vlc
         moonlight-qt
         inkscape
+        #davinci-resolve
         kdePackages.kdenlive
 
         (wrapOBS {
@@ -43,8 +44,6 @@
         ferium
         virt-manager
         appimage-run
-        gemini-cli
-        android-studio
 
         zsh-completions
         zsh-syntax-highlighting
