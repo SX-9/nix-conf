@@ -113,7 +113,8 @@
           on-click = "hyprctl dispatch submap reset";
         };
         "clock" = {
-          format = "{:%b %d, %I:%M %p}";
+          format = "{:%b %d, %I:%M:%S %p}";
+          interval = 1;
        };
         "tray" = {
           spacing = 12;
