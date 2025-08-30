@@ -2,11 +2,6 @@
   catppuccin = {
     hyprland.accent = ctp-opt.primary;
     hyprlock.useDefaultConfig = false;
-    wlogout.extraStyle = ''
-      button {
-        color: transparent;
-      }
-    '';
   };
 
   imports = [
@@ -64,6 +59,47 @@
         };
       };
     };
+    wlogout = {
+      enable = true;
+      layout = [
+        {
+          label = "shutdown";
+          action = "systemctl poweroff";
+          text = "(S)hutdown";
+          keybind = "s";
+        }
+        {
+          label = "reboot";
+          action = "systemctl reboot";
+          text = "(R)eboot";
+          keybind = "r";
+        }
+        {
+          label = "hibernate";
+          action = "systemctl hibernate";
+          text = "(H)ibernate";
+          keybind = "h";
+        }
+        {
+          label = "suspend";
+          action = "systemctl suspend";
+          text = "Sus(p)end";
+          keybind = "p";
+        }
+        {
+          label = "logout";
+          action = "hyprctl dispatch exit";
+          text = "L(o)gout";
+          keybind = "o";
+        }
+        {
+          label = "lock";
+          action = "loginctl lock-session";
+          text = "(L)ock";
+          keybind = "l";
+        }
+      ];
+    };
     ranger = {
       enable = true;
       aliases = {
@@ -100,7 +136,6 @@
       "cd-gvfs" = "cd /run/user/$(id -u)/gvfs";
       "ssh" = "TERM=xterm-256color ssh";
     };
-    wlogout.enable = true;
     vim.enable = true;
     bat.enable = true;
   };
