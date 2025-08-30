@@ -8,6 +8,8 @@
     package = inputs.hl.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
     settings = {
+      debug.error_position = 1;
+
       monitor = [
         "eDP-1,preferred,auto,1"
         ",preferred,auto,1"
@@ -34,17 +36,6 @@
         "GTK_THEME,Adwaita:dark"
         "QT_QPA_PLATFORMTHEME,kvantum"
       ];
-
-      plugins = {
-        hyprfocus = {
-          mode = "fade";
-        };
-      };
-
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_forever = true;
-      };
 
       general = {
         gaps_in = rice.gap.inner;
@@ -87,23 +78,24 @@
 
       animations = {
         enabled = true;
-        first_launch_animation = false;
+        #first_launch_animation = false;
 
         bezier = [
           "easeOutQuint,0.23,1,0.32,1"
           "quick,0.15,0,0.1,1"
           "overshot,0.05,0.9,0.1,1.1"
+          "instant,0,0,1,1"
         ];
 
         animation = [
           "global, 1, 10, default"
-          "fade, 1, 3.03, quick"
+          "fade, 1, 3, quick"
           "border, 1, 10, quick"
-          "layers, 1, 3.81, easeOutQuint, slidevert"
-          "windows, 1, 4.79, easeOutQuint, popin 87%"
+          "layers, 1, 5, easeOutQuint, slidevert"
+          "windows, 1, 5, easeOutQuint, popin 87%"
           "workspaces, 1, 5, easeOutQuint, slidefade 20%"
           "specialWorkspace, 1, 5, easeOutQuint, slidefadevert ${if rice.bar.top then "" else "-"}20%"
-          "hyprfocusIn, 1, 1, easeOutQuint"
+          "zoomFactor, 1, 1, instant"
         ];
       };
 

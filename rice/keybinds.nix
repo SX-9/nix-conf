@@ -4,7 +4,10 @@
       "4".down.sendkey = "LEFTMETA+L";
       "4".up.sendkey = "LEFTMETA+M";
       "3".up.sendkey = "LEFTMETA+W";
+
       "3".down.sendkey = "LEFTMETA+DOWN";
+      "3".right.sendkey = "LEFTMETA+LEFT";
+      "3".left.sendkey = "LEFTMETA+RIGHT";
     };
     hold = {
       "3".sendkey = "LEFTMETA+SPACE";
@@ -13,6 +16,11 @@
   };
   wayland.windowManager.hyprland = {
     settings = {
+      gestures = {
+        #workspace_swipe = true;
+        workspace_swipe_forever = true;
+      };
+
       binde = [
         "ALT, TAB, cyclenext,"
         "ALT, TAB, bringactivetotop,"
@@ -30,8 +38,8 @@
         "SUPER SHIFT, 3, movetoworkspace, 3"
         "SUPER SHIFT, 4, movetoworkspace, 4"
 
-        "SUPER, right, workspace, e+1"
-        "SUPER, left, workspace, e-1"
+        "SUPER, right, workspace, +1"
+        "SUPER, left, workspace, -1"
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
         "SUPER, 3, workspace, 3"

@@ -60,13 +60,15 @@
     };
     zsh = {
       enable = true;
+      autocd = true;
       syntaxHighlighting.enable = true;
       envExtra = ''
-        WINEPREFIX="~/.wine"
-        WINEARCH="win64"
-        DISPLAY=":0"
-        EDITOR="vim"
-        PORT="3000"
+        export NIXPKGS_ALLOW_UNFREE=1
+        export WINEPREFIX="~/.wine"
+        export WINEARCH="win64"
+        export DISPLAY=":0"
+        export EDITOR="vim"
+        export PORT="3000"
       '';
       shellAliases = {
         "sys" = "sudo systemctl";
