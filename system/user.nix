@@ -30,6 +30,7 @@
         moonlight-qt
         inkscape
         #davinci-resolve
+        godot
         kdePackages.kdenlive
 
         (wrapOBS {

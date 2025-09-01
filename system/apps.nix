@@ -31,6 +31,7 @@
     lsof
     gucharmap
     ncdu
+    zip
 
     wineWowPackages.waylandFull
     wineWowPackages.stable

@@ -12,6 +12,11 @@
     stateVersion = "24.11";
     username = "${username}";
     homeDirectory = "/home/${username}";
+    sessionVariables = {
+      EDITOR = "nvim";
+      BROWSER = "brave";
+      TERMINAL = "kitty";
+    };
   };
 
   xdg.mimeApps = {
@@ -22,6 +27,8 @@
       "application/pdf" = "brave-browser.desktop";
       "x-scheme-handler/http" = "brave-browser.desktop";
       "x-scheme-handler/https" = "brave-browser.desktop";
+      "x-scheme-handler/terminal" = "kitty.desktop";
+      "x-terminal-emulator" = "kitty.desktop";
       "inode/directory" = "thunar.desktop";
       "audio/mpeg" = "vlc.desktop";
       "audio/mp3" = "vlc.desktop";
@@ -63,12 +70,12 @@
       autocd = true;
       syntaxHighlighting.enable = true;
       envExtra = ''
-        export NIXPKGS_ALLOW_UNFREE=1
-        export WINEPREFIX="~/.wine"
-        export WINEARCH="win64"
-        export DISPLAY=":0"
-        export EDITOR="vim"
-        export PORT="3000"
+        NIXPKGS_ALLOW_UNFREE=1
+        WINEPREFIX="~/.wine"
+        WINEARCH="win64"
+        DISPLAY=":0"
+        EDITOR="nvim"
+        PORT="3000"
       '';
       shellAliases = {
         "sys" = "sudo systemctl";

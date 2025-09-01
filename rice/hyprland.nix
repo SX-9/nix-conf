@@ -16,11 +16,16 @@
       ];
 
       exec-once = [
-        # "hyprctl setcursor catppuccin-mocha-light-cursors 24"
+        "hyprctl setcursor catppuccin-mocha-light-cursors 24"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
 
-        # "nm-applet &"
+        #"dunst &"
+        #"hypridle &"
+        #"swww-daemon &"
+        "waybar &"
+
+        "nm-applet &"
         "tailscale-systray &"
       ];
 
