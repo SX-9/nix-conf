@@ -1,4 +1,4 @@
-{ pkgs, username, git, rice, ctp-opt, flake-path, mc, ... }: {
+{ pkgs, hostname, username, git, rice, ctp-opt, flake-path, mc, ... }: {
   catppuccin = {
     flavor = ctp-opt.flavor;
     accent = ctp-opt.accent;
@@ -102,6 +102,8 @@
         "mkdistro-deb" = "mkdistro debian -n deb";
         "win11-compose" = "docker compose --file ~/.config/winapps/compose.yaml";
         "wm-ctl" = "hyprctl --instance 0";
+        "wm-lock" = "wm-ctl dispatch exec loginctl lock-session && notify-send ${hostname} 'Manual lock triggered'";
+        "wm-dpms" = "wm-ctl dispatch dpms";
 
         "git-author-setup" = "git config --global user.name $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user | jq -r .login) && git config --global user.email $(gh api -H \"Accept: application/vnd.github+json\" -H \"X-GitHub-Api-Version: 2022-11-28\" /user/emails | jq -r \".[1].email\")";
         "mcl" = "portablemc start ${mc.version} -l ${mc.email}";
