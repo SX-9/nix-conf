@@ -90,7 +90,7 @@
 
         "SUPER, A, exec, code"
         "SUPER, T, exec, kitty"
-        "SUPER, E, exec, thunar ~" # kitty ranger ~"
+        "SUPER, E, exec, pcmanfm-qt ~" # kitty ranger ~"
         "SUPER, C, exec, [float; size 75%] kitty btop"
         "SUPER, Y, exec, brave"
         "SUPER, D, exec, steam steam://open/bigpicture"

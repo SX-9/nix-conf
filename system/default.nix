@@ -154,6 +154,9 @@
       enable = true;
       drivers = with pkgs; [ hplip ];
     };
+    gnome.gnome-keyring.enable = true;
+    tumbler.enable = true;
+    gvfs.enable = true;
     pulseaudio.enable = false;
     cloudflare-warp.enable = true;
     flatpak.enable = true;

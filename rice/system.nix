@@ -3,13 +3,6 @@
     ydotool.enable = true;
     xfconf.enable = true;
     kdeconnect.enable = lib.mkForce false; # enabled in home-manager
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
-    };
     hyprland = {
       enable = rice.enable;
       xwayland.enable = true;
@@ -39,9 +32,6 @@
 
   security.pam.services.gdm-password.enableGnomeKeyring = true;
   services = {
-    gvfs.enable = true;
-    tumbler.enable = true;
-    gnome.gnome-keyring.enable  = true;
     displayManager = {
       gdm.enable = lib.mkForce false;
       sddm = {

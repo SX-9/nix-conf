@@ -29,7 +29,7 @@
       "x-scheme-handler/https" = "brave-browser.desktop";
       "x-scheme-handler/terminal" = "kitty.desktop";
       "x-terminal-emulator" = "kitty.desktop";
-      "inode/directory" = "thunar.desktop";
+      "inode/directory" = "pcmanfm-qt.desktop";
       "audio/mpeg" = "vlc.desktop";
       "audio/mp3" = "vlc.desktop";
       "audio/wav" = "vlc.desktop";
