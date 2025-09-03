@@ -16,6 +16,7 @@
           "hyprland/window"
         ];
         modules-center = if rice.bar.minimal then [] else [
+          "custom/dunst"
           "clock"
           "tray"
           "hyprland/submap"
@@ -26,6 +27,7 @@
           "network"
           "battery"
           "clock"
+          "custom/dunst"
         ] else [
           "temperature"
           "cpu"
@@ -92,6 +94,15 @@
           };
           on-scroll-down = "hyprctl dispatch workspace e+1";
           on-scroll-up = "hyprctl dispatch workspace e-1";
+        };
+        "custom/dunst" = {
+          format = "{}";
+          exec = "echo \"$([ $(dunstctl is-paused) = 'false' ] && echo '' || echo '') $(dunstctl count history)\"";
+          on-click = "dunstctl set-paused toggle";
+          on-click-right = "dunstctl history-clear";
+          on-scroll-up = "dunstctl history-pop";
+          on-scroll-down = "dunstctl close";
+          interval = 1;
         };
         "hyprland/window" = {
           icon = true;
@@ -202,8 +213,8 @@
       }
 
       #window, #submap { padding: 0px 5px; }
-      #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start { padding: 0px 5px; margin: 0px 5px; }
-      
+      #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start, #custom-dunst { padding: 0px 5px; margin: 0px 5px; }
+
       #workspaces button {
         border-radius: 0px;
         margin: 0px;

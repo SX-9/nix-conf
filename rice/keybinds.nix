@@ -21,6 +21,13 @@
         workspace_swipe_forever = true;
       };
 
+      # gesture = [
+      #   "3, up, fullscreen, maximize"
+      #   "3, down, scale: 0.5, special, hidden"
+      #   "3, left, workspace, -1"
+      #   "3, right, workspace, +1"
+      # ];
+
       binde = [
         "ALT, TAB, cyclenext,"
         "ALT, TAB, bringactivetotop,"

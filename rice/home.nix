@@ -145,7 +145,7 @@
     hyprpolkitagent.enable = true;
     # polkit-gnome.enable = true;
     fusuma = {
-      extraPackages = with pkgs; [ ydotool systemd coreutils-full ];
+      extraPackages = with pkgs; [ ydotool systemd coreutils-full xorg.xprop ];
       enable = true;
     };
     kdeconnect = {
