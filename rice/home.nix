@@ -120,6 +120,9 @@
       enable = true;
       defaultEditor = true;
       vimAlias = true;
+      extraLuaConfig = ''
+        vim.opt.clipboard = "unnamedplus"
+      '';
       plugins = with pkgs.vimPlugins; [
         bufferline-nvim
         nvim-web-devicons
