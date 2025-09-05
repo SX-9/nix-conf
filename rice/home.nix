@@ -197,8 +197,8 @@
         corner_radius = rice.borders.rounded;
         frame_width = rice.borders.size;
         notification_limit = 0;
-        mouse_left_click = "do_action";
-        mouse_middle_click = "close_current";
+        mouse_left_click = "close_current";
+        mouse_middle_click = "do_action";
         mouse_right_click = "context";
       };
     };
