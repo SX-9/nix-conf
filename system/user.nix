@@ -21,8 +21,7 @@
         discord
         slack
         brave
-        firefox
-        google-chrome
+        obsidian
 
         libreoffice
         zoom-us
