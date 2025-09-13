@@ -59,6 +59,7 @@
     lxappearance
     freerdp
 
+    nix-output-monitor
     nix-index
     nixd
     git
