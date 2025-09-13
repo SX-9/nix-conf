@@ -21,7 +21,7 @@
         discord
         slack
         brave
-        obsidian
+        kicad
 
         libreoffice
         zoom-us
