@@ -130,6 +130,7 @@
         "abovelock false, waybar"
         "abovelock true, notifications"
         "abovelock true, selection"
+        "abovelock true, logout_dialog"
       ];
 
       windowrulev2 = [

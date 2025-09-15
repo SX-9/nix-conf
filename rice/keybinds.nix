@@ -63,6 +63,7 @@
         ", switch:on:Lid Switch, exec, systemctl suspend"
         ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "SUPER, SPACE, exec, playerctl play-pause"
+        "SUPER, M, exec, wlogout"
       ];
 
       bindel = [
@@ -79,7 +80,6 @@
         "CTRL SHIFT, ESCAPE, exec, [float; size 75%] kitty btop"
 
         "SUPER, N, exec, rofi-network-manager"
-        "SUPER, M, exec, wlogout"
 
         "SUPER, J, exec, notify-send -u critical ${hostname} 'Caffein Mode' && notify-send '(SUPER+X to reset)' && systemctl --user stop hypridle"
         "SUPER, K, exec, notify-send -u critical ${hostname} 'Focus Mode' && notify-send '(SUPER+X to reset)' && systemctl --user stop swww && pkill -SIGUSR1 waybar && hyprctl --batch 'keyword decoration:inactive_opacity 1.0; keyword decoration:blur:enabled 0; keyword general:gaps_in 0; keyword general:gaps_out 0; keyword general:border_size 1; keyword decoration:rounding 0; keyword decoration:shadow:enabled false'"
