@@ -10,10 +10,14 @@
     settings = {
       debug.error_position = 1;
 
-      monitor = [
-        "eDP-1,preferred,auto,1"
-        ",preferred,auto,1"
-      ];
+      # monitor = [
+      #   "eDP-1,preferred,auto,1"
+      #   ",preferred,auto,1"
+      # ];
+      source = [
+        "~/.config/hypr/monitors.conf"
+        "~/.config/hypr/workspaces.conf"
+      ]; # nwg-displays
 
       exec-once = [
         "hyprctl setcursor catppuccin-mocha-light-cursors 24"
@@ -139,7 +143,7 @@
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
 
         "float,title:^(Open|Print|Save|Rename).*,"
-        "float,title:^(Preferences|Settings|Options|About).*,"
+        "float,title:^(Preferences|Settings|Options|About|Passbolt).*,"
         "float,title:^(MainPicker|Volume Control|File Operation Progress|Network Connections|Choose an Application)$,"
 
         "keepaspectratio on, title:^(Picture in picture)$"
