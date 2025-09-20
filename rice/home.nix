@@ -26,7 +26,6 @@
     };
     rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
       terminal = "${pkgs.kitty}/bin/kitty";
       # location = "top";
       # yoffset = 10;
@@ -99,6 +98,13 @@
           keybind = "l";
         }
       ];
+      style = ''
+        button {
+          border-width: ${builtins.toString rice.borders.size}px;
+          border-radius: ${builtins.toString rice.borders.rounded}px;
+          margin: ${builtins.toString rice.gap.inner}px;
+        }
+      '';
     };
     ranger = {
       enable = true;
@@ -243,7 +249,7 @@
       tailscale-systray networkmanagerapplet eog qt6ct kdePackages.qtstyleplugin-kvantum lxmenu-data nwg-displays
       kitty bat btop ranger pcmanfm lxqt.pcmanfm-qt w3m
       hyprlock hyprshot waybar hypridle wl-clipboard dunst swww cliphist wayvnc
-      rofi-network-manager rofi-power-menu rofi-wayland # rofi-calc # https://discourse.nixos.org/t/trouble-installing-rofi-plugin-rofi-calc/3847
+      rofi-network-manager rofi-power-menu rofi
     ];
     pointerCursor = {
       gtk.enable = true;

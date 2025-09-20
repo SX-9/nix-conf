@@ -21,15 +21,12 @@
         discord
         slack
         brave
-        kicad
 
         libreoffice
-        zoom-us
         vlc
         moonlight-qt
         inkscape
         #davinci-resolve
-        godot
         kdePackages.kdenlive
 
         (wrapOBS {
