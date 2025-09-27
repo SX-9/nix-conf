@@ -148,7 +148,7 @@
 
         "float,title:^(Open|Print|Save|Rename).*,"
         "float,title:^(Preferences|Settings|Options|About|Passbolt).*,"
-        "float,title:^(MainPicker|Volume Control|File Operation Progress|Network Connections|Choose an Application)$,"
+        "float,title:^(MainPicker|Volume Control|File Operation Progress|Network Connections|Choose an Application| )$,"
 
         "keepaspectratio on, title:^(Picture in picture)$"
         "pin, title:^(Picture in picture)$"
