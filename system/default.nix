@@ -182,7 +182,6 @@
     zsh.enable = true;
     nix-ld.enable = true;
     steam.enable = true;
-    noisetorch.enable = true;
     kdeconnect = {
       enable = true;
       package = pkgs.gnomeExtensions.gsconnect;
