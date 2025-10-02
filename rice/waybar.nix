@@ -69,6 +69,7 @@
           format-disabled = "";
           tooltip = false;
           on-click = "nm-connection-editor";
+          on-click-right = "pkexec systemctl restart systemd-resolved NetworkManager tailscaled cloudflare-warp && notify-send ${hostname} 'Network Restarted'";
         };
         "temperature" = {
           hwmon-path =  "/sys/class/hwmon/hwmon2/temp1_input";
