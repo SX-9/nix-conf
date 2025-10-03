@@ -29,6 +29,7 @@
         #"swww-daemon &"
         "waybar &"
 
+        "blueman-applet &"
         "nm-applet &"
         "tailscale-systray &"
       ];

@@ -32,6 +32,7 @@
     gucharmap
     ncdu
     zip
+    blueman
     shared-mime-info
 
     wineWowPackages.waylandFull
