@@ -28,6 +28,7 @@
         #"hypridle &"
         #"swww-daemon &"
         "waybar &"
+        "sunshine &"
 
         "blueman-applet &"
         "nm-applet &"
