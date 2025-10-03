@@ -59,6 +59,7 @@
         STOP_CHARGE_THRESH_BAT1 = "85";
         START_CHARGE_THRESH_BAT1 = "80";
         CPU_BOOST_ON_AC = "1";
+        CPU_BOOST_ON_BAT = "0";
         TLP_DEFAULT_MODE = "BAT";
         PLATFORM_PROFILE_ON_AC = "performance";
         PLATFORM_PROFILE_ON_BAT = "low-power";
