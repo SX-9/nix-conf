@@ -54,15 +54,23 @@
     tlp = {
       enable = true;
       settings = { # BAT1 = external battery, BAT0 = internal battery
-        STOP_CHARGE_THRESH_BAT0 = "85";
         START_CHARGE_THRESH_BAT0 = "80";
-        STOP_CHARGE_THRESH_BAT1 = "85";
         START_CHARGE_THRESH_BAT1 = "80";
+        STOP_CHARGE_THRESH_BAT0 = "85";
+        STOP_CHARGE_THRESH_BAT1 = "85";
         CPU_BOOST_ON_AC = "1";
         CPU_BOOST_ON_BAT = "0";
+        CPU_HWP_DYN_BOOST_ON_AC = "1";
+        CPU_HWP_DYN_BOOST_ON_BAT = "0";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
         TLP_DEFAULT_MODE = "BAT";
         PLATFORM_PROFILE_ON_AC = "performance";
         PLATFORM_PROFILE_ON_BAT = "low-power";
+        WIFI_PWR_ON_AC = "on";
+        WIFI_PWR_ON_BAT = "on";
+        CPU_MAX_PERF_ON_AC = "100";
+        CPU_MAX_PERF_ON_BAT = "75";
       };
     };
     thinkfan = {
