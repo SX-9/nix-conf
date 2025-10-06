@@ -42,7 +42,7 @@
             critical = 85;
           };
           interval = 1;
-          format = " {usage:2}%";
+          format = " {usage:2}% {avg_frequency}GHz";
           on-click = "hyprctl dispatch exec '[float; size 75%]' kitty btop";
         };
         "memory" = {
@@ -154,7 +154,7 @@
             warning = 30;
             critical = 15;
           };
-          format = "{icon} {capacity}%";
+          format = "{icon} {capacity}% {power}W";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
           format-icons = [
