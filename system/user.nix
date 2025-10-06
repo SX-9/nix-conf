@@ -25,9 +25,9 @@
         libreoffice
         vlc
         moonlight-qt
-        inkscape
+        #inkscape
         #davinci-resolve
-        kdePackages.kdenlive
+        #kdePackages.kdenlive
 
         (wrapOBS {
           plugins = with obs-studio-plugins; [
@@ -40,7 +40,6 @@
         portablemc
         ferium
         virt-manager
-        appimage-run
 
         zsh-completions
         zsh-syntax-highlighting
@@ -48,7 +47,6 @@
         gh
         go
         bun
-        deno
         nodejs
         nodePackages.npm
         nodePackages.pnpm

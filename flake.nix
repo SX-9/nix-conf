@@ -60,14 +60,6 @@
         modules = [ base.system ];
       };
 
-      server = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = args;
-        modules = [
-          base.system
-          ./hardware/server.nix
-        ];
-      };
-
       thinkpad = inputs.nixpkgs.lib.nixosSystem {
         specialArgs = args;
         modules = [
@@ -80,37 +72,10 @@
     };
     homeConfigurations = {
 
-      shell = inputs.hm.lib.homeManagerConfiguration {
+      main = inputs.hm.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = args;
         modules = [ base.home ];
-      };
-
-      desktop = inputs.hm.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = args;
-        modules = [
-          base.home
-          ./home/base.nix
-        ];
-      };
-
-      server = inputs.hm.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = args;
-        modules = [
-          base.home
-          ./home/server.nix
-        ];
-      };
-
-      laptop = inputs.hm.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = args;
-        modules = [
-          base.home
-          ./home/laptop.nix
-        ];
       };
 
     };

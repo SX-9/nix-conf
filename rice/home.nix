@@ -248,7 +248,7 @@
       playerctl brightnessctl ydotool
       tailscale-systray networkmanagerapplet eog qt6ct kdePackages.qtstyleplugin-kvantum lxmenu-data nwg-displays
       kitty bat btop ranger pcmanfm lxqt.pcmanfm-qt w3m
-      hyprlock hyprshot waybar hypridle wl-clipboard dunst swww cliphist wayvnc
+      hyprlock hyprshot waybar hypridle wl-clipboard dunst swww cliphist
       rofi-network-manager rofi-power-menu rofi
     ];
     pointerCursor = {

@@ -72,7 +72,7 @@
         WIFI_PWR_ON_AC = "on";
         WIFI_PWR_ON_BAT = "on";
         CPU_MAX_PERF_ON_AC = "100";
-        CPU_MAX_PERF_ON_BAT = "100";
+        CPU_MAX_PERF_ON_BAT = "90";
       };
     };
     thinkfan = {

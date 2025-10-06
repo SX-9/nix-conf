@@ -71,23 +71,23 @@
   ];
 
   virtualisation = {
-    waydroid.enable = true;
+    # waydroid.enable = true;
     docker.enable = true;
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        swtpm.enable = true;
-        runAsRoot = false;
-        ovmf = {
-          enable = false;
-          packages = [(pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          }).fd];
-        };
-      };
-    };
+    # libvirtd = {
+    #   enable = true;
+    #   qemu = {
+    #     package = pkgs.qemu_kvm;
+    #     swtpm.enable = true;
+    #     runAsRoot = false;
+    #     ovmf = {
+    #       enable = false;
+    #       packages = [(pkgs.OVMF.override {
+    #         secureBoot = true;
+    #         tpmSupport = true;
+    #       }).fd];
+    #     };
+    #   };
+    # };
   };
 
   networking = {
@@ -124,9 +124,9 @@
 
   services = {
     displayManager.gdm.enable = enable-dm;
-    desktopManager.gnome.enable = true;
+    # desktopManager.gnome.enable = true;
     xserver = {
-      displayManager.startx.enable = !enable-dm;
+      # displayManager.startx.enable = !enable-dm;
       enable = true;
       xkb = {
         layout = "us";
@@ -155,11 +155,9 @@
       drivers = with pkgs; [ hplip ];
     };
     gnome.gnome-keyring.enable = true;
-    tumbler.enable = true;
     gvfs.enable = true;
     pulseaudio.enable = false;
     cloudflare-warp.enable = true;
-    flatpak.enable = true;
     openssh.enable = true;
     tailscale.enable = true;
     resolved.enable = true;
@@ -184,7 +182,6 @@
     steam.enable = true;
     kdeconnect = {
       enable = true;
-      package = pkgs.gnomeExtensions.gsconnect;
     };
   };
 }

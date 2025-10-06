@@ -22,6 +22,7 @@
     rdp = true; # enables xrdp for remote desktop access with GNOME
   };
 
+  # WARNING: the GNOME configuration is COMPLETELY REMOVED from the codebase
   rice = {
     enable = true; # WARNING: the GNOME configuration is no longer maintained and is used as a backup
     font = "monospace"; # global font for rice GUIs, leave empty to use monospace

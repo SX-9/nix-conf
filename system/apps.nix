@@ -1,14 +1,6 @@
 { pkgs, inputs, ... }: {
   environment.systemPackages = (with pkgs; [
-    gnomeExtensions.dash-to-panel
-    gnomeExtensions.alphabetical-app-grid
-    gnomeExtensions.gsconnect
-    gnomeExtensions.impatience
-    gnomeExtensions.status-area-horizontal-spacing
-    gnomeExtensions.tailscale-status
-    gnomeExtensions.clipboard-history
-    gnomeExtensions.freon
-    gnome-tweaks
+    baobab
     gnome-network-displays
     papirus-icon-theme
     
@@ -20,10 +12,8 @@
     gparted
     pavucontrol
     jq
-    cava
     powertop
     smartmontools
-    woeusb
     fastfetch
     ethtool
     dig
@@ -48,7 +38,6 @@
     curl
     openssl_3
     htop
-    ffmpeg
     nmap
     sysstat
     netcat
@@ -60,12 +49,11 @@
     lxappearance
     freerdp
 
-    nix-output-monitor
     nix-index
     nixd
     git
-  ]) ++ (with inputs.win.packages."${pkgs.system}"; [
-    winapps
-    winapps-launcher
+  # ]) ++ (with inputs.win.packages."${pkgs.system}"; [
+  #   winapps
+  #   winapps-launcher
   ]);
 }
