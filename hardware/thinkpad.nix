@@ -2,7 +2,7 @@
   time.timeZone = lib.mkForce null;
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "powersave";
+    # cpuFreqGovernor = "powersave"; # managed  by tlp
     powertop.enable = true;
   };
   security.protectKernelImage = false; # https://discourse.nixos.org/t/hibernate-doesnt-work-anymore/24673/7
