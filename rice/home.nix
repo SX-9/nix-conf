@@ -199,7 +199,7 @@
         font = "${rice.font} 8";
         width = 300;
         origin = "${if rice.bar.top then "top" else "bottom"}-right";
-        offset = "${builtins.toString rice.gap.outer}x${builtins.toString (rice.gap.outer / 2)}";
+        offset = "${builtins.toString rice.gap.outer}x${builtins.toString rice.gap.outer}";
         corner_radius = rice.borders.rounded;
         frame_width = rice.borders.size;
         notification_limit = 0;
