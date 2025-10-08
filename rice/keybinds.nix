@@ -60,7 +60,7 @@
         ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "SUPER, SPACE, exec, playerctl play-pause"
         "SUPER, M, exec, wlogout"
-        "SUPER, TAB, exec, pkill -SIGUSR2 waybar"
+        "SUPER, TAB, exec, pkill -SIGUSR1 waybar"
       ];
 
       bindel = [
