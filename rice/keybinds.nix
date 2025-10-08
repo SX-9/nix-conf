@@ -33,10 +33,6 @@
         "ALT, TAB, bringactivetotop,"
         "ALT SHIFT, TAB, cyclenext, prev"
         "ALT SHIFT, TAB, bringactivetotop,"
-        "SUPER, TAB, cyclenext,"
-        "SUPER, TAB, bringactivetotop,"
-        "SUPER SHIFT, TAB, cyclenext, prev"
-        "SUPER SHIFT, TAB, bringactivetotop,"
 
         "SUPER SHIFT, right, movetoworkspace, +1"
         "SUPER SHIFT, left, movetoworkspace, -1"
@@ -64,6 +60,7 @@
         ", PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "SUPER, SPACE, exec, playerctl play-pause"
         "SUPER, M, exec, wlogout"
+        "SUPER, TAB, exec, pkill -SIGUSR2 waybar"
       ];
 
       bindel = [
