@@ -148,7 +148,7 @@
         "suppressevent fullscreen maximize,title:^(Hyprland Polkit Agent)$,"
         "dimaround,title:^(Hyprland Polkit Agent)$,"
 
-        "float,title:^(Open|Print|Save|Rename).*,"
+        "float,title:^(Open|Print|Save|Rename|Move|Copy|Confirm).*,"
         "float,title:^(Preferences|Settings|Options|About|Passbolt).*,"
         "float,title:^(MainPicker|Volume Control|File Operation Progress|Network Connections|Choose an Application| )$,"
 
