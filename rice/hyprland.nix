@@ -56,7 +56,7 @@
         allow_tearing = false;
         layout = "dwindle";
 
-        "col.active_border" = if rice.borders.colored then "$accent" else "$crust";
+        "col.active_border" = if rice.borders.colored then "$accent" else "$overlay0";
         "col.inactive_border" = if rice.borders.colored then "$overlay2" else "$crust";
       };
 
