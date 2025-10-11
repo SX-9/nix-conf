@@ -2,7 +2,6 @@
   time.timeZone = lib.mkForce null;
   powerManagement = {
     enable = true;
-    # cpuFreqGovernor = "powersave"; # managed  by tlp
     powertop.enable = true;
   };
   security.protectKernelImage = false; # https://discourse.nixos.org/t/hibernate-doesnt-work-anymore/24673/7
@@ -30,9 +29,10 @@
     initrd.availableKernelModules = [ "thinkpad_acpi" ];
   };
   services = {
-    logind.settings.Login.HandlePowerKey = "ignore"; # classmates keep pressing power button while im working :<
-    power-profiles-daemon.enable = false;
-    automatic-timezoned.enable = false;
+    logind.settings.Login = {
+      HandleLidSwitch = "suspend";
+      HandlePowerKey = "ignore";
+    };
     thermald.enable = true;
     fwupd.enable = true;
     udev.extraRules = ''
@@ -48,33 +48,24 @@
       percentageCritical = 15;
       percentageAction = 10;
       usePercentageForPolicy = true;
-      allowRiskyCriticalPowerAction = true;
-      criticalPowerAction = "HybridSleep";
+      criticalPowerAction = "Hibernate";
     };
-    tlp = {
+    auto-cpufreq = {
       enable = true;
-      settings = { # BAT1 = external battery, BAT0 = internal battery
-        START_CHARGE_THRESH_BAT0 = "80";
-        START_CHARGE_THRESH_BAT1 = "80";
-        STOP_CHARGE_THRESH_BAT0 = "85";
-        STOP_CHARGE_THRESH_BAT1 = "85";
-        CPU_BOOST_ON_AC = "1";
-        CPU_BOOST_ON_BAT = "0";
-        CPU_HWP_DYN_BOOST_ON_AC = "1";
-        CPU_HWP_DYN_BOOST_ON_BAT = "1";
-        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-        CPU_MAX_PERF_ON_AC = "100";
-        CPU_MIN_PERF_ON_AC = "100";
-        CPU_MAX_PERF_ON_BAT = "100";
-        CPU_MIN_PERF_ON_BAT = "0";
-        PLATFORM_PROFILE_ON_AC = "performance";
-        PLATFORM_PROFILE_ON_BAT = "low-power";
-        TLP_DEFAULT_MODE = "BAT";
-        WIFI_PWR_ON_AC = "on";
-        WIFI_PWR_ON_BAT = "on";
+      settings = {
+        charger = {
+          governor = "performance";
+          energy_performance_preference = "performance";
+          turbo = "always";
+        };
+        battery = {
+          governor = "powersave";
+          energy_performance_preference = "power";
+          turbo = "never";
+          enable_thresholds = "true";
+          start_threshold = "80";
+          stop_threshold = "85";
+        };
       };
     };
     thinkfan = {
