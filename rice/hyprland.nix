@@ -114,7 +114,7 @@
         force_default_wallpaper = 0;
         disable_hyprland_logo = true;
         focus_on_activate = true;
-        middle_click_paste = true;
+        middle_click_paste = false;
         exit_window_retains_fullscreen = true;
         new_window_takes_over_fullscreen = 1;
         background_color = "$base";
@@ -126,7 +126,10 @@
         kb_options = "caps:none";
         follow_mouse = 1;
         sensitivity = 0;
-        touchpad.natural_scroll = true;
+        touchpad = {
+          natural_scroll = true;
+          middle_button_emulation = 0;
+        };
       };
 
       layerrule = [

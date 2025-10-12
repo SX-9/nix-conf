@@ -10,8 +10,8 @@
       "3".left.sendkey = "LEFTMETA+RIGHT";
     };
     hold = {
-      "3".sendkey = "LEFTMETA+SPACE";
-      "4".sendkey = "LEFTMETA+C";
+      "3".sendkey = "LEFTMETA+TAB";
+      "4".sendkey = "LEFTMETA+SPACE";
     };
   };
   wayland.windowManager.hyprland = {
