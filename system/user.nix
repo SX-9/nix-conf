@@ -25,9 +25,9 @@
         libreoffice
         vlc
         moonlight-qt
-        #inkscape
+        kdePackages.kdenlive
+        inkscape
         #davinci-resolve
-        #kdePackages.kdenlive
 
         (wrapOBS {
           plugins = with obs-studio-plugins; [
