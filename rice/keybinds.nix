@@ -52,6 +52,9 @@
       bindm = [
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
+      ];
+
+      bindc = [
         "SUPER, mouse:274, killactive"
       ];
 
@@ -73,6 +76,12 @@
       ];
       
       bind = [
+        # ",XF86Tools, exec, "
+        # ",XF86Bluetooth, exec, "
+        # ",XF86Keyboard, exec, "
+        # ",XF86Favorites, exec, "
+
+        ",XF86Display, exec, nwg-displays"
         "CTRL ALT, DELETE, exec, wlogout"
         "CTRL SHIFT, ESCAPE, exec, [float; size 75%] kitty btop"
 

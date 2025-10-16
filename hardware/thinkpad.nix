@@ -61,7 +61,7 @@
         battery = {
           governor = "powersave";
           energy_performance_preference = "power";
-          turbo = "never";
+          turbo = "auto";
           enable_thresholds = "true";
           start_threshold = "80";
           stop_threshold = "85";
