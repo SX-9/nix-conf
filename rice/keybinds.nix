@@ -81,7 +81,7 @@
         # ",XF86Keyboard, exec, "
         # ",XF86Favorites, exec, "
 
-        ",XF86Display, exec, nwg-displays"
+        ",XF86Display, exec, [float; size 75%] nwg-displays"
         "CTRL ALT, DELETE, exec, wlogout"
         "CTRL SHIFT, ESCAPE, exec, [float; size 75%] kitty btop"
 
