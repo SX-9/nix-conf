@@ -55,13 +55,13 @@
       settings = {
         charger = {
           governor = "performance";
-          energy_performance_preference = "performance";
-          turbo = "always";
+          energy_performance_preference = "balance_performance";
+          turbo = "auto";
         };
         battery = {
           governor = "powersave";
-          energy_performance_preference = "power";
-          turbo = "auto";
+          energy_performance_preference = "balance_power";
+          turbo = "never";
           enable_thresholds = "true";
           start_threshold = "80";
           stop_threshold = "85";

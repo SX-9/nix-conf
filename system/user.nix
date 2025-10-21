@@ -12,6 +12,7 @@
         "libvirtd"
         "docker"
         "input"
+        "uinput"
         "ydotool"
         "adbusers"
         "kvm"
