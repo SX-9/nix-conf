@@ -1,4 +1,4 @@
-{ pkgs, swapfile, hostname, timezone, locale, legacy-boot, enable-dm, wol, ... }: {
+{ pkgs, swapfile, hostname, timezone, locale, legacy-boot, enable-dm, wol, zerotier, ... }: {
   system.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -154,13 +154,15 @@
       enable = true;
       drivers = with pkgs; [ hplip ];
     };
+    zerotierone = {
+      enable = true;
+      joinNetworks = zerotier.networks;
+    };
+    cloudflare-warp.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     pulseaudio.enable = false;
-    cloudflare-warp.enable = true;
     openssh.enable = true;
-    tailscale.enable = true;
-    zerotierone.enable = true;
     resolved.enable = true;
   };
 
