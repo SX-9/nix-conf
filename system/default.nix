@@ -158,6 +158,7 @@
       enable = true;
       joinNetworks = zerotier.networks;
     };
+    tailscale.enable = true;
     cloudflare-warp.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
