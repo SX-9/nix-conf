@@ -2,6 +2,7 @@
   environment.systemPackages = (with pkgs; [
     baobab
     gnome-network-displays
+    gnome-disk-utility
     papirus-icon-theme
     
     smartmontools
