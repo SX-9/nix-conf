@@ -8,6 +8,7 @@
     smartmontools
     lm_sensors
     ntfs3g
+    virt-viewer
     dconf2nix
     pciutils
     gparted
