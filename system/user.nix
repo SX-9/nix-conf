@@ -25,6 +25,7 @@
 
         libreoffice
         vlc
+        remmina
         moonlight-qt
         kdePackages.kdenlive
         inkscape
