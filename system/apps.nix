@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }: {
   environment.systemPackages = (with pkgs; [
     baobab
+    file-roller
     gnome-network-displays
     gnome-disk-utility
     papirus-icon-theme
