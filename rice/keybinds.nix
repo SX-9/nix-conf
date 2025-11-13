@@ -84,6 +84,7 @@
         ",XF86Display, exec, [float; size 75%] nwg-displays"
         "CTRL ALT, DELETE, exec, wlogout"
         "CTRL SHIFT, ESCAPE, exec, [float; size 75%] kitty btop"
+        "SUPER, Grave, exec, dunstctl set-paused toggle"
 
         "SUPER, N, exec, rofi-network-manager"
 
@@ -107,6 +108,7 @@
         "SUPER, C, exec, [float; size 75%] kitty btop"
         "SUPER, Y, exec, brave"
         "SUPER, D, exec, steam steam://open/bigpicture"
+        "SUPER SHIFT, D, exec, steam"
 
         "SUPER, Q, killactive,"
         "SUPER, W, fullscreen, 1"
