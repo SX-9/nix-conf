@@ -1,4 +1,4 @@
-{ pkgs, swapfile, hostname, timezone, locale, legacy-boot, enable-dm, zerotier, ... }: {
+{ pkgs, swapfile, hostname, timezone, locale, legacy-boot, wol, enable-dm, zerotier, ... }: {
   system.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -105,10 +105,19 @@
   i18n.defaultLocale = locale;
   environment.localBinInPath = true;
 
+  systemd.services."wol" = {
+    enable = wol != "";
+    description = "Wake-on-LAN for ${wol}";
+    requires = [ "network.target" ];
+    after = [ "network.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.ethtool}/bin/ethtool -s ${wol} wol g";
+      Type = "oneshot";
+    };
+    wantedBy = [ "multi-user.target" "sleep.target" "suspend.target" "hibernate.target" "hybrid-sleep.target" ];
+  };
+
   services = {
-    udev.extraRules = ''
-      ACTION=="add", SUBSYSTEM=="net", NAME=="en*", RUN+="${pkgs.ethtool}/bin/ethtool -s $name wol g"
-    '';
     displayManager.gdm.enable = enable-dm;
     xserver = {
       enable = true;
