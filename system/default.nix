@@ -97,10 +97,6 @@
     nameservers = ["1.1.1.1" "1.0.0.1"];
   };
 
-  udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="net", NAME=="en*", RUN+="/usr/bin/ethtool -s $name wol g"
-  '';
-
   hardware.graphics = {
     enable = true;
     extraPackages = [ pkgs.vaapiVdpau ];
@@ -110,10 +106,11 @@
   environment.localBinInPath = true;
 
   services = {
+    udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="net", NAME=="en*", RUN+="/usr/bin/ethtool -s $name wol g"
+    '';
     displayManager.gdm.enable = enable-dm;
-    # desktopManager.gnome.enable = true;
     xserver = {
-      # displayManager.startx.enable = !enable-dm;
       enable = true;
       xkb = {
         layout = "us";
