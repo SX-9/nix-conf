@@ -95,7 +95,18 @@
     networkmanager.enable = true;
     firewall.enable = false;
     nameservers = ["1.1.1.1" "1.0.0.1"];
-    interfaces."${wol}".wakeOnLan = if wol != "" then true else false;
+    interfaces."${wol}".wakeOnLan.enable = wol != "";
+  };
+
+  systemd.services.enable-wol = {
+    enable = wol != "";
+    description = "Enable Wake-on-LAN on ${wol}";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.ethtool}/bin/ethtool -s ${wol} wol g";
+      Restart = "on-failure";
+    };
   };
 
   hardware.graphics = {
