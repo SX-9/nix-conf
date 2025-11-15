@@ -95,6 +95,7 @@
     networkmanager.enable = true;
     firewall.enable = false;
     nameservers = ["1.1.1.1" "1.0.0.1"];
+    interfaces."${wol}".wakeOnLan = if wol != "" then true else false;
   };
 
   hardware.graphics = {
@@ -104,23 +105,6 @@
   time.timeZone = timezone;
   i18n.defaultLocale = locale;
   environment.localBinInPath = true;
-
-  systemd.services = (if wol == "" then {} else {
-    "enable-wol" = {
-      description = "Reenable wake on lan every boot";
-      after = [ "network.target" ];
-      serviceConfig = {
-        Type = "simple";
-        RemainAfterExit = "true";
-        ExecStart = "${pkgs.ethtool}/sbin/ethtool -s ${wol} wol g";
-      };
-      wantedBy = [ "default.target" ];
-    };
-  }) // (if enable-dm then {
-    "getty@tty1".enable = false;
-    "autovt@tty1".enable = false; 
-  } else {});
-  # ^^ GDM Temporary Fix: https://discourse.nixos.org/t/gnome-display-manager-fails-to-login-until-wi-fi-connection-is-established/50513/15
 
   services = {
     displayManager.gdm.enable = enable-dm;
