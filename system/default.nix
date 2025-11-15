@@ -107,7 +107,7 @@
 
   services = {
     udev.extraRules = ''
-      ACTION=="add", SUBSYSTEM=="net", NAME=="en*", RUN+="/usr/bin/ethtool -s $name wol g"
+      ACTION=="add", SUBSYSTEM=="net", NAME=="en*", RUN+="${pkgs.ethtool}/bin/ethtool -s $name wol g"
     '';
     displayManager.gdm.enable = enable-dm;
     xserver = {
