@@ -1,4 +1,4 @@
-{ pkgs, swapfile, hostname, timezone, locale, legacy-boot, enable-dm, wol, zerotier, ... }: {
+{ pkgs, swapfile, hostname, timezone, locale, legacy-boot, enable-dm, zerotier, ... }: {
   system.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -95,19 +95,11 @@
     networkmanager.enable = true;
     firewall.enable = false;
     nameservers = ["1.1.1.1" "1.0.0.1"];
-    interfaces."${wol}".wakeOnLan.enable = wol != "";
   };
 
-  systemd.services.enable-wol = {
-    enable = wol != "";
-    description = "Enable Wake-on-LAN on ${wol}";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.ethtool}/bin/ethtool -s ${wol} wol g";
-      Restart = "on-failure";
-    };
-  };
+  udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="net", NAME=="en*", RUN+="/usr/bin/ethtool -s $name wol g"
+  '';
 
   hardware.graphics = {
     enable = true;
