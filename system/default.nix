@@ -114,7 +114,16 @@
       ExecStart = "${pkgs.ethtool}/bin/ethtool -s ${wol} wol g";
       Type = "oneshot";
     };
-    wantedBy = [ "multi-user.target" "sleep.target" "suspend.target" "hibernate.target" "hybrid-sleep.target" ];
+    wantedBy = [ # just in case 
+      "multi-user.target"
+      "sleep.target"
+      "suspend.target"
+      "hibernate.target"
+      "hybrid-sleep.target"
+      "shutdown.target"
+      "reboot.target"
+      "halt.target"
+    ];
   };
 
   services = {
