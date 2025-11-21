@@ -11,11 +11,9 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        vaapiIntel
         intel-media-driver
-        intel-ocl 
         intel-compute-runtime
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau-va-gl 
       ];
     };
@@ -33,7 +31,9 @@
       HandleLidSwitch = "suspend";
       HandlePowerKey = "ignore";
     };
+    fstrim.enable = true;
     thermald.enable = true;
+    throttled.enable = true;
     fwupd.enable = true;
     udev.extraRules = ''
       #ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"

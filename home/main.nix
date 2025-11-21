@@ -52,9 +52,13 @@
     };
     git = {
       enable = true;
-      userName = git.user;
-      userEmail = git.email;
-      extraConfig.pull.rebase = "true";
+      settings = {
+        pull.rebase = "true";
+        user = {
+          name = git.user;
+          email = git.email;
+        };
+      };
     };
     tmux.enable = true;
     pay-respects = {

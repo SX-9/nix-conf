@@ -14,7 +14,6 @@
 
     gl.url = "github:nix-community/nixGL";
     hl.url = "github:hyprwm/Hyprland";
-    hw.url = "github:NixOS/nixos-hardware/master";
     na.url = "github:nix-community/nixos-anywhere";
     dsk.url = "github:nix-community/disko";
     ctp.url = "github:catppuccin/nix";
@@ -64,7 +63,6 @@
         specialArgs = args;
         modules = [
           base.system
-          inputs.hw.nixosModules.lenovo-thinkpad-t480
           ./hardware/thinkpad.nix
         ];
       };

@@ -54,7 +54,7 @@
         nodePackages.pnpm
         nodePackages.yarn
         python314
-        jdk23_headless
+        jdk25_headless
       ];
     };
   };

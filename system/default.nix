@@ -99,7 +99,7 @@
 
   hardware.graphics = {
     enable = true;
-    extraPackages = [ pkgs.vaapiVdpau ];
+    extraPackages = [ pkgs.libva-vdpau-driver ];
   };
   time.timeZone = timezone;
   i18n.defaultLocale = locale;
