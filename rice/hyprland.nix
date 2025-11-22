@@ -5,10 +5,13 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hl.packages."${pkgs.system}".hyprland;
+    package = pkgs.hyprland; # inputs.hl.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
     settings = {
-      debug.error_position = 1;
+      debug = {
+        error_position = 1;
+        disable_logs = true;
+      };
 
       # monitor = [
       #   "eDP-1,preferred,auto,1"

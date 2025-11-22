@@ -6,8 +6,8 @@
     hyprland = {
       enable = rice.enable;
       xwayland.enable = true;
-      package = if rice.enable then inputs.hl.packages."${pkgs.system}".hyprland else pkgs.hyprland;
-      portalPackage = inputs.hl.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+      package = pkgs.hyprland; # if rice.enable then inputs.hl.packages."${pkgs.system}".hyprland else pkgs.hyprland;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland; # inputs.hl.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
   };
 
