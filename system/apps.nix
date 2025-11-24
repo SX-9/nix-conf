@@ -1,4 +1,8 @@
 { pkgs, inputs, ... }: {
+  nixpkgs.config.permittedInsecurePackages = [
+    "ventoy-qt5-1.1.07"
+  ];
+
   environment.systemPackages = (with pkgs; [
     baobab
     file-roller
@@ -35,6 +39,7 @@
     scrcpy
     distrobox
 
+    ventoy-full-qt
     home-manager
     vim
     wget
