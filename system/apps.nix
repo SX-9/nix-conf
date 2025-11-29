@@ -31,6 +31,8 @@
     zip
     blueman
     shared-mime-info
+    usbutils
+    pythonPackages.undervolt
 
     wineWowPackages.waylandFull
     wineWowPackages.stable
