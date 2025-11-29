@@ -44,6 +44,8 @@
           interval = 1;
           format = " {usage:2}% {avg_frequency}GHz";
           on-click = "hyprctl dispatch exec '[float; size 75%]' kitty btop";
+          on-click-right = "pkexec systemctl restart thermald throttled && notify-send ${hostname} 'CPU Underclocking Restarted'";
+          on-click-middle = "pkexec systemctl stop thermald throttled && notify-send ${hostname} 'CPU Underclocking Stopped'";
         };
         "memory" = {
           states = {
