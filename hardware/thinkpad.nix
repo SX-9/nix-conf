@@ -48,7 +48,8 @@
       percentageCritical = 15;
       percentageAction = 10;
       usePercentageForPolicy = true;
-      criticalPowerAction = "Hibernate";
+      allowRiskyCriticalPowerAction = true;
+      criticalPowerAction = "HybridSleep";
     };
     auto-cpufreq = {
       enable = true;
