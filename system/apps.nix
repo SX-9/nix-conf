@@ -32,7 +32,7 @@
     blueman
     shared-mime-info
     usbutils
-    pythonPackages.undervolt
+    python3Packages.undervolt
 
     wineWowPackages.waylandFull
     wineWowPackages.stable
