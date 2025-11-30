@@ -24,6 +24,7 @@
         brave
 
         appimage-run
+        winboat
         libreoffice
         vlc
         remmina
