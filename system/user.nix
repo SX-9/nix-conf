@@ -23,6 +23,7 @@
         slack
         brave
 
+        appimage-run
         libreoffice
         vlc
         remmina
