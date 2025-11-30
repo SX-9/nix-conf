@@ -186,6 +186,10 @@
     zsh.enable = true;
     nix-ld.enable = true;
     steam.enable = true;
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
     kdeconnect = {
       enable = true;
     };
