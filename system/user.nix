@@ -26,6 +26,7 @@
         appimage-run
         #winboat
         libreoffice
+        keepassxc
         vlc
         remmina
         moonlight-qt

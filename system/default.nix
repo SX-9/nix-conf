@@ -1,4 +1,4 @@
-{ pkgs, swapfile, hostname, timezone, locale, legacy-boot, wol, enable-dm, zerotier, ... }: {
+{ config, pkgs, swapfile, hostname, timezone, locale, legacy-boot, wol, enable-dm, zerotier, ... }: {
   system.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -164,6 +164,7 @@
     cloudflare-warp.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
+    blueman.enable = true;
     pulseaudio.enable = false;
     openssh.enable = true;
     resolved.enable = true;

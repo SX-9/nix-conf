@@ -150,9 +150,10 @@
         "suppressevent minimize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
 
-        "stayfocused,title:^(Hyprland Polkit Agent)$,"
-        "suppressevent fullscreen maximize,title:^(Hyprland Polkit Agent)$,"
-        "dimaround,title:^(Hyprland Polkit Agent)$,"
+        "stayfocused,title:^(Hyprland Polkit Agent|Unlock Login Keyring|KeePassXC -.*)$,"
+        "suppressevent fullscreen maximize,title:^(Hyprland Polkit Agent|Unlock Login Keyring|KeePassXC -.*)$,"
+        "dimaround,title:^(Hyprland Polkit Agent|Unlock Login Keyring|KeePassXC -.*)$,"
+        "float,title:^(Hyprland Polkit Agent|Unlock Login Keyring|KeePassXC -.*)$,"
 
         "float,title:^(Open|Print|Save|Rename|Move|Copy|Confirm).*,"
         "float,title:^(Preferences|Settings|Options|About|Passbolt).*,"
