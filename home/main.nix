@@ -19,6 +19,12 @@
     };
   };
 
+  systemd.user.slices.app = {
+    Slice = {
+      TimeoutStopSec = "5min";
+    };
+  };
+
   xdg = {
     autostart.enable = true;
     mimeApps = {
