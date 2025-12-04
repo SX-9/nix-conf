@@ -173,7 +173,7 @@
           format = "";
           on-click-middle = "wlogout";
           on-click-right = "hyprctl dispatch togglespecialworkspace hidden";
-          on-click = "rofi -show drun -show-icons -display-drun ''";
+          on-click = "rofi -show drun -show-icons -display-drun '' -run-command \"uwsm app -- {cmd}\"";
         };
       }
     ];

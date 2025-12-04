@@ -81,12 +81,12 @@
         # ",XF86Keyboard, exec, "
         # ",XF86Favorites, exec, "
 
-        ",XF86Display, exec, [float; size 75%] nwg-displays"
+        ",XF86Display, exec, [float; size 75%] uwsm app -- nwg-displays"
         "CTRL ALT, DELETE, exec, wlogout"
-        "CTRL SHIFT, ESCAPE, exec, [float; size 75%] kitty btop"
+        "CTRL SHIFT, ESCAPE, exec, [float; size 75%] uwsm app -- kitty btop"
         "SUPER, Grave, exec, dunstctl set-paused toggle"
 
-        "SUPER, N, exec, rofi-network-manager"
+        "SUPER, N, exec, uwsm app -- rofi-network-manager"
 
         "SUPER, J, exec, notify-send -u critical ${hostname} 'Caffein Mode' && notify-send '(SUPER+X to reset)' && systemctl --user stop hypridle"
         "SUPER, K, exec, notify-send -u critical ${hostname} 'Focus Mode' && notify-send '(SUPER+X to reset)' && systemctl --user stop swww && pkill -SIGUSR1 waybar && hyprctl --batch 'keyword decoration:inactive_opacity 1.0; keyword decoration:blur:enabled 0; keyword general:gaps_in 0; keyword general:gaps_out 0; keyword general:border_size 1; keyword decoration:rounding 0; keyword decoration:shadow:enabled false'"
@@ -98,17 +98,17 @@
         "SUPER SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
         "ALT, PRINT, exec, hyprshot -m output -o ~/Pictures/Screenshots"
 
-        "SUPER, R, exec, rofi -show drun -show-icons -display-drun ''"
+        "SUPER, R, exec, rofi -show drun -show-icons -display-drun '' -run-command \"uwsm app -- {cmd}\""
         "SUPER, V, exec, rofi -modi clipboard:cliphist-rofi-img -show clipboard -show-icons"
         # "SUPER, B, exec, rofi -show calc -modi calc -no-show-match -no-sort"
 
-        "SUPER, A, exec, code"
-        "SUPER, T, exec, kitty"
-        "SUPER, E, exec, pcmanfm-qt ~" # kitty ranger ~"
-        "SUPER, C, exec, [float; size 75%] kitty btop"
-        "SUPER, Y, exec, brave"
-        "SUPER, D, exec, steam steam://open/bigpicture"
-        "SUPER SHIFT, D, exec, steam"
+        "SUPER, A, exec, uwsm app -- code"
+        "SUPER, T, exec, uwsm app -- kitty"
+        "SUPER, E, exec, uwsm app -- pcmanfm-qt ~" # kitty ranger ~"
+        "SUPER, C, exec, [float; size 75%] uwsm app -- kitty btop"
+        "SUPER, Y, exec, uwsm app -- brave"
+        "SUPER, D, exec, uwsm app -- steam steam://open/bigpicture"
+        "SUPER SHIFT, D, exec, uwsm app -- steam"
 
         "SUPER, Q, killactive,"
         "SUPER, W, fullscreen, 1"

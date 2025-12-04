@@ -31,12 +31,12 @@
         #"dunst &"
         #"hypridle &"
         #"swww-daemon &"
-        "waybar &"
-        "sunshine &"
+        "uwsm app -s s -- waybar &"
+        "uwsm app -s b -- sunshine &"
 
-        "blueman-applet &"
-        "nm-applet &"
-        "tailscale-systray &"
+        "uwsm app -s b -- blueman-applet &"
+        "uwsm app -s b -- nm-applet &"
+        "uwsm app -s b -- tailscale-systray &"
         #"keepassxc &"
       ];
 

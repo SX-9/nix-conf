@@ -87,7 +87,7 @@
         }
         {
           label = "logout";
-          action = "loginctl terminate-user \"\"";
+          action = "sh -c 'loginctl terminate-user \"\"'";
           text = "L(o)gout";
           keybind = "o";
         }
