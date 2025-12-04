@@ -5,6 +5,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = false;
     package = pkgs.hyprland; # inputs.hl.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
     settings = {
@@ -36,6 +37,7 @@
         "blueman-applet &"
         "nm-applet &"
         "tailscale-systray &"
+        #"keepassxc &"
       ];
 
       env = [

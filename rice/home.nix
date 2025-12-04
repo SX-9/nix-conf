@@ -87,7 +87,7 @@
         }
         {
           label = "logout";
-          action = "hyprctl dispatch exit";
+          action = "loginctl terminate-user \"\"";
           text = "L(o)gout";
           keybind = "o";
         }
@@ -103,6 +103,7 @@
           border-width: ${builtins.toString rice.borders.size}px;
           border-radius: ${builtins.toString rice.borders.rounded}px;
           margin: ${builtins.toString rice.gap.inner}px;
+          font-family: ${rice.font};
         }
       '';
     };

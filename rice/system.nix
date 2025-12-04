@@ -5,6 +5,7 @@
     kdeconnect.enable = lib.mkForce false; # enabled in home-manager
     hyprland = {
       enable = rice.enable;
+      withUWSM = true;
       xwayland.enable = true;
       package = pkgs.hyprland; # if rice.enable then inputs.hl.packages."${pkgs.system}".hyprland else pkgs.hyprland;
       portalPackage = pkgs.xdg-desktop-portal-hyprland; # inputs.hl.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
