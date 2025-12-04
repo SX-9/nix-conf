@@ -87,7 +87,7 @@
         }
         {
           label = "logout";
-          action = "sh -c 'loginctl terminate-user \"\"'";
+          action = "uwsm stop";
           text = "L(o)gout";
           keybind = "o";
         }
