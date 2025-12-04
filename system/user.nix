@@ -1,6 +1,7 @@
 { pkgs, username, ... }: {
   users = {
     users."${username}" = {
+      linger = true;
       isNormalUser = true;
       description = "${username}";
       initialPassword = "${username}";
