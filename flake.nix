@@ -33,11 +33,10 @@
       system.imports = [
         nixos-anywhere
         ./system
-        ./system/user.nix
       ];
       home.imports = [
         inputs.ctp.homeModules.catppuccin
-        ./home/main.nix
+        ./home
       ];
     };
     pkgs = import inputs.nixpkgs {
@@ -59,6 +58,7 @@
         modules = [
           base.system
           ./hardware/thinkpad.nix
+          ./system/user.nix
         ];
       };
 

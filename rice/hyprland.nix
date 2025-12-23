@@ -1,4 +1,4 @@
-{ inputs, pkgs, rice, ctp-opt, ... }: {
+{ pkgs, rice, ctp-opt, ... }: {
   imports = [
     ./keybinds.nix
   ];

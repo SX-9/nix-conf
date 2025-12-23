@@ -1,9 +1,9 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-qt5-1.1.07"
   ];
 
-  environment.systemPackages = (with pkgs; [
+  environment.systemPackages = with pkgs; [
     baobab
     file-roller
     gnome-network-displays
@@ -60,8 +60,5 @@
     nix-index
     nixd
     git
-  # ]) ++ (with inputs.win.packages."${pkgs.system}"; [
-  #   winapps
-  #   winapps-launcher
-  ]);
+  ];
 }

@@ -1,6 +1,8 @@
-{ config, pkgs, swapfile, hostname, timezone, locale, legacy-boot, wol, enable-dm, zerotier, ... }: {
+{ hostname, timezone, ... }: {
+  system.stateVersion = "24.11";
   imports = [ ./apps.nix ];
 
+  nixpkgs.config.allowUnfree = true;
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
@@ -18,6 +20,6 @@
   time.timeZone = timezone;
   services = {
     openssh.enable = true;
-    tailscale.enable = true; 
+    tailscale.enable = true;
   };
 }
