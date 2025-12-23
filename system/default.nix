@@ -11,20 +11,12 @@
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "winapps.cachix.org-1:HI82jWrXZsQRar/PChgIx1unmuEsiQMQq+zt05CD36g="
       ];
-      experimental-features = [ "nix-command" "flakes" ];
-      auto-optimise-store = true;
     };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d -d";
-    };
-    optimise.automatic = true;
   };
   imports = [
     ../hardware/scan.nix
     ../rice/system.nix
-    ./apps.nix
+    ./base.nix
   ];
 
   boot = {
@@ -91,7 +83,6 @@
   };
 
   networking = {
-    hostName = "${hostname}";
     networkmanager.enable = true;
     firewall.enable = false;
     nameservers = ["1.1.1.1" "1.0.0.1"];
@@ -101,7 +92,6 @@
     enable = true;
     extraPackages = [ pkgs.libva-vdpau-driver ];
   };
-  time.timeZone = timezone;
   i18n.defaultLocale = locale;
   environment.localBinInPath = true;
 
@@ -160,13 +150,11 @@
       enable = true;
       joinNetworks = zerotier.networks;
     };
-    tailscale.enable = true;
     cloudflare-warp.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     blueman.enable = true;
     pulseaudio.enable = false;
-    openssh.enable = true;
     resolved.enable = true;
   };
 
