@@ -56,7 +56,7 @@
       gh
       go
       bun
-      nodejs
+      #nodejs # pkgs.buildEnv error: two given paths contain a conflicting subpath
       nodePackages.npm
       nodePackages.pnpm
       nodePackages.yarn

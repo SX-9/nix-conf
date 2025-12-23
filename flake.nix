@@ -11,7 +11,7 @@
     dsk.url = "github:nix-community/disko";
     gl.url = "github:nix-community/nixGL";
     dm.url = "github:Bqrry4/sddm-stray";
-    hl.url = "github:hyprwm/Hyprland";
+    #hl.url = "github:hyprwm/Hyprland";
     ctp.url = "github:catppuccin/nix";
   };
 
