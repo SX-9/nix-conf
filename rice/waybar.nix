@@ -72,6 +72,7 @@
           format-disabled = "";
           tooltip = false;
           on-click = "nm-connection-editor";
+          on-click-middle = "kitty sh -c 'ping 1.1 -c 3 && ping google.com -c 3; read'";
           on-click-right = "pkexec systemctl restart systemd-resolved NetworkManager tailscaled cloudflare-warp && notify-send ${hostname} 'Network Restarted'";
         };
         "temperature" = {
