@@ -129,6 +129,7 @@
         "clock" = {
           format = "{:%b %d, %I:%M:%S %p}";
           interval = 1;
+          on-click = "pkexec systemctl restart tzupdate && notify-send ${hostname} 'Timezone Updated'";
        };
         "tray" = {
           spacing = 12;
@@ -167,7 +168,7 @@
             ""
           ];
           interval = 1;
-          on-click = "";
+          on-click = "pkexec systemctl restart auto-cpufreq";
         };
         "custom/start" = {
           format = "";

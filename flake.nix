@@ -7,17 +7,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    win = {
-      url = "github:winapps-org/winapps";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    gl.url = "github:nix-community/nixGL";
-    hl.url = "github:hyprwm/Hyprland";
     na.url = "github:nix-community/nixos-anywhere";
     dsk.url = "github:nix-community/disko";
-    ctp.url = "github:catppuccin/nix";
+    gl.url = "github:nix-community/nixGL";
     dm.url = "github:Bqrry4/sddm-stray";
+    hl.url = "github:hyprwm/Hyprland";
+    ctp.url = "github:catppuccin/nix";
   };
 
   outputs = inputs: let

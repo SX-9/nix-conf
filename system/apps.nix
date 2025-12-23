@@ -8,7 +8,6 @@
     file-roller
     gnome-network-displays
     gnome-disk-utility
-    papirus-icon-theme
     
     smartmontools
     lm_sensors

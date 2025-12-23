@@ -17,6 +17,52 @@
       BROWSER = "brave";
       TERMINAL = "kitty";
     };
+    packages = with pkgs; [
+      vscode
+      discord
+      slack
+      brave
+
+      appimage-run
+      winboat
+      libreoffice
+      keepassxc
+      vlc
+      remmina
+      moonlight-qt
+      kdePackages.kdenlive
+      inkscape
+      #davinci-resolve
+
+      (wrapOBS {
+        plugins = with obs-studio-plugins; [
+          wlrobs
+          obs-backgroundremoval
+          obs-pipewire-audio-capture
+        ];
+      })
+      
+      portablemc
+      ferium
+      virt-manager
+
+      zsh-completions
+      zsh-syntax-highlighting
+      kitty
+      bat
+      btop
+      ranger 
+
+      gh
+      go
+      bun
+      nodejs
+      nodePackages.npm
+      nodePackages.pnpm
+      nodePackages.yarn
+      python314
+      jdk25_headless
+    ];
   };
 
   systemd.user.slices.app = {
@@ -50,7 +96,65 @@
     };
   };
 
+  services = {
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
+  };
+
   programs = {
+    tmux.enable = true;
+    vim.enable = true;
+    bat.enable = true;
+    kitty = {
+      enable = true;
+      package = pkgs.kitty;
+      settings = {
+        font_family = rice.font;
+        background_opacity = 0.8;
+        background_blur = 4;
+        window_padding_width = 8;
+        cursor_shape = "beam";
+        cursor_trail = 10;
+        copy_on_select = true;
+      };
+    };
+    ranger = {
+      enable = true;
+      aliases = {
+        "sh" = "shell zsh";
+        "code" = "shell code .";
+        "vim" = "shell vim";
+        "img" = "shell eog .";
+      };
+    };
+    btop = {
+      enable = true;
+      settings = {
+        update_ms = 100;
+        shown_boxes = "proc cpu";
+      };
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      vimAlias = true;
+      extraLuaConfig = ''
+        vim.opt.clipboard = "unnamedplus"
+      '';
+      plugins = with pkgs.vimPlugins; [
+        bufferline-nvim
+        nvim-web-devicons
+        nvim-treesitter
+        nvim-lspconfig
+        telescope-file-browser-nvim
+        nvim-tree-lua
+        nvim-cmp
+        barbar-nvim
+        indent-blankline-nvim
+      ];
+    };
     keepassxc = {
       enable = true;
       autostart = true;
@@ -87,7 +191,6 @@
         };
       };
     };
-    tmux.enable = true;
     pay-respects = {
       enable = true;
       enableZshIntegration = true;
@@ -109,6 +212,9 @@
         PORT="3000"
       '';
       shellAliases = {
+        "cd-gvfs" = "cd /run/user/$(id -u)/gvfs";
+        "ssh" = "TERM=xterm-256color ssh";
+
         "sys" = "sudo systemctl";
         "sys-log" = "journalctl -f -b -u";
         "user" = "systemctl --user";

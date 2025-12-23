@@ -11,19 +11,6 @@
   ];
 
   programs = {
-    kitty = {
-      enable = true;
-      package = pkgs.kitty;
-      settings = {
-        font_family = rice.font;
-        background_opacity = 0.8;
-        background_blur = 4;
-        window_padding_width = 8;
-        cursor_shape = "beam";
-        cursor_trail = 10;
-        copy_on_select = true;
-      };
-    };
     rofi = {
       enable = true;
       terminal = "${pkgs.kitty}/bin/kitty";
@@ -107,47 +94,6 @@
         }
       '';
     };
-    ranger = {
-      enable = true;
-      aliases = {
-        "sh" = "shell zsh";
-        "code" = "shell code .";
-        "vim" = "shell vim";
-        "img" = "shell eog .";
-      };
-    };
-    btop = {
-      enable = true;
-      settings = {
-        update_ms = 100;
-        shown_boxes = "proc cpu";
-      };
-    };
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
-      extraLuaConfig = ''
-        vim.opt.clipboard = "unnamedplus"
-      '';
-      plugins = with pkgs.vimPlugins; [
-        bufferline-nvim
-        nvim-web-devicons
-        nvim-treesitter
-        nvim-lspconfig
-        telescope-file-browser-nvim
-        nvim-tree-lua
-        nvim-cmp
-        barbar-nvim
-        indent-blankline-nvim
-      ];
-    };
-    zsh.shellAliases = {
-      "cd-gvfs" = "cd /run/user/$(id -u)/gvfs";
-      "ssh" = "TERM=xterm-256color ssh";
-    };
-    vim.enable = true;
-    bat.enable = true;
   };
 
   services = {
@@ -157,10 +103,6 @@
     fusuma = {
       extraPackages = with pkgs; [ ydotool systemd coreutils-full xorg.xprop ];
       enable = true;
-    };
-    kdeconnect = {
-      enable = true;
-      indicator = true;
     };
     hypridle = {
       enable = true;
@@ -248,9 +190,10 @@
     packages = with pkgs; [
       playerctl brightnessctl ydotool
       tailscale-systray networkmanagerapplet eog qt6Packages.qt6ct kdePackages.qtstyleplugin-kvantum lxmenu-data nwg-displays
-      kitty bat btop ranger pcmanfm lxqt.pcmanfm-qt w3m
+      pcmanfm lxqt.pcmanfm-qt w3m
       hyprlock hyprshot waybar hypridle wl-clipboard dunst swww cliphist
       rofi-network-manager rofi-power-menu rofi
+      papirus-icon-theme
     ];
     pointerCursor = {
       gtk.enable = true;
