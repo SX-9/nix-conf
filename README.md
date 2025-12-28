@@ -1,16 +1,16 @@
 ![image](hyprland-ss.png)
 
 > [!WARNING]
-> 1. While the system when built and configured uses less than 4GB of memory, **building it for the first time requires 12GB of memory** so its recomended you create a swapfile or add more memory first if you dont have sufficient memory. Otherwise the system will crash while building from out of memory.
-> 2. Before enabling Hyprland, **build it first with Hyprland disabled** as this will add the [Hyprland's Cachix](https://wiki.hyprland.org/Nix/Cachix/) settings so that you dont have to compile Hyprland flake package from scratch. After that initial build, you can enable Hyprland via `options.nix`.
+> 1. It's recommended to use swapfile/partition while building to avoid OOM killer.
+> 2. **This repository is ment for personal use** so expect little to no documentation.
 
 
 > [!NOTE]
 > 1. This repository does not include the wallpaper used in the screenshot.
-> 2. Some app themes are configured via account syncing (vscode, google-chrome, etc) and are not configured via home-manager. You have to configure them yourself.
-> 3. Some `options.nix` are legacy/arent used. Most likely due to WIP.
+> 2. Most GUI apps are configured via account syncing (vscode, brave, etc) and are not configured via home-manager.
+> 3. Some `options.nix` are unused. Most likely WIP.
 
-to enable swap:
+to create a swapfile:
 
 ```sh
 sudo dd if=/dev/zero of=/swapfile bs=512M count=4 # change this to the amount required
@@ -25,17 +25,17 @@ to build the system:
 # 0. clone repo and edit options:
 nix-shell -p git vim tmux htop home-manager #  tmux and htop for monitoring
 git clone github.com/SX-9/nix-conf --depth 1
-vim options.nix # change the username and hostname here
+vim options.nix # configure the system here
 
 # 1. hardware config:
 nixos-generate-config --show-hardware-config > hardware/scan.nix
 git add . -f # (-f)orce add hardware scan as its in .gitignore
 
-# 2. apply nixos config (available flakes: nixos, server, thinkpad)
-sudo nixos-rebuild switch --flake .#nixos
+# 2. apply nixos config
+sudo nixos-rebuild switch --flake .#thinkpad
 
-# 3. apply home config (available flakes: shell, desktop, laptop)
-home-manager switch --flake .#shell
+# 3. apply home config
+home-manager switch --flake .#main
 ```
 
 or with `nixos-anywhere`
