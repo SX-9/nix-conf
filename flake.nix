@@ -10,7 +10,6 @@
     na.url = "github:nix-community/nixos-anywhere";
     dsk.url = "github:nix-community/disko";
     gl.url = "github:nix-community/nixGL";
-    dm.url = "github:Bqrry4/sddm-stray";
     #hl.url = "github:hyprwm/Hyprland";
     ctp.url = "github:catppuccin/nix";
   };
@@ -32,6 +31,7 @@
     base = {
       system.imports = [
         nixos-anywhere
+        inputs.ctp.nixosModules.catppuccin
         ./system
       ];
       home.imports = [

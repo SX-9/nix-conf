@@ -1,4 +1,10 @@
-{ lib, pkgs, inputs, rice, enable-dm, ... }: {
+{ lib, pkgs, rice, enable-dm, ctp-opt, ... }: {
+  catppuccin = {
+    enable = true;
+    flavor = ctp-opt.flavor;
+    accent = ctp-opt.accent;
+  };
+
   programs = {
     ydotool.enable = true;
     xfconf.enable = true;
@@ -10,7 +16,7 @@
       package = pkgs.hyprland; # if rice.enable then inputs.hl.packages."${pkgs.system}".hyprland else pkgs.hyprland;
       portalPackage = pkgs.xdg-desktop-portal-hyprland; # inputs.hl.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
-  };
+  }; 
 
   qt = {
     enable = true;
@@ -38,7 +44,6 @@
       sddm = {
         enable = if rice.enable then enable-dm else false;
         wayland.enable = true;
-        theme = "sddm-stray";
         package = pkgs.kdePackages.sddm;
         extraPackages = with pkgs.kdePackages; [
           qtmultimedia
@@ -51,7 +56,6 @@
   environment = {
     systemPackages = with pkgs; if rice.enable then [
       libsecret libnotify kdePackages.kdeconnect-kde
-      inputs.dm.packages.${pkgs.system}.default
     ] else [];
     sessionVariables = if rice.enable then {
       XDG_RUNTIME_DIR = "/run/user/$UID"; # https://discourse.nixos.org/t/login-keyring-did-not-get-unlocked-hyprland/40869/10

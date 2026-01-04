@@ -8,6 +8,7 @@
   boot = {
     kernelModules = [ "rndis_host" "cdc_ether" ];
     supportedFilesystems = [ "ext4" "btrfs" "vfat" "ntfs" ];
+    plymouth.enable = true;
     kernel.sysctl = {
       "net.ipv4.ip_forward" = 1;
       "net.ipv6.conf.all.forwarding" = 1;
@@ -27,10 +28,6 @@
         default = "saved";
         theme = "${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze";
       };
-    };
-    plymouth = {
-      enable = true;
-      theme = "bgrt";
     };
     kernelParams = [
       #"quiet"
