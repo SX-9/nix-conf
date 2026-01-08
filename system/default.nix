@@ -1,4 +1,4 @@
-{ pkgs, swapfile, locale, legacy-boot, wol, enable-dm, zerotier, ... }: {
+{ pkgs, config, swapfile, locale, legacy-boot, wol, enable-dm, zerotier, ... }: {
   imports = [
     ../hardware/scan.nix
     ../rice/system.nix
@@ -8,6 +8,7 @@
   boot = {
     kernelModules = [ "rndis_host" "cdc_ether" ];
     supportedFilesystems = [ "ext4" "btrfs" "vfat" "ntfs" ];
+    extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
     plymouth.enable = true;
     kernel.sysctl = {
       "net.ipv4.ip_forward" = 1;
