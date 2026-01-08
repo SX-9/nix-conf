@@ -16,6 +16,7 @@
     dconf2nix
     pciutils
     gparted
+    exfatprogs
     pavucontrol
     jq
     powertop

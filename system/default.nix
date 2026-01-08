@@ -7,8 +7,7 @@
 
   boot = {
     kernelModules = [ "rndis_host" "cdc_ether" ];
-    supportedFilesystems = [ "ext4" "btrfs" "vfat" "ntfs" ];
-    extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
+    supportedFilesystems = [ "ext4" "btrfs" "vfat" "ntfs" "exfat" ];
     plymouth.enable = true;
     kernel.sysctl = {
       "net.ipv4.ip_forward" = 1;
