@@ -14,6 +14,7 @@
           "custom/start"
           "hyprland/workspaces"
           "hyprland/window"
+          "mpris"
         ];
         modules-center = if rice.bar.minimal then [] else [
           "custom/dunst"
@@ -109,9 +110,18 @@
           on-scroll-down = "dunstctl close";
           interval = 1;
         };
+        "mpris" = {
+          intelval = 1;
+          format = " {title} - {artist}";
+          max-length = 25;
+          format-paused = " {title} - {artist}";
+          on-click-middle = "playerctl play-pause";
+          on-click-right = "playerctl next";
+          on-click = "playerctl previous";
+        };
         "hyprland/window" = {
           icon = true;
-          max-length = 55;
+          max-length = 35;
           separate-outputs = false;
           rewrite = {
             "" = "${username}@${hostname}";
@@ -219,7 +229,7 @@
       }
 
       #window, #submap { padding: 0px 5px; }
-      #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start, #custom-dunst { padding: 0px 5px; margin: 0px 5px; }
+      #submap, #workspaces, #cpu, #memory, #disk, #clock, #window, #tray, #pulseaudio, #battery, #network, #temperature, #power-profiles-daemon, #custom-exit, #custom-start, #custom-dunst, #mpris { padding: 0px 5px; margin: 0px 5px; }
 
       #workspaces button {
         border-radius: 0px;
@@ -228,7 +238,7 @@
         border: none;
       }
 
-      #workspaces button:hover, #custom-start:hover, #window:hover {
+      #workspaces button:hover, #custom-start:hover, #window:hover, #mpris:hover {
         border: none;
         outline: none;
         background: none;
@@ -249,7 +259,7 @@
       }
 
       .critical, .muted, .performance { color: @red; }
-      .warning, .urgent, .disabled, .disconnected { color: @yellow; }
+      .warning, .urgent, .disabled, .disconnected, .paused { color: @yellow; }
       .charging, .plugged, .power-saver { color: @green; }
     '';
   };
