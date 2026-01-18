@@ -136,6 +136,13 @@
       vimAlias = true;
       extraLuaConfig = ''
         vim.opt.clipboard = "unnamedplus"
+        vim.opt.termguicolors = true
+        require("nvim-tree").setup()
+        vim.api.nvim_create_autocmd("VimEnter", {
+          callback = function()
+            vim.cmd("NvimTreeOpen")
+          end,
+        })
       '';
       plugins = with pkgs.vimPlugins; [
         bufferline-nvim
@@ -147,6 +154,7 @@
         nvim-cmp
         barbar-nvim
         indent-blankline-nvim
+        markdown-preview-nvim
       ];
     };
     keepassxc = {
