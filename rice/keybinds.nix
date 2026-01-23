@@ -111,6 +111,7 @@
         "SUPER SHIFT, D, exec, uwsm app -- steam"
 
         "SUPER, Q, killactive,"
+        "SUPER SHIFT, Q, forcekillactive,"
         "SUPER, W, fullscreen, 1"
         "SUPER, S, fullscreen, 0"
         "SUPER, F, togglefloating,"
