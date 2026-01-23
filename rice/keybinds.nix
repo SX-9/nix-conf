@@ -106,6 +106,7 @@
         "SUPER, T, exec, uwsm app -- kitty"
         "SUPER, E, exec, uwsm app -- pcmanfm-qt ~" # kitty ranger ~"
         "SUPER, C, exec, [float; size 75%] uwsm app -- kitty btop"
+        "SUPER SHIFT, C, exec, [float; size 75%] uwsm app -- kitty zsh -c 'fastfetch; exec zsh -i'"
         "SUPER, Y, exec, uwsm app -- brave --restore-last-session"
         "SUPER, D, exec, uwsm app -- steam steam://open/bigpicture"
         "SUPER SHIFT, D, exec, uwsm app -- steam"
