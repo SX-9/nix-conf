@@ -134,13 +134,13 @@
       enable = true;
       defaultEditor = true;
       vimAlias = true;
-      extraLuaConfig = ''
+      initLua = ''
         vim.opt.clipboard = "unnamedplus"
         vim.opt.termguicolors = true
         require("nvim-tree").setup()
         vim.api.nvim_create_autocmd("VimEnter", {
           callback = function()
-            vim.cmd("NvimTreeOpen")
+            -- vim.cmd("NvimTreeOpen")
             vim.cmd.wincmd 'p'
           end,
         })

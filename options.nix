@@ -1,7 +1,7 @@
 {
   flake-path = "~/Projects/nix-conf"; # set this to the cloned repo path
 
-  hostname = "nixos";
+  hostname = "thinkpad";
   username = "satr14";
 
   timezone = "Asia/Jakarta";
@@ -25,7 +25,7 @@
 
   # WARNING: the GNOME configuration is COMPLETELY REMOVED from the codebase
   rice = {
-    enable = true; # WARNING: the GNOME configuration is no longer maintained and is used as a backup
+    enable = true;
     font = "monospace"; # global font for rice GUIs, leave empty to use monospace
     bar = {
       top = true; # false will put the bar at the bottom
@@ -54,7 +54,7 @@
     version = "fabric:1.21.7:0.16.14"; # set the Minecraft version and modloader version
   };
   git = { # setup your git author
-    user = "satr14";
-    email = "90962949+SX-9@users.noreply.github.com";
+    user = "Satria";
+    email = "admin@satr14.my.id";
   };
 }
