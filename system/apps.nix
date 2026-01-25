@@ -33,9 +33,6 @@
     shared-mime-info
     usbutils
 
-    wineWowPackages.waylandFull
-    wineWowPackages.stable
-    winetricks
     android-tools
     scrcpy
     distrobox
