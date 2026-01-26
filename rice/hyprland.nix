@@ -121,7 +121,7 @@
         focus_on_activate = true;
         middle_click_paste = false;
         exit_window_retains_fullscreen = true;
-        new_window_takes_over_fullscreen = 1;
+        on_focus_under_fullscreen = 1;
         background_color = "$base";
         vfr = true;
       };
@@ -138,31 +138,25 @@
       };
 
       layerrule = [
-        "noanim, selection" # hyprshot overlay
-        "animation fade, swww-daemon"
-        "animation fade, logout_dialog"
-        "abovelock false, waybar"
-        "abovelock true, notifications"
-        "abovelock true, selection"
-        "abovelock true, logout_dialog"
+        "no_anim on, match:namespace selection" # hyprshot overlay
+        "animation fade, match:namespace swww-daemon"
+        "animation fade, match:namespace logout_dialog"
+        "above_lock false, match:namespace waybar"
+        "above_lock true, match:namespace notifications"
+        "above_lock true, match:namespace selection"
+        "above_lock true, match:namespace logout_dialog"
       ];
 
-      windowrulev2 = [
-        "suppressevent maximize, class:.*"
-        "suppressevent minimize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+      windowrule = [
+        "suppress_event minimize, match:class .*"
+        "no_focus on, match:class ^$, match:title ^$, match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
 
-        "stayfocused,title:^(Hyprland Polkit Agent|Unlock Login Keyring|KeePassXC -.*)$,"
-        "suppressevent fullscreen maximize,title:^(Hyprland Polkit Agent|Unlock Login Keyring|KeePassXC -.*)$,"
-        "dimaround,title:^(Hyprland Polkit Agent|Unlock Login Keyring|KeePassXC -.*)$,"
-        "float,title:^(Hyprland Polkit Agent|Unlock Login Keyring|KeePassXC -.*)$,"
+        "stay_focused on, suppress_event fullscreen maximize, dim_around on, float on, match:title ^(Hyprland Polkit Agent|Unlock Login Keyring|KeePassXC -.*)$"
+        "keep_aspect_ratio on, pin on, match:title ^(Picture in picture)$"
 
-        "float,title:^(Open|Print|Save|Rename|Move|Copy|Confirm).*,"
-        "float,title:^(Preferences|Settings|Options|About|Passbolt).*,"
-        "float,title:^(MainPicker|Volume Control|File Operation Progress|Network Connections|Choose an Application| )$,"
-
-        "keepaspectratio on, title:^(Picture in picture)$"
-        "pin, title:^(Picture in picture)$"
+        "float on, match:title ^(Open|Print|Save|Rename|Move|Copy|Confirm).*"
+        "float on, match:title ^(Preferences|Settings|Options|About|Passbolt).*"
+        "float on, match:title ^(MainPicker|Volume Control|File Operation Progress|Network Connections|Choose an Application| )$"
       ];
     };
   };
