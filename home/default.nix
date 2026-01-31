@@ -7,7 +7,7 @@
   imports = if rice.enable then [
     ../rice/home.nix
   ] else [];
-  
+
   home = {
     stateVersion = "24.11";
     username = "${username}";
@@ -19,7 +19,7 @@
     };
     packages = with pkgs; [
       vscode # lets see how long you survive as my default code editor
-      zed-editor-fhs
+      zed-editor
 
       discord
       slack
@@ -43,7 +43,7 @@
           obs-pipewire-audio-capture
         ];
       })
-      
+
       portablemc
       ferium
       virt-manager
@@ -53,7 +53,7 @@
       kitty
       bat
       btop
-      ranger 
+      ranger
 
       gh
       go
@@ -105,7 +105,7 @@
     bat.enable = true;
     zed-editor = {
       enable = true;
-      package = pkgs.zed-editor-fhs;
+      package = pkgs.zed-editor;
     };
     kitty = {
       enable = true;
@@ -210,7 +210,7 @@
         "sys-log" = "journalctl -f -b -u";
         "user" = "systemctl --user";
         "user-log" = "journalctl -f -b --user-unit";
-        
+
         "ts" = "sudo tailscale";
         "tsip" = "tailscale ip -4";
         "rmall" = "rm -rf ./* ./.*"; # scary!
