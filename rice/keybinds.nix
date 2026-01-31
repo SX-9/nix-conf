@@ -102,7 +102,7 @@
         "SUPER, V, exec, rofi -modi clipboard:cliphist-rofi-img -show clipboard -show-icons"
         # "SUPER, B, exec, rofi -show calc -modi calc -no-show-match -no-sort"
 
-        "SUPER, A, exec, uwsm app -- code"
+        "SUPER, A, exec, uwsm app -- zeditor"
         "SUPER, T, exec, uwsm app -- kitty"
         "SUPER, E, exec, uwsm app -- pcmanfm-qt ~" # kitty ranger ~"
         "SUPER, C, exec, [float; size 75%] uwsm app -- kitty btop"

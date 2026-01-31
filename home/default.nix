@@ -18,7 +18,9 @@
       TERMINAL = "kitty";
     };
     packages = with pkgs; [
-      vscode
+      vscode # lets see how long you survive as my default code editor
+      zed-editor-fhs
+
       discord
       slack
       brave
@@ -101,6 +103,10 @@
     tmux.enable = true;
     vim.enable = true;
     bat.enable = true;
+    zed-editor = {
+      enable = true;
+      package = pkgs.zed-editor-fhs;
+    };
     kitty = {
       enable = true;
       package = pkgs.kitty;
@@ -118,7 +124,7 @@
       enable = true;
       aliases = {
         "sh" = "shell zsh";
-        "code" = "shell code .";
+        "zed" = "shell zeditor .";
         "vim" = "shell vim";
         "img" = "shell eog .";
       };
@@ -217,7 +223,7 @@
         "nix-sw" = "sudo nixos-rebuild switch --flake";
         "nix-hw-conf" = "nixos-generate-config --show-hardware-config";
         "cd-conf" = "cd ${flake-path}";
-        "code-conf" = "code ${flake-path}";
+        "code-conf" = "zeditor ${flake-path}";
 
         "mkdistro" = "distrobox create -Y -i";
         "mkdistro-arch" = "mkdistro archlinux -n arch";
@@ -235,7 +241,7 @@
         "pls" = "SUDO_PROMPT=\"What is the magic word? \" sudo";
       };
       initContent = ''
-        if [[ $TERM_PROGRAM != 'vscode' && -z "$SSH_CONNECTION" && $(tput cols) -ge 64 && $(tput lines) -ge 16 ]]; then
+        if [[ -z "$SSH_CONNECTION" && $(tput cols) -ge 64 && $(tput lines) -ge 16 ]]; then
           # ~/.fetch.sh -c 2> /dev/null
         fi
       '';

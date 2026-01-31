@@ -7,7 +7,7 @@
 
 > [!NOTE]
 > 1. This repository does not include the wallpaper used in the screenshot.
-> 2. Most GUI apps are configured via account syncing (vscode, brave, etc) and are not configured via home-manager.
+> 2. Most GUI apps are configured via account syncing and are not configured via home-manager.
 > 3. Some `options.nix` are unused. Most likely WIP.
 
 to create a swapfile:
