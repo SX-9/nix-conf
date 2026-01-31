@@ -29,7 +29,7 @@ vim options.nix # configure the system here
 
 # 1. hardware config:
 nixos-generate-config --show-hardware-config > hardware/scan.nix
-git add . -f # (-f)orce add hardware scan as its in .gitignore
+git add .
 
 # 2. apply nixos config
 sudo nixos-rebuild switch --flake .#thinkpad

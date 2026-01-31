@@ -1,4 +1,11 @@
-{ username, hostname, ctp-opt, rice, ... }: {
+{
+  username,
+  hostname,
+  ctp-opt,
+  rice,
+  ...
+}:
+{
   programs.waybar = {
     enable = true;
     settings = [
@@ -16,35 +23,43 @@
           "hyprland/window"
           "mpris"
         ];
-        modules-center = if rice.bar.minimal then [] else [
-          "custom/dunst"
-          "clock"
-          "tray"
-          "hyprland/submap"
-        ];
-        modules-right = if rice.bar.minimal then [
-          "tray"
-          "pulseaudio"
-          "network"
-          "battery"
-          "clock"
-          "custom/dunst"
-        ] else [
-          "temperature"
-          "cpu"
-          "memory"
-          "disk"
-          "pulseaudio"
-          "network"
-          "battery"
-        ];
+        modules-center =
+          if rice.bar.minimal then
+            [ ]
+          else
+            [
+              "custom/dunst"
+              "clock"
+              "tray"
+              "hyprland/submap"
+            ];
+        modules-right =
+          if rice.bar.minimal then
+            [
+              "tray"
+              "pulseaudio"
+              "network"
+              "battery"
+              "clock"
+              "custom/dunst"
+            ]
+          else
+            [
+              "temperature"
+              "cpu"
+              "memory"
+              "disk"
+              "pulseaudio"
+              "network"
+              "battery"
+            ];
         "cpu" = {
           states = {
             critical = 85;
           };
           interval = 1;
           format = " {usage:2}% {avg_frequency}GHz";
-          on-click = "hyprctl dispatch exec '[float; size 75%]' kitty btop";
+          on-click = "auto-cpufreq-gtk";
           on-click-right = "pkexec systemctl restart thermald throttled && notify-send ${hostname} 'CPU Underclocking Restarted'";
           on-click-middle = "pkexec systemctl stop thermald throttled && notify-send ${hostname} 'CPU Underclocking Stopped'";
         };
@@ -77,7 +92,7 @@
           on-click-right = "pkexec systemctl restart systemd-resolved NetworkManager tailscaled cloudflare-warp && notify-send ${hostname} 'Network Restarted'";
         };
         "temperature" = {
-          hwmon-path =  "/sys/class/hwmon/hwmon2/temp1_input";
+          hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
           critical-threshold = 80;
           format = " {temperatureC}°C";
           interval = 1;
@@ -142,7 +157,7 @@
           format = "{:%b %d, %I:%M:%S %p}";
           interval = 1;
           on-click = "pkexec systemctl restart tzupdate && notify-send ${hostname} 'Timezone Updated'";
-       };
+        };
         "tray" = {
           spacing = 12;
         };
@@ -202,18 +217,25 @@
 
       window#waybar, .modules-left, .modules-center, .modules-right { border-radius: ${builtins.toString rice.borders.rounded}px; }
       .modules-left, .modules-center, .modules-right { padding: 0 5px; }
-      window#waybar${if rice.bar.fragmented then ":not(.empty):not(.floating)" else ""}, .modules-left, ${if rice.bar.minimal then "" else ".modules-center,"} .modules-right {
+      window#waybar${if rice.bar.fragmented then ":not(.empty):not(.floating)" else ""}, .modules-left, ${
+        if rice.bar.minimal then "" else ".modules-center,"
+      } .modules-right {
         background-color: @crust;
         border: ${builtins.toString rice.borders.size}px solid @surface0;
       }
-      ${if rice.bar.fragmented then "
+      ${
+        if rice.bar.fragmented then
+          "
       window#waybar:not(.empty):not(.floating) .modules-right, window#waybar:not(.empty):not(.floating) .modules-center{
         border-left: none;
       }
       window#waybar:not(.empty):not(.floating) .modules-left, window#waybar:not(.empty):not(.floating) .modules-center {
         border-right: none;
       }
-      " else ""}
+      "
+        else
+          ""
+      }
       window#waybar${if rice.bar.fragmented then ":not(.empty):not(.floating)" else ""} .modules-center {
         border-radius: 0px;
       }

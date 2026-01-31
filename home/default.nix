@@ -106,6 +106,27 @@
     zed-editor = {
       enable = true;
       package = pkgs.zed-editor;
+      userSettings = {
+        features.edit_prediction_provider = "copilot";
+        vim_mode = true;
+        git.inline_blame.enable = true;
+        gutter.line_numbers = true;
+        relative_line_numbers = "enabled";
+        minimap.show = "never";
+        autosave.after_delay.milliseconds = 1000;
+        tab_size = 2;
+        ui_font_size = 16;
+        buffer_font_size = 15;
+        base_keymap = "VSCode";
+        file_types.tailwindcss = ["*.css"];
+        auto_install_extensions.catppuccin-icons = true;
+        icon_theme = "Catppuccin Mocha";
+        theme = {
+          mode = "dark";
+          light = "Catppuccin Mocha (sapphire)";
+          dark = "Catppuccin Mocha (sapphire)";
+        };
+      };
     };
     kitty = {
       enable = true;
