@@ -57,6 +57,7 @@
 
     nix-index
     nixd
+    nil
     git
   ];
 }
