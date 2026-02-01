@@ -1,6 +1,9 @@
 ![image](hyprland-ss.png)
 
 > [!WARNING]
+> This repository is being migrated to my forgejo instance
+
+<!--> [!WARNING]
 > 1. It's recommended to use swapfile/partition while building to avoid OOM killer.
 > 2. **This repository is ment for personal use** so expect little to no documentation.
 
@@ -8,7 +11,7 @@
 > [!NOTE]
 > 1. This repository does not include the wallpaper used in the screenshot.
 > 2. Most GUI apps are configured via account syncing and are not configured via home-manager.
-> 3. Some `options.nix` are unused. Most likely WIP.
+> 3. Some `options.nix` are unused. Most likely WIP.-->
 
 to create a swapfile:
 
