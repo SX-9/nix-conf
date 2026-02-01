@@ -108,6 +108,7 @@
       package = pkgs.zed-editor;
       extensions = [ "nix" ];
       userSettings = {
+        format_on_save = "off";
         features.edit_prediction_provider = "copilot";
         vim_mode = true;
         git.inline_blame.enabled = true;
