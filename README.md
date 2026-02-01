@@ -1,7 +1,7 @@
 ![image](hyprland-ss.png)
 
 > [!WARNING]
-> This repository is being migrated to my forgejo instance
+> This repository is being migrated to my [forgejo instance](https://git.satr14.my.id/satr14/nix-flake)
 
 <!--> [!WARNING]
 > 1. It's recommended to use swapfile/partition while building to avoid OOM killer.
